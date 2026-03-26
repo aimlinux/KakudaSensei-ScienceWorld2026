@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const thoughtText = document.getElementById('thought-text');
     const blockDropArea = document.getElementById('block-drop-area');
     const runBtn = document.getElementById('run-btn');
+    const clearBtn = document.getElementById('clear-btn');
     
     const player = document.getElementById('player');
     const gameStatus = document.getElementById('game-status');
@@ -25,6 +26,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     runBtn.addEventListener('click', executeCode);
+
+    clearBtn.addEventListener('click', () => {
+        if (currentState === 'running') return;
+        blockDropArea.innerHTML = '';
+        player.style.left = '20px';
+        player.style.bottom = '40%';
+        player.style.transform = 'none';
+        gameStatus.innerHTML = 'ブロックをリセットしたよ！もう一度AIにお願いしよう。';
+        gameStatus.style.borderColor = '#4ECDC4';
+    });
 
     function addChatMessage(msg, sender) {
         const div = document.createElement('div');
@@ -53,8 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
         promptInput.disabled = true;
         sendBtn.disabled = true;
 
-        blockDropArea.innerHTML = ''; // Clear previous code
-
         // Simulate AI Thinking based on user input
         showThought('んーと...<br>「' + text + '」って言われたぞ。');
         await sleep(1500);
@@ -66,52 +75,63 @@ document.addEventListener('DOMContentLoaded', () => {
             return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
         });
 
-        // テキスト内から数字を抽出
-        const numMatch = normalizedText.match(/-?\d+/);
-        const hasNumber = !!numMatch;
-        let extractedVal = hasNumber ? parseInt(numMatch[0], 10) : 50; // デフォルトは50
+        const regex = /(?:(-?\d+)[^\d]*?)?(ジャンプ|とぶ|飛|よけ|上|戻|バック|歩|進|走|右|左|ダッシュ)/g;
+        let match;
+        
+        while ((match = regex.exec(normalizedText)) !== null) {
+            const hasNumber = match[1] !== undefined;
+            let extractedVal = hasNumber ? parseInt(match[1], 10) : 50; // デフォルトは50
+            const keyword = match[2];
 
-        let actionType = 'move';
-        let actionLabel = '前に進む';
-        let actionColor = 'green';
+            let actionType = 'move';
+            let actionLabel = '前に進む';
+            let actionColor = 'green';
+
+            if (keyword.match(/ジャンプ|とぶ|飛|よけ|上/)) {
+                actionType = 'jump';
+                actionLabel = 'ジャンプする';
+                actionColor = 'blue';
+            } else if (keyword.match(/戻|左|バック/)) {
+                actionType = 'move';
+                actionLabel = '後ろに戻る';
+                actionColor = 'green';
+                extractedVal = -Math.abs(extractedVal); // マイナスにする
+            } else if (keyword.match(/歩|進|走|右|ダッシュ/)) {
+                actionType = 'move';
+                actionLabel = '前に進む';
+                actionColor = 'green';
+            }
+
+            blocksToGenerate.push({
+                type: actionType,
+                val: extractedVal,
+                label: actionLabel,
+                color: actionColor,
+                hasNumber: hasNumber
+            });
+        }
+
         let thoughtMessage = '';
 
-        if (normalizedText.match(/ジャンプ|とぶ|飛ぶ|飛んで|よけ|上/)) {
-            actionType = 'jump';
-            actionLabel = 'ジャンプする';
-            actionColor = 'blue';
-            thoughtMessage = `「${text}」だね！ジャンプが必要みたい。`;
-        } else if (normalizedText.match(/戻|左|バック/)) {
-            actionType = 'move';
-            actionLabel = '後ろに戻る';
-            actionColor = 'green';
-            extractedVal = -Math.abs(extractedVal); // マイナスにする
-            thoughtMessage = `「${text}」だから、後ろに戻るんだね。`;
-        } else if (normalizedText.match(/歩|進|走|右|ダッシュ/)) {
-            actionType = 'move';
-            actionLabel = '前に進む';
-            actionColor = 'green';
-            thoughtMessage = `「${text}」だね！前に移動させよう。`;
-        } else {
+        if (blocksToGenerate.length === 0) {
             // 知らない言葉の場合
-            actionType = 'move';
-            actionLabel = 'なぞのうごき';
-            actionColor = 'green';
+            blocksToGenerate.push({
+                type: 'move',
+                val: 50,
+                label: 'なぞのうごき',
+                color: 'green'
+            });
             thoughtMessage = `「${text}」の意味がちょっと難しいな...💦<br>AIなりに解釈してとりあえず動かしてみるね！`;
+        } else if (blocksToGenerate.length === 1) {
+            thoughtMessage = `「${text}」だね！指示は1つみたいだ。`;
+            if (blocksToGenerate[0].hasNumber) {
+                thoughtMessage += `<br>数字も指定されているから、パラメータも設定したよ！`;
+            } else {
+                thoughtMessage += `<br>具体的な数字がないから、とりあえず「50」にしておくね。`;
+            }
+        } else {
+            thoughtMessage = `「${text}」って言われたぞ！<br>複数の指示を見つけたから、連続で**${blocksToGenerate.length}個**のブロックを作るね！`;
         }
-
-        if (hasNumber && !thoughtMessage.includes('難しい')) {
-            thoughtMessage += `<br>数字の「${Math.abs(extractedVal)}」が指定されているから、その通りにパラメータを設定するよ！`;
-        } else if (!hasNumber && !thoughtMessage.includes('難しい')) {
-            thoughtMessage += `<br>具体的な数字がないから、とりあえず「50」にしておくね。`;
-        }
-
-        blocksToGenerate.push({
-            type: actionType,
-            val: extractedVal,
-            label: actionLabel,
-            color: actionColor
-        });
 
         showThought(thoughtMessage);
 

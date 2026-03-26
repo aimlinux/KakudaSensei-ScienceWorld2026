@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>バイブコーディングを体験しよう！</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>🤖 AIと遊ぼう！バイブコーディング体験 🎮</h1>
+        <p>AIにお願いしてプログラムを作ってもらおう！でも、AIはたまにドジだから、君が助けてあげてね。</p>
+    </header>
+
+    <main>
+        <div id="game-container">
+            <h2>ステージ</h2>
+            <div id="game-screen">
+                <div id="player" class="sprite">🐱</div>
+                <div id="stone" class="sprite">🪨</div>
+                <div id="goal" class="sprite">🚩</div>
+            </div>
+            <div id="game-status">ゲームスタート！石(🪨)を飛び越えて、旗(🚩)まで行こう！</div>
+            <div class="action-buttons">
+                <button id="run-btn" class="primary-btn">▶️ 実行する！</button>
+                <button id="clear-btn" class="secondary-btn">🗑️ 消す</button>
+            </div>
+        </div>
+
+        <div id="code-container">
+            <div id="ai-section">
+                <div id="ai-avatar">🤖</div>
+                <div id="ai-thought-bubble" class="hidden">
+                    <p id="thought-text"></p>
+                </div>
+            </div>
+            <div id="hand-pointer" class="hidden">👆</div>
+            <div id="chat-box">
+                <div id="chat-history"></div>
+                <div class="input-area">
+                    <input type="text" id="prompt-input" placeholder="AIにお願いしてみよう！（例：ジャンプして石をよけて）">
+                    <button id="send-btn">お願いする</button>
+                </div>
+            </div>
+            <div id="block-editor">
+                <h3>できたプログラム</h3>
+                <div id="block-drop-area">
+                    <p class="placeholder-text">ここにAIがブロックを置くよ</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script/main.js"></script>
+</body>
+</html>
