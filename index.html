@@ -33,8 +33,30 @@
         </div>
 
         <div id="right-panel">
-            <!-- AIとの対話エリア -->
-
+            <!-- キャラクターごとの入力エリア -->
+            <div class="chara-container">
+                <!-- SVG画像を背景として配置 -->
+                <img src="assets/chara.svg" alt="character" class="chara-bg">
+                <!-- その上に重なるように入力欄を配置 -->
+                <div class="chara-content">
+                    <textarea class="prompt-input" id="prompt-input-1" placeholder="司令を書いてね（例：100歩いて）"></textarea>
+                    <button class="send-btn" id="send-btn-1">お願いする</button>
+                </div>
+            </div>
+            <div class="chara-container">
+                <img src="assets/chara.svg" alt="character" class="chara-bg">
+                <div class="chara-content">
+                    <textarea class="prompt-input" id="prompt-input-2" placeholder="次の指示..."></textarea>
+                    <button class="send-btn" id="send-btn-2">お願いする</button>
+                </div>
+            </div>
+            <div class="chara-container">
+                <img src="assets/chara.svg" alt="character" class="chara-bg">
+                <div class="chara-content">
+                    <textarea class="prompt-input" id="prompt-input-3" placeholder="さらに次の指示..."></textarea>
+                    <button class="send-btn" id="send-btn-3">お願いする</button>
+                </div>
+            </div>
         </div>
 
     </main>
