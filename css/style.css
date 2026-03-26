@@ -1,0 +1,330 @@
+:root {
+    --primary: #FF6B6B;
+    --secondary: #4ECDC4;
+    --accent: #FFE66D;
+    --dark: #2C3E50;
+    --light: #F7F9F9;
+    --white: #FFFFFF;
+}
+
+body {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    color: var(--dark);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+header h1 {
+    margin: 0 0 10px 0;
+    color: var(--primary);
+    font-size: 2.2rem;
+}
+
+main {
+    display: flex;
+    flex: 1;
+    padding: 20px;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Game Area */
+#game-container {
+    flex: 1;
+    background: var(--white);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+#game-screen {
+    position: relative;
+    height: 300px;
+    background: linear-gradient(to bottom, #87CEEB 60%, #8bc34a 60%);
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 4px solid var(--dark);
+}
+
+.sprite {
+    position: absolute;
+    font-size: 3rem;
+    bottom: 40%;
+    transition: all 0.5s ease-in-out;
+}
+
+#player {
+    left: 20px;
+    z-index: 10;
+}
+
+#stone {
+    left: 150px;
+}
+
+#goal {
+    left: calc(100% - 60px);
+}
+
+#game-status {
+    padding: 15px;
+    background: var(--light);
+    border-radius: 10px;
+    font-weight: bold;
+    text-align: center;
+    color: var(--dark);
+    margin-bottom: 15px;
+    border-left: 5px solid var(--secondary);
+}
+
+.primary-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s, box-shadow 0.2s;
+    outline: none;
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+/* Code Area */
+#code-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+}
+
+#ai-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    height: 120px;
+}
+
+#ai-avatar {
+    font-size: 4rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+#ai-thought-bubble {
+    background: white;
+    padding: 15px;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    font-size: 0.95rem;
+    border: 2px solid var(--accent);
+}
+
+#ai-thought-bubble::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 20px;
+    border-width: 10px 10px 10px 0;
+    border-style: solid;
+    border-color: transparent white transparent transparent;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+#chat-box {
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#chat-history {
+    max-height: 150px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.chat-msg {
+    padding: 10px 15px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    max-width: 80%;
+}
+
+.msg-user {
+    align-self: flex-end;
+    background: var(--light);
+    border-bottom-right-radius: 0;
+}
+
+.msg-ai {
+    align-self: flex-start;
+    background: var(--secondary);
+    color: white;
+    border-bottom-left-radius: 0;
+}
+
+.input-area {
+    display: flex;
+    gap: 10px;
+}
+
+#prompt-input {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+}
+
+#prompt-input:focus {
+    border-color: var(--secondary);
+}
+
+#send-btn {
+    background: var(--secondary);
+    color: white;
+    border: none;
+    padding: 0 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: inherit;
+}
+
+/* Block Editor */
+#block-editor {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    flex: 1;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 2px dashed #bdc3c7;
+}
+
+#block-drop-area {
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+}
+
+.placeholder-text {
+    text-align: center;
+    color: #95a5a6;
+    margin-top: 50px;
+}
+
+/* Programmable Scratch-like blocks */
+.scratch-block {
+    background: #FF9F43;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    box-shadow: inset -2px -2px 0px rgba(0,0,0,0.2), 0 4px 6px rgba(0,0,0,0.1);
+    position: relative;
+    width: max-content;
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.scratch-block::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 15px;
+    width: 20px;
+    height: 8px;
+    background: #FF9F43;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+.scratch-block.blue {
+    background: #54A0FF;
+}
+.scratch-block.blue::after {
+    background: #54A0FF;
+}
+.scratch-block.green {
+    background: #10ACB5;
+}
+.scratch-block.green::after {
+    background: #10ACB5;
+}
+
+.scratch-block input {
+    width: 50px;
+    border: none;
+    border-radius: 15px;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+    color: var(--dark);
+    outline: none;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+}
+
+/* Hand animation */
+#hand-pointer {
+    position: fixed;
+    font-size: 3rem;
+    z-index: 1000;
+    transition: all 1s ease-in-out;
+}
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+}
