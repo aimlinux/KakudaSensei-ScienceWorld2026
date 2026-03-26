@@ -120,35 +120,35 @@ main {
 
 /* 画像の上に重なる入力エリア */
 .chara-content {
-    position: relative;
+    position: absolute;
+    top: 25%; /* 白い顔部分（目の下あたり）から下に配置 */
+    left: 10%; /* 左側から少しオフセット */
     z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 75%;
-    height: 65%;
-    /* 顔の下（お腹あたり）に来るように調整する場合は margin-top 等で微調整してください */
-    margin-top: 10%; 
+    justify-content: flex-start;
+    width: 60%;  /* 右側の尻尾などを避けるため幅を制限 */
+    height: 65%; /* 下に向かって広げる */
 }
 
 /* 命令文の入力エリア */
 .prompt-input {
     width: 100%;
-    height: 70%;
-    border: 2px solid var(--secondary);
-    border-radius: 10px;
+    flex: 1; /* 残りのスペースをすべて入力欄に */
+    border: none; /* 枠線を消して、画像の白い体に直接書いているように見せる */
     padding: 10px;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-family: inherit;
     resize: none; /* サイズ変更を禁止 */
     box-sizing: border-box;
-    background: rgba(255, 255, 255, 0.85); /* 後ろの絵が透けすぎないように少し白くする */
+    background: transparent; /* 背景を透明にして下の画像をそのまま活かす */
     outline: none;
 }
 
 .prompt-input:focus {
-    border-color: var(--primary);
+    /* 入力中はうっすらと下線だけ出すなど工夫（お好みで） */
+    border-bottom: 2px solid var(--secondary);
 }
 
 /* お願いするボタン */
