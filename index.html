@@ -6,137 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
-    <!-- Google Blockly Library -->
-    <script src="https://unpkg.com/blockly@10.4.3/blockly_compressed.js"></script>
-    <script src="https://unpkg.com/blockly@10.4.3/blocks_compressed.js"></script>
-    <script src="https://unpkg.com/blockly@10.4.3/javascript_compressed.js"></script>
-    <script src="https://unpkg.com/blockly@10.4.3/msg/ja.js"></script>
 </head>
 
 <body>
     <header>
-        <h1>🎮 AIと遊ぼう！バイブコーディング体験 🎮</h1>
+        <h1>AIと遊ぼう！バイブコーディング体験 🎮</h1>
+        <p>AIにお願いしてプログラムを作ってもらおう！</p>
     </header>
 
     <main>
-
-        <div id="left-panel">
-            <!-- ブロック待機エリア -->
-        </div>
-
-        <div id="game-screen">
-            <!-- ゲーム画面 -->
-        </div>
-
-        <div id="scratch-area">
-            <!-- ブロック配置エリア -->
-        </div>
-
-        <div id="right-panel">
-            <!-- キャラクターごとの入力エリア -->
-            <div class="chara-container">
-                <!-- SVG画像を背景として配置 -->
-                <img src="assets/chara.svg" alt="character" class="chara-bg">
-                <!-- その上に重なるように入力欄を配置 -->
-                <div class="chara-content">
-                    <textarea class="prompt-input" id="prompt-input-1" placeholder="司令を書いてね（例：100歩いて）"></textarea>
-                    <button class="send-btn" id="send-btn-1">お願いする</button>
-                </div>
-            </div>
-            <div class="chara-container">
-                <img src="assets/chara.svg" alt="character" class="chara-bg">
-                <div class="chara-content">
-                    <textarea class="prompt-input" id="prompt-input-2" placeholder="次の指示..."></textarea>
-                    <button class="send-btn" id="send-btn-2">お願いする</button>
-                </div>
-            </div>
-            <div class="chara-container">
-                <img src="assets/chara.svg" alt="character" class="chara-bg">
-                <div class="chara-content">
-                    <textarea class="prompt-input" id="prompt-input-3" placeholder="さらに次の指示..."></textarea>
-                    <button class="send-btn" id="send-btn-3">お願いする</button>
-                </div>
-            </div>
-        </div>
+        
 
     </main>
-
-    <!-- Blockly Toolbox XML -->
-    <xml id="toolbox" style="display: none">
-        <category name="論理" colour="%{BKY_LOGIC_HUE}">
-            <block type="controls_if"></block>
-            <block type="logic_compare"></block>
-            <block type="logic_operation"></block>
-            <block type="logic_negate"></block>
-            <block type="logic_boolean"></block>
-        </category>
-        <category name="ループ" colour="%{BKY_LOOPS_HUE}">
-            <block type="controls_repeat_ext">
-                <value name="TIMES">
-                    <shadow type="math_number">
-                        <field name="NUM">10</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="controls_whileUntil"></block>
-        </category>
-        <category name="数学" colour="%{BKY_MATH_HUE}">
-            <block type="math_number">
-                <field name="NUM">123</field>
-            </block>
-            <block type="math_arithmetic"></block>
-            <block type="math_single"></block>
-        </category>
-        <category name="テキスト" colour="%{BKY_TEXTS_HUE}">
-            <block type="text"></block>
-            <block type="text_print"></block>
-        </category>
-        <!-- 変数カテゴリ（変数の作成や設定を自動生成） -->
-        <category name="変数" colour="%{BKY_VARIABLES_HUE}" custom="VARIABLE"></category>
-
-        <!-- 関数カテゴリ（関数の定義や呼び出しを自動生成） -->
-        <category name="関数" colour="%{BKY_PROCEDURES_HUE}" custom="PROCEDURE"></category>
-
-        <!-- リスト（配列）カテゴリ -->
-        <category name="リスト" colour="%{BKY_LISTS_HUE}">
-            <block type="lists_create_empty"></block>
-            <block type="lists_create_with"></block>
-            <block type="lists_repeat">
-                <value name="NUM">
-                    <shadow type="math_number">
-                        <field name="NUM">5</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="lists_length"></block>
-            <block type="lists_isEmpty"></block>
-        </category>
-
-        <!-- 色カテゴリ（UIやゲームの表現に便利） -->
-        <category name="色" colour="%{BKY_COLOUR_HUE}">
-            <block type="colour_picker"></block>
-            <block type="colour_random"></block>
-            <block type="colour_rgb">
-                <value name="RED">
-                    <shadow type="math_number">
-                        <field name="NUM">100</field>
-                    </shadow>
-                </value>
-                <value name="GREEN">
-                    <shadow type="math_number">
-                        <field name="NUM">50</field>
-                    </shadow>
-                </value>
-                <value name="BLUE">
-                    <shadow type="math_number">
-                        <field name="NUM">0</field>
-                    </shadow>
-                </value>
-            </block>
-        </category>
-    </xml>
-
-    <script src="script/main.js"></script>
 </body>
 
 </html>
