@@ -12,14 +12,52 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameStatus = document.getElementById('game-status');
     const handPointer = document.getElementById('hand-pointer');
     const aiAvatar = document.getElementById('ai-avatar');
+    const obstaclesContainer = document.getElementById('obstacles-container');
+    const stageBtns = document.querySelectorAll('.stage-btn');
 
-    const STONE_X = 150; // px
-    const STONE_WIDTH = 50; 
+    // Stage settings
+    const STAGES = {
+        1: {
+            message: 'ゲームスタート！石(🪨)を飛び越えて、旗(🚩)まで行こう！',
+            obstacles: [
+                { type: 'stone', x: 200, width: 40, emoji: '🪨' }
+            ]
+        },
+        2: {
+            message: 'ステージ2！石が2つあるよ。うまく連続で飛び越えよう！',
+            obstacles: [
+                { type: 'stone', x: 150, width: 40, emoji: '🪨' },
+                { type: 'stone', x: 350, width: 40, emoji: '🪨' }
+            ]
+        },
+        3: {
+            message: 'ステージ3！大きな谷があるぞ！ジャンプの数値を手動で「150」などに大きく書き換えて跳ぼう！',
+            obstacles: [
+                { type: 'hole', x: 200, width: 120, emoji: '' }
+            ]
+        }
+    };
 
-    // Level settings
+    let currentStage = 1;
     let currentState = 'idle';
 
+    // Load Initial Stage
+    loadStage(currentStage);
+
     // Event listeners
+    stageBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            if (currentState === 'running') return;
+            const level = parseInt(e.target.getAttribute('data-stage'));
+            currentStage = level;
+            stageBtns.forEach(b => b.classList.remove('active'));
+            e.target.classList.add('active');
+            
+            blockDropArea.innerHTML = '';
+            loadStage(level);
+        });
+    });
+
     sendBtn.addEventListener('click', handlePrompt);
     promptInput.addEventListener('keypress', (e) => {
         if(e.key === 'Enter') handlePrompt();
@@ -30,12 +68,38 @@ document.addEventListener('DOMContentLoaded', () => {
     clearBtn.addEventListener('click', () => {
         if (currentState === 'running') return;
         blockDropArea.innerHTML = '';
-        player.style.left = '20px';
-        player.style.bottom = '40%';
-        player.style.transform = 'none';
+        resetPlayer();
         gameStatus.innerHTML = 'ブロックをリセットしたよ！もう一度AIにお願いしよう。';
         gameStatus.style.borderColor = '#4ECDC4';
     });
+
+    function resetPlayer() {
+        player.style.left = '20px';
+        player.style.bottom = '40%';
+        player.style.transform = 'none';
+        player.innerHTML = '🐱';
+    }
+
+    function loadStage(level) {
+        resetPlayer();
+        obstaclesContainer.innerHTML = '';
+        const stageData = STAGES[level];
+        gameStatus.innerHTML = stageData.message;
+        gameStatus.style.borderColor = '#4ECDC4';
+
+        stageData.obstacles.forEach(obs => {
+            const div = document.createElement('div');
+            if (obs.type === 'stone') {
+                div.className = 'sprite obstacle stone';
+                div.innerHTML = obs.emoji;
+            } else if (obs.type === 'hole') {
+                div.className = 'hole';
+            }
+            div.style.left = `${obs.x}px`;
+            div.style.width = `${obs.width}px`;
+            obstaclesContainer.appendChild(div);
+        });
+    }
 
     function addChatMessage(msg, sender) {
         const div = document.createElement('div');
@@ -216,12 +280,11 @@ document.addEventListener('DOMContentLoaded', () => {
         gameStatus.style.borderColor = '#4ECDC4';
 
         // Reset player position before run
-        player.style.left = '20px';
-        player.style.bottom = '40%';
-        player.style.transform = 'none';
+        resetPlayer();
         
         await sleep(500);
         let playerX = 20;
+        let isFailed = false;
 
         for (const block of blocks) {
             const type = block.getAttribute('data-type');
@@ -242,35 +305,75 @@ document.addEventListener('DOMContentLoaded', () => {
                 player.style.left = `${playerX}px`;
                 await sleep(500);
             }
+
+            // Check Collision after each action
+            const failReason = checkCollision(playerX);
+            if (failReason) {
+                isFailed = true;
+                handleFail(failReason);
+                break;
+            }
         }
 
-        // Check Collision with stone
-        const playerRightEdge = playerX + 40; // Approx player width
-        
-        if (playerX >= STONE_X - 10 && playerX <= STONE_X + STONE_WIDTH + 10) { // Roughly crashed into stone
-             gameStatus.innerHTML = '💥 <b>失敗！</b> 石にぶつかってしまった！<br>AIに「120ジャンプして」と具体的に頼むか、ブロックの数字を直接「120」に書き換えてみよう！(バイブコーディングの極意だよ！)';
-             gameStatus.style.borderColor = '#FF6B6B';
-             player.innerHTML = '🙀';
-        } else if (playerX > STONE_X + STONE_WIDTH) {
-             gameStatus.innerHTML = '🎉 <b>大成功！</b> 石を飛び越えたね！AIの作ったコードをうまく調整できたね！';
-             gameStatus.style.borderColor = '#FFD700';
-             // Move to goal
-             player.style.left = `calc(100% - 60px)`;
-             player.innerHTML = '😸';
-             await sleep(500);
-        } else {
-             gameStatus.innerHTML = '💦 <b>失敗！</b> ジャンプ距離が足りないみたい... 石の手前で着地しちゃった。<br>ブロックの数字を大きく（120など）して再チャレンジだ！';
-             gameStatus.style.borderColor = '#FF6B6B';
-             player.innerHTML = '😿';
+        if (!isFailed) {
+            const stageData = STAGES[currentStage];
+            const lastObstacle = stageData.obstacles[stageData.obstacles.length - 1];
+            // Check if passed the last obstacle sufficiently
+            if (!lastObstacle || playerX > lastObstacle.x + lastObstacle.width) {
+                 gameStatus.innerHTML = '🎉 <b>大成功！</b> ステージクリア！';
+                 gameStatus.style.borderColor = '#FFD700';
+                 // Move to goal
+                 player.style.left = `calc(100% - 60px)`;
+                 player.innerHTML = '😸';
+                 await sleep(500);
+            } else {
+                 handleFail('short');
+            }
         }
 
         // Reset player face after 3s
         setTimeout(() => {
-            player.innerHTML = '🐱';
+            if (player.innerHTML !== '🙀') {
+                player.innerHTML = '🐱';
+            }
         }, 3000);
 
         currentState = 'idle';
         runBtn.disabled = false;
+    }
+
+    function checkCollision(px) {
+        const stageData = STAGES[currentStage];
+        const playerWidth = 40;
+        const playerCenter = px + (playerWidth / 2);
+
+        for (const obs of stageData.obstacles) {
+            if (obs.type === 'stone') {
+                // Approximate collision area for stone
+                if (px + playerWidth >= obs.x && px <= obs.x + obs.width) {
+                    return 'stone';
+                }
+            } else if (obs.type === 'hole') {
+                // Fall in hole if center of player is within the hole
+                if (playerCenter >= obs.x && playerCenter <= obs.x + obs.width) {
+                    return 'hole';
+                }
+            }
+        }
+        return null;
+    }
+
+    function handleFail(reason) {
+         if (reason === 'stone') {
+              gameStatus.innerHTML = '💥 <b>失敗！</b> 石にぶつかってしまった！<br>AIにもっとジャンプさせるか、ブロックの数字を大きくしてみよう！';
+         } else if (reason === 'hole') {
+              gameStatus.innerHTML = '💦 <b>失敗！</b> 谷に落ちてしまった！<br>ブロックの数字を大きく（150など）して大ジャンプで飛び越えよう！';
+              player.style.bottom = '10%'; // Fall visual
+         } else if (reason === 'short') {
+              gameStatus.innerHTML = '💦 <b>失敗！</b> ゴールまでたどり着けないみたい...<br>もう一歩進むブロックを追加してみて！';
+         }
+         gameStatus.style.borderColor = '#FF6B6B';
+         player.innerHTML = '🙀';
     }
 
     function sleep(ms) {

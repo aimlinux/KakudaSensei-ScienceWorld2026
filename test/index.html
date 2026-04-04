@@ -15,10 +15,17 @@
 
     <main>
         <div id="game-container">
-            <h2>ステージ</h2>
+            <div class="stage-header">
+                <h2>ステージ</h2>
+                <div id="stage-selector">
+                    <button class="stage-btn active" data-stage="1">1</button>
+                    <button class="stage-btn" data-stage="2">2</button>
+                    <button class="stage-btn" data-stage="3">3</button>
+                </div>
+            </div>
             <div id="game-screen">
                 <div id="player" class="sprite">🐱</div>
-                <div id="stone" class="sprite">🪨</div>
+                <div id="obstacles-container"></div>
                 <div id="goal" class="sprite">🚩</div>
             </div>
             <div id="game-status">ゲームスタート！石(🪨)を飛び越えて、旗(🚩)まで行こう！</div>
