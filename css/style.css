@@ -40,18 +40,18 @@ main {
 }
 
 #blockly-div {
-    width: 100%;
+    width: calc(100% - 640px - 340px);
     height: 100%;
     position: absolute;
     top: 0;
-    left: 0;
+    left: 640px;
 }
 
 #top-ui {
     position: absolute;
     top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 20px;
+    transform: none;
     display: flex;
     flex-direction: column;
     align-items: center;
