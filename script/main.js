@@ -292,56 +292,107 @@ document.addEventListener('DOMContentLoaded', () => {
 
             workspace.clear(); 
             
-            // 数値を抽出
-            const match = input.match(/\d+/);
-            const userHeight = match ? parseInt(match[0]) : null;
-
             let blocksToAdd = [];
-            const isGoodPrompt = userHeight !== null || input.includes('飛') || input.includes('ジャンプ');
+            let isCustomCommand = false;
             
-            if (game.currentStage === 1) {
-                if (isGoodPrompt) {
-                    blocksToAdd = [
-                        { type: 'move_forward', value: 250 },
-                        { type: 'jump', value: userHeight || 80 },
-                        { type: 'move_forward', value: 150 }
-                    ];
-                    game.log(`AI: いわを とびこえるように ならべてみるね！`);
-                } else {
-                    blocksToAdd = [
-                        { type: 'move_forward', value: 100 }, { type: 'jump', value: 30 }, { type: 'move_forward', value: 50 }
-                    ];
-                    game.log('AI: よくわからないから、まずは ちいさく ジャンプしてみるね！');
+            const hasNumber = /\d+/.test(input);
+            const hasMove = /前|進/.test(input);
+            const hasJump = /飛|ジャンプ/.test(input);
+
+            // ユーザーが具体的な数値とアクションを指示した場合、入力通りのブロックのみを生成
+            if ((hasNumber && (hasMove || hasJump)) || input.includes('だけ') || input.includes('のみ')) {
+                const regex = /(\d+)|(前|進)|(飛|ジャンプ)/g;
+                let m;
+                let currentNumber = null;
+                let lastAction = null;
+                let commands = [];
+
+                while ((m = regex.exec(input)) !== null) {
+                    if (m[1]) {
+                        currentNumber = parseInt(m[1]);
+                        // 後置の数値（例：「前に1200」）を処理
+                        if (lastAction && commands.length > 0 && commands[commands.length - 1].value === null) {
+                            commands[commands.length - 1].value = currentNumber;
+                            currentNumber = null;
+                        }
+                    } else if (m[2]) {
+                        if (lastAction !== 'move') {
+                            commands.push({ type: 'move_forward', value: currentNumber });
+                            lastAction = 'move';
+                            currentNumber = null;
+                        }
+                    } else if (m[3]) {
+                        if (lastAction !== 'jump') {
+                            commands.push({ type: 'jump', value: currentNumber });
+                            lastAction = 'jump';
+                            currentNumber = null;
+                        }
+                    }
                 }
-            } else if (game.currentStage === 2) {
-                if (isGoodPrompt) {
-                    blocksToAdd = [
-                        { type: 'move_forward', value: 50 },
-                        { type: 'jump', value: userHeight || 80 },
-                        { type: 'move_forward', value: 50 },
-                        { type: 'jump', value: userHeight || 80 },
-                        { type: 'move_forward', value: 150 }
-                    ];
-                    game.log(`AI: いわが ２つあるね！ ２かい ジャンプするように するよ！`);
-                } else {
-                    blocksToAdd = [
-                        { type: 'move_forward', value: 50 }, { type: 'jump', value: 80 }, { type: 'move_forward', value: 100 }
-                    ];
-                    game.log('AI: いわが １つだと おもって ならべちゃった💦');
+
+                blocksToAdd = commands.map(cmd => {
+                    return { 
+                        type: cmd.type, 
+                        value: cmd.value !== null ? cmd.value : (cmd.type === 'move_forward' ? 50 : 80) 
+                    };
+                });
+                
+                if (blocksToAdd.length > 0) {
+                    isCustomCommand = true;
+                    game.log(`AI: いわれたとおりに ${blocksToAdd.length}つの ブロックを ならべるよ！`);
                 }
-            } else if (game.currentStage === 3) {
-                if (isGoodPrompt) {
-                    blocksToAdd = [
-                        { type: 'move_forward', value: 200 },
-                        { type: 'jump', value: userHeight || 150 },
-                        { type: 'move_forward', value: 200 }
-                    ];
-                    game.log(`AI: たにを こえる おおジャンプを するよ！`);
-                } else {
-                    blocksToAdd = [
-                        { type: 'move_forward', value: 50 }, { type: 'jump', value: 80 }, { type: 'move_forward', value: 50 }
-                    ];
-                    game.log('AI: ジャンプの タイミングが あわないかも...？');
+            }
+
+            if (!isCustomCommand) {
+                // 既存の推測ロジック（あいまいな指示の場合）
+                const match = input.match(/\d+/);
+                const userHeight = match ? parseInt(match[0]) : null;
+                const isGoodPrompt = userHeight !== null || hasJump;
+                
+                if (game.currentStage === 1) {
+                    if (isGoodPrompt) {
+                        blocksToAdd = [
+                            { type: 'move_forward', value: 250 },
+                            { type: 'jump', value: userHeight || 80 },
+                            { type: 'move_forward', value: 150 }
+                        ];
+                        game.log(`AI: いわを とびこえるように ならべてみるね！`);
+                    } else {
+                        blocksToAdd = [
+                            { type: 'move_forward', value: 100 }, { type: 'jump', value: 30 }, { type: 'move_forward', value: 50 }
+                        ];
+                        game.log('AI: よくわからないから、まずは ちいさく ジャンプしてみるね！');
+                    }
+                } else if (game.currentStage === 2) {
+                    if (isGoodPrompt) {
+                        blocksToAdd = [
+                            { type: 'move_forward', value: 50 },
+                            { type: 'jump', value: userHeight || 80 },
+                            { type: 'move_forward', value: 50 },
+                            { type: 'jump', value: userHeight || 80 },
+                            { type: 'move_forward', value: 150 }
+                        ];
+                        game.log(`AI: いわが ２つあるね！ ２かい ジャンプするように するよ！`);
+                    } else {
+                        blocksToAdd = [
+                            { type: 'move_forward', value: 50 }, { type: 'jump', value: 80 }, { type: 'move_forward', value: 100 }
+                        ];
+                        game.log('AI: いわが １つだと おもって ならべちゃった💦');
+                    }
+                } else if (game.currentStage === 3) {
+                    if (isGoodPrompt) {
+                        blocksToAdd = [
+                            { type: 'move_forward', value: 200 },
+                            { type: 'jump', value: userHeight || 150 },
+                            { type: 'move_forward', value: 200 }
+                        ];
+                        game.log(`AI: たにを こえる おおジャンプを するよ！`);
+                    } else {
+                        blocksToAdd = [
+                            { type: 'move_forward', value: 50 }, { type: 'jump', value: 80 }, { type: 'move_forward', value: 50 }
+                        ];
+                        game.log('AI: ジャンプの タイミングが あわないかも...？');
+                    }
                 }
             }
 
