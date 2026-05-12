@@ -1,4 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // APIキーの読み込みと保存
+    const apiKeyInput = document.getElementById('api-key-input');
+    const saveApiKeyBtn = document.getElementById('save-api-key-btn');
+    let geminiApiKey = localStorage.getItem('geminiApiKey') || '';
+
+    if (geminiApiKey && apiKeyInput) {
+        apiKeyInput.value = geminiApiKey;
+    }
+
+    if (saveApiKeyBtn && apiKeyInput) {
+        saveApiKeyBtn.addEventListener('click', () => {
+            const key = apiKeyInput.value.trim();
+            if (key) {
+                localStorage.setItem('geminiApiKey', key);
+                geminiApiKey = key;
+                alert('APIキーを保存しました！');
+            } else {
+                localStorage.removeItem('geminiApiKey');
+                geminiApiKey = '';
+                alert('APIキーを削除しました。');
+            }
+        });
+    }
+
     // blockly-div 要素を取得
     const blocklyArea = document.getElementById('blockly-div');
 
@@ -284,121 +308,93 @@ document.addEventListener('DOMContentLoaded', () => {
 
         async interpretAndAct(input) {
             if (this.isOperating) return;
+
+            if (!geminiApiKey) {
+                game.log('AI: APIキーが 設定されていないよ！ 上の入力欄に入れてね。');
+                game.updateBubble('APIキーがないよ！');
+                return;
+            }
+
             this.isOperating = true;
             
             game.log(`あなた: "${input}"`);
-            game.updateBubble('なるほど、まかせて！');
-            await new Promise(r => setTimeout(r, 1000));
-
+            game.updateBubble('かんがえちゅう...');
+            
             workspace.clear(); 
             
             let blocksToAdd = [];
-            let isCustomCommand = false;
             
-            const hasNumber = /\d+/.test(input);
-            const hasMove = /前|進/.test(input);
-            const hasJump = /飛|ジャンプ/.test(input);
+            try {
+                const stageData = game.stages[game.currentStage];
+                const prompt = `
+あなたはゲームのAIアシスタントです。ユーザーの指示に従って、キャラクターを動かすためのコマンドの配列（JSON）を生成してください。
 
-            // ユーザーが具体的な数値とアクションを指示した場合、入力通りのブロックのみを生成
-            if ((hasNumber && (hasMove || hasJump)) || input.includes('だけ') || input.includes('のみ')) {
-                const regex = /(\d+)|(前|進)|(飛|ジャンプ)/g;
-                let m;
-                let currentNumber = null;
-                let lastAction = null;
-                let commands = [];
+【ゲームのルール】
+- コマンドは 'move_forward' (値: 距離) または 'jump' (値: 高さ) の2種類のみです。
+- 'move_forward' のデフォルト値は 50、'jump' のデフォルト値は 80 です。
+- 障害物を越えるには、その障害物の手前まで移動してからジャンプする必要があります。
+- キャラクターの初期位置は x=20 です。
 
-                while ((m = regex.exec(input)) !== null) {
-                    if (m[1]) {
-                        currentNumber = parseInt(m[1]);
-                        // 後置の数値（例：「前に1200」）を処理
-                        if (lastAction && commands.length > 0 && commands[commands.length - 1].value === null) {
-                            commands[commands.length - 1].value = currentNumber;
-                            currentNumber = null;
-                        }
-                    } else if (m[2]) {
-                        if (lastAction !== 'move') {
-                            commands.push({ type: 'move_forward', value: currentNumber });
-                            lastAction = 'move';
-                            currentNumber = null;
-                        }
-                    } else if (m[3]) {
-                        if (lastAction !== 'jump') {
-                            commands.push({ type: 'jump', value: currentNumber });
-                            lastAction = 'jump';
-                            currentNumber = null;
-                        }
-                    }
-                }
+【現在の状況】
+- ステージ: ${stageData.label}
+- 障害物の情報（x座標と幅）: ${JSON.stringify(stageData.obstacles)}
+- ユーザーの指示: "${input}"
 
-                blocksToAdd = commands.map(cmd => {
-                    return { 
-                        type: cmd.type, 
-                        value: cmd.value !== null ? cmd.value : (cmd.type === 'move_forward' ? 50 : 80) 
-                    };
+【出力形式】
+必ず以下のようなJSONの配列のみを出力してください（Markdownのコードブロックは使用しないでください）。
+[
+  { "type": "move_forward", "value": 100 },
+  { "type": "jump", "value": 80 }
+]
+`;
+
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${geminiApiKey}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: prompt }] }],
+                        generationConfig: {
+                            temperature: 0.2,
+                            responseMimeType: "application/json"
+                        }
+                    })
                 });
-                
-                if (blocksToAdd.length > 0) {
-                    isCustomCommand = true;
-                    game.log(`AI: いわれたとおりに ${blocksToAdd.length}つの ブロックを ならべるよ！`);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
                 }
+
+                const data = await response.json();
+                const aiText = data.candidates[0].content.parts[0].text;
+                
+                try {
+                    blocksToAdd = JSON.parse(aiText);
+                    if (!Array.isArray(blocksToAdd)) {
+                        blocksToAdd = [];
+                    }
+                    game.log(`AI: ${blocksToAdd.length}つの ブロックを ならべるよ！`);
+                } catch (parseError) {
+                    console.error("JSON Parse Error:", parseError, aiText);
+                    game.log('AI: ごめんね、うまく理解できなかったみたい💦');
+                    this.isOperating = false;
+                    return;
+                }
+
+            } catch (e) {
+                console.error("Gemini API Error:", e);
+                game.log('AI: エラーがおきちゃった... APIキーが間違っているかもしれないよ。');
+                this.isOperating = false;
+                return;
             }
 
-            if (!isCustomCommand) {
-                // 既存の推測ロジック（あいまいな指示の場合）
-                const match = input.match(/\d+/);
-                const userHeight = match ? parseInt(match[0]) : null;
-                const isGoodPrompt = userHeight !== null || hasJump;
-                
-                if (game.currentStage === 1) {
-                    if (isGoodPrompt) {
-                        blocksToAdd = [
-                            { type: 'move_forward', value: 250 },
-                            { type: 'jump', value: userHeight || 80 },
-                            { type: 'move_forward', value: 150 }
-                        ];
-                        game.log(`AI: いわを とびこえるように ならべてみるね！`);
-                    } else {
-                        blocksToAdd = [
-                            { type: 'move_forward', value: 100 }, { type: 'jump', value: 30 }, { type: 'move_forward', value: 50 }
-                        ];
-                        game.log('AI: よくわからないから、まずは ちいさく ジャンプしてみるね！');
-                    }
-                } else if (game.currentStage === 2) {
-                    if (isGoodPrompt) {
-                        blocksToAdd = [
-                            { type: 'move_forward', value: 50 },
-                            { type: 'jump', value: userHeight || 80 },
-                            { type: 'move_forward', value: 50 },
-                            { type: 'jump', value: userHeight || 80 },
-                            { type: 'move_forward', value: 150 }
-                        ];
-                        game.log(`AI: いわが ２つあるね！ ２かい ジャンプするように するよ！`);
-                    } else {
-                        blocksToAdd = [
-                            { type: 'move_forward', value: 50 }, { type: 'jump', value: 80 }, { type: 'move_forward', value: 100 }
-                        ];
-                        game.log('AI: いわが １つだと おもって ならべちゃった💦');
-                    }
-                } else if (game.currentStage === 3) {
-                    if (isGoodPrompt) {
-                        blocksToAdd = [
-                            { type: 'move_forward', value: 200 },
-                            { type: 'jump', value: userHeight || 150 },
-                            { type: 'move_forward', value: 200 }
-                        ];
-                        game.log(`AI: たにを こえる おおジャンプを するよ！`);
-                    } else {
-                        blocksToAdd = [
-                            { type: 'move_forward', value: 50 }, { type: 'jump', value: 80 }, { type: 'move_forward', value: 50 }
-                        ];
-                        game.log('AI: ジャンプの タイミングが あわないかも...？');
-                    }
-                }
+            if (blocksToAdd.length > 0) {
+                await this.placeBlocksSequentially(blocksToAdd);
+                game.updateBubble('できたよ！「うごかす」を おしてみて！');
+            } else {
+                game.updateBubble('ブロックはないみたい');
             }
-
-            await this.placeBlocksSequentially(blocksToAdd);
-            
-            game.updateBubble('できたよ！「うごかす」を おしてみて！');
             this.isOperating = false;
         },
 

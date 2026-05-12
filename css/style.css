@@ -32,6 +32,44 @@ header h1 {
     font-size: 2.2rem;
 }
 
+#api-key-container {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#api-key-input {
+    padding: 8px 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    width: 250px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#api-key-input:focus {
+    border-color: var(--secondary);
+}
+
+#save-api-key-btn {
+    padding: 8px 16px;
+    background: var(--secondary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s, background 0.2s;
+}
+
+#save-api-key-btn:hover {
+    transform: translateY(-2px);
+    background: #3bbcb3;
+}
+
+
 main {
     flex: 1;
     width: 100%;
