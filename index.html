@@ -15,6 +15,7 @@
     <script src="script/vendor/blocks_compressed.js"></script>
     <script src="script/vendor/javascript_compressed.js"></script>
     <script src="script/vendor/ja.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
 </head>
 
 <body>
@@ -24,6 +25,15 @@
         <div id="api-key-container">
             <input type="password" id="api-key-input" placeholder="Gemini APIキーを入力してね">
             <button id="save-api-key-btn">保存する</button>
+        </div>
+        <div id="training-data-container">
+            <input type="text" id="training-data-path" placeholder="学習データのパス (例: data/train.txt)">
+            <button id="load-training-data-btn">学習データ読み込み</button>
+        </div>
+        <div id="model-io-container">
+            <button id="save-model-btn">モデル保存</button>
+            <input type="file" id="load-model-input" multiple accept=".json,.bin">
+            <button id="load-model-btn">モデル読み込み</button>
         </div>
     </header>
 
@@ -56,8 +66,17 @@
 
         <div id="ai-side-panel">
             <div class="panel-header">AIの かんがえ</div>
-            <div id="ai-log">
-                <div class="log-entry">おねが(AI)いを まっているよ...</div>
+            <div class="ai-thought-row">
+                <div id="ai-log">
+                    <div class="log-entry">おねが(AI)いを まっているよ...</div>
+                </div>
+                <div id="token-viz">
+                    <div class="panel-header small">トークンの見え方</div>
+                    <div id="token-viz-body">
+                        <svg id="token-viz-lines"></svg>
+                        <div id="token-viz-rows"></div>
+                    </div>
+                </div>
             </div>
             <div id="vibe-input-container">
                 <input type="text" id="vibe-input" placeholder="AIにおねがいする（れい： ジャンプして）">
