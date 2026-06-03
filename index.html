@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>バイブコーディング</title>
-    <!-- Google Fonts -->
+    <title>バイブコーディング | AIとあそぼう！ 🎮</title>
+    <!-- Google Fonts: Outfit & M PLUS Rounded 1c -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <!-- Local Blockly Library -->
     <script src="script/vendor/blockly_compressed.js"></script>
@@ -18,12 +18,26 @@
 </head>
 
 <body>
+    <!-- Dark Cyber-Neon Background Glows -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
     <header>
-        <h1>AI（えーあい）とあそぼう！ 🎮</h1>
-        <p>AI(AI)におねがいして、プログラムを つくってもらおう！</p>
-        <div id="api-key-container">
-            <input type="password" id="api-key-input" placeholder="Gemini APIキーを入力してね">
-            <button id="save-api-key-btn">保存する</button>
+        <div id="header-main-content">
+            <div class="header-titles">
+                <h1>バイブコーディング <span>AI（えーあい）とあそぼう！ 🎮</span></h1>
+                <p>AIにおねがいして、プログラムを つくってもらおう！</p>
+            </div>
+            <button id="api-toggle-btn" title="APIキー設定">
+                <span class="gear-icon">⚙️</span>
+                <span class="btn-text">APIキー設定</span>
+            </button>
+        </div>
+        <div id="api-key-container" class="collapsed">
+            <div class="api-key-inner">
+                <input type="password" id="api-key-input" placeholder="Gemini APIキーを入力してね">
+                <button id="save-api-key-btn">保存する</button>
+            </div>
         </div>
     </header>
 
@@ -34,8 +48,14 @@
 
         <div id="top-ui">
             <div id="preview-area">
+                <!-- Cyber clouds drifting in background -->
+                <div class="cyber-clouds">
+                    <div class="cloud cloud-1">☁️</div>
+                    <div class="cloud cloud-2">☁️</div>
+                </div>
+                
                 <div class="stage-header">
-                    <div class="preview-label" id="current-stage-label">STAGE 1: JUMP OVER THE ROCK</div>
+                    <div class="preview-label" id="current-stage-label">ステージ 1: いわを ジャンプ！</div>
                     <div id="stage-selector">
                         <button class="stage-btn active" data-stage="1">1</button>
                         <button class="stage-btn" data-stage="2">2</button>
@@ -46,6 +66,7 @@
                 <div id="game-world">
                     <div id="goal">🏁</div>
                     <div id="obstacles-container"></div>
+                    <div id="player-shadow"></div>
                     <div id="player">👮</div>
                 </div>
             </div>
@@ -57,7 +78,7 @@
         <div id="ai-side-panel">
             <div class="panel-header">AIの かんがえ</div>
             <div id="ai-log">
-                <div class="log-entry">おねが(AI)いを まっているよ...</div>
+                <div class="log-entry system-msg">おねがいを まっているよ...</div>
             </div>
             <div id="vibe-input-container">
                 <input type="text" id="vibe-input" placeholder="AIにおねがいする（れい： ジャンプして）">
@@ -69,12 +90,14 @@
             </div>
         </div>
 
-        <!-- AIの「手」アニメーション用コンテナ -->
+        <!-- AIの「手」アニメーション用コンテナ（今回は魔法の杖🪄） -->
         <div id="hand-container">
-            <div id="ai-hand">✋</div>
+            <div id="ai-hand">🪄</div>
         </div>
-    </main>
 
+        <!-- 魔法のきらきらパーティクルテール用コンテナ -->
+        <div id="particle-container"></div>
+    </main>
 
     <script src="script/main.js"></script>
 </body>

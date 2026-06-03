@@ -2,10 +2,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // APIキーの読み込みと保存
     const apiKeyInput = document.getElementById('api-key-input');
     const saveApiKeyBtn = document.getElementById('save-api-key-btn');
+    const apiToggleBtn = document.getElementById('api-toggle-btn');
+    const apiKeyContainer = document.getElementById('api-key-container');
     let geminiApiKey = localStorage.getItem('geminiApiKey') || '';
 
     if (geminiApiKey && apiKeyInput) {
         apiKeyInput.value = geminiApiKey;
+    }
+
+    // API設定トグルパネルの開閉
+    if (apiToggleBtn && apiKeyContainer) {
+        apiToggleBtn.addEventListener('click', () => {
+            apiKeyContainer.classList.toggle('show');
+        });
     }
 
     if (saveApiKeyBtn && apiKeyInput) {
@@ -15,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 localStorage.setItem('geminiApiKey', key);
                 geminiApiKey = key;
                 alert('APIキーを保存しました！');
+                if (apiKeyContainer) apiKeyContainer.classList.remove('show');
             } else {
                 localStorage.removeItem('geminiApiKey');
                 geminiApiKey = '';
@@ -57,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
             this.appendDummyInput()
                 .appendField("🚩 が おされたとき");
             this.setNextStatement(true, null);
-            this.setColour(60);
+            this.setColour(190); // Cyan-ish color for cyber theme
         }
     };
     javascriptGenerator.forBlock['when_run'] = function (block, generator) {
@@ -71,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 .appendField("まえに すすむ");
             this.setPreviousStatement(true, null);
             this.setNextStatement(true, null);
-            this.setColour(20);
+            this.setColour(330); // Pink-ish color for cyber theme
         }
     };
     javascriptGenerator.forBlock['move_forward'] = function (block, generator) {
@@ -86,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 .appendField("ジャンプ！ たかさ:");
             this.setPreviousStatement(true, null);
             this.setNextStatement(true, null);
-            this.setColour(20);
+            this.setColour(280); // Purple color for cyber theme
         }
     };
     javascriptGenerator.forBlock['jump'] = function (block, generator) {
@@ -105,16 +115,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         stages: {
             1: {
-                label: 'ステージ 1: いわを ジャンプ！',
+                label: 'ステージ 1: ブロックを ジャンプ！',
                 obstacles: [
-                    { type: 'stone', x: 300, width: 30, emoji: '🪨' }
+                    { type: 'stone', x: 300, width: 30, emoji: '🧱' }
                 ]
             },
             2: {
-                label: 'ステージ 2: いわが ２つ！',
+                label: 'ステージ 2: ブロックが ２つ！',
                 obstacles: [
-                    { type: 'stone', x: 200, width: 30, emoji: '🪨' },
-                    { type: 'stone', x: 400, width: 30, emoji: '🪨' }
+                    { type: 'stone', x: 200, width: 30, emoji: '🧱' },
+                    { type: 'stone', x: 400, width: 30, emoji: '🧱' }
                 ]
             },
             3: {
@@ -167,20 +177,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
         updateUI: function () {
             const playerEl = document.getElementById('player');
+            const shadowEl = document.getElementById('player-shadow');
+            
+            let reason = '';
+            if (this.isGameOver && this.playerX < this.goalX) {
+                const playerCenter = this.playerX + 20;
+                const stageData = this.stages[this.currentStage];
+                const fallingHole = stageData.obstacles.find(o => o.type === 'hole' && playerCenter >= o.x && playerCenter <= o.x + o.width);
+                if (fallingHole) {
+                    reason = 'hole';
+                } else {
+                    reason = 'rock';
+                }
+            }
+
             if (playerEl) {
                 playerEl.style.left = this.playerX + 'px';
-
-                let reason = '';
-                if (this.isGameOver && this.playerX < this.goalX) {
-                    const playerCenter = this.playerX + 20;
-                    const stageData = this.stages[this.currentStage];
-                    const fallingHole = stageData.obstacles.find(o => o.type === 'hole' && playerCenter >= o.x && playerCenter <= o.x + o.width);
-                    if (fallingHole) {
-                        reason = 'hole';
-                    } else {
-                        reason = 'rock';
-                    }
-                }
 
                 if (reason === 'hole') {
                     playerEl.style.bottom = '-40px';
@@ -194,6 +206,23 @@ document.addEventListener('DOMContentLoaded', () => {
                     } else {
                         playerEl.textContent = '🏃';
                     }
+                }
+            }
+
+            // 影のリアルタイム連動アニメーション
+            if (shadowEl) {
+                shadowEl.style.left = (this.playerX + 4) + 'px';
+                if (reason === 'hole') {
+                    shadowEl.style.opacity = '0';
+                } else if (this.isJumping) {
+                    // ジャンプの高さに合わせて影を縮小し、薄くする
+                    const scale = Math.max(0.3, 1 - (this.jumpHeight / 180));
+                    const opacity = Math.max(0.05, 0.4 - (this.jumpHeight / 300));
+                    shadowEl.style.transform = `scaleX(${scale})`;
+                    shadowEl.style.opacity = opacity;
+                } else {
+                    shadowEl.style.transform = 'scaleX(1)';
+                    shadowEl.style.opacity = '0.4';
                 }
             }
         },
@@ -269,9 +298,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (!this.isJumping || currentJumpHeight < 50) {
                             this.isGameOver = true;
                             if (this.isJumping) {
-                                this.log(`AI: たかさ ${currentJumpHeight} では たりない！ いわに ぶつかった！`);
+                                this.log(`AI: たかさ ${currentJumpHeight} では たりない！ ブロックに ぶつかった！`);
                             } else {
-                                this.log('AI: ジャンプしないで、いわに ぶつかった！');
+                                this.log('AI: ジャンプしないで、ブロックに ぶつかった！');
                             }
                             this.updateBubble('ギャアアア！');
                             return;
@@ -306,12 +335,67 @@ document.addEventListener('DOMContentLoaded', () => {
     const aiController = {
         isOperating: false,
 
+        // 魔法のきらきらパーティクルを生成
+        createSparkle(x, y) {
+            const container = document.getElementById('particle-container');
+            if (!container) return;
+
+            const particle = document.createElement('div');
+            particle.className = 'sparkle-particle';
+
+            // サイバーテーマに合わせたカラーパレット
+            const colors = ['#00f2fe', '#ff007f', '#9b5de5', '#ffffff', '#00ff88'];
+            const randColor = colors[Math.floor(Math.random() * colors.length)];
+            particle.style.background = `radial-gradient(circle, #fff 10%, ${randColor} 60%, transparent 100%)`;
+            particle.style.boxShadow = `0 0 10px ${randColor}, 0 0 20px ${randColor}`;
+
+            particle.style.left = `${x}px`;
+            particle.style.top = `${y}px`;
+
+            // 飛び散る角度と距離を設定
+            const angle = Math.random() * Math.PI * 2;
+            const distance = Math.random() * 60 + 15;
+            const dx = Math.cos(angle) * distance;
+            const dy = Math.sin(angle) * distance;
+            particle.style.setProperty('--dx', `${dx}px`);
+            particle.style.setProperty('--dy', `${dy}px`);
+
+            container.appendChild(particle);
+            setTimeout(() => {
+                particle.remove();
+            }, 800);
+        },
+
+        // 杖の動きに合わせてきらきらを出し続ける処理
+        startSparkleTrail(handEl) {
+            const intervalId = setInterval(() => {
+                if (handEl.style.display === 'none') {
+                    clearInterval(intervalId);
+                    return;
+                }
+                const rect = handEl.getBoundingClientRect();
+                if (rect.width > 0 && rect.height > 0) {
+                    // 杖の先端（右上）付近からきらきらを出す
+                    const x = window.scrollX + rect.left + 5;
+                    const y = window.scrollY + rect.top + 5;
+                    
+                    // 毎フレーム数個生成
+                    for (let i = 0; i < 2; i++) {
+                        this.createSparkle(x + (Math.random() - 0.5) * 12, y + (Math.random() - 0.5) * 12);
+                    }
+                }
+            }, 30);
+
+            return intervalId;
+        },
+
         async interpretAndAct(input) {
             if (this.isOperating) return;
 
             if (!geminiApiKey) {
-                game.log('AI: APIキーが 設定されていないよ！ 上の入力欄に入れてね。');
+                game.log('AI: APIキーが 設定されていないよ！ 上の「⚙️ APIキー設定」から保存してね。');
                 game.updateBubble('APIキーがないよ！');
+                if (apiKeyContainer) apiKeyContainer.classList.add('show');
                 return;
             }
 
@@ -347,48 +431,86 @@ document.addEventListener('DOMContentLoaded', () => {
 ユーザーの指示が曖昧な場合（例：「岩をよけて」）は、ステージ情報をもとに、障害物を正確に避けるコマンドを推論してください。具体的な数値が指示された場合はそれを優先してください。
 `;
 
-                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${geminiApiKey}`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        contents: [{ parts: [{ text: prompt }] }],
-                        generationConfig: {
-                            temperature: 0.1,
-                            responseMimeType: "application/json",
-                            responseSchema: {
-                                type: "OBJECT",
-                                properties: {
-                                    reasoning: {
-                                        type: "STRING",
-                                        description: "現在の状況とユーザーの指示をもとに、キャラクターがどう動くべきかの思考プロセスや理由"
-                                    },
-                                    commands: {
-                                        type: "ARRAY",
-                                        items: {
-                                            type: "OBJECT",
-                                            properties: {
-                                                type: {
-                                                    type: "STRING",
-                                                    enum: ["move_forward", "jump"]
+                // Gemini APIを実行する内部関数
+                const callGemini = async (modelName) => {
+                    const apiVersion = modelName === 'gemini-1.5-flash' ? 'v1' : 'v1beta';
+                    return await fetch(`https://generativelanguage.googleapis.com/${apiVersion}/models/${modelName}:generateContent?key=${geminiApiKey}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            contents: [{ parts: [{ text: prompt }] }],
+                            generationConfig: {
+                                temperature: 0.1,
+                                responseMimeType: "application/json",
+                                responseSchema: {
+                                    type: "OBJECT",
+                                    properties: {
+                                        reasoning: {
+                                            type: "STRING",
+                                            description: "現在の状況とユーザーの指示をもとに、キャラクターがどう動くべきかの思考プロセスや理由"
+                                        },
+                                        commands: {
+                                            type: "ARRAY",
+                                            items: {
+                                                type: "OBJECT",
+                                                properties: {
+                                                    type: {
+                                                        type: "STRING",
+                                                        enum: ["move_forward", "jump"]
+                                                    },
+                                                    value: {
+                                                        type: "INTEGER"
+                                                    }
                                                 },
-                                                value: {
-                                                    type: "INTEGER"
-                                                }
-                                            },
-                                            required: ["type", "value"]
+                                                required: ["type", "value"]
+                                            }
                                         }
-                                    }
-                                },
-                                required: ["reasoning", "commands"]
+                                    },
+                                    required: ["reasoning", "commands"]
+                                }
+                            }
+                        })
+                    });
+                };
+
+                let response = await callGemini('gemini-2.0-flash');
+
+                // 2.0-flash が見つからない・権限がない・またはクォータ上限(429)の場合の自動フォールバック処理
+                if (!response.ok && (response.status === 404 || response.status === 400 || response.status === 429)) {
+                    let shouldFallback = true;
+                    try {
+                        const clonedResponse = response.clone();
+                        const errData = await clonedResponse.json();
+                        if (errData && errData.error && errData.error.message) {
+                            const errMsg = errData.error.message.toLowerCase();
+                            // APIキー自体が無効な場合などはフォールバックしない
+                            if (errMsg.includes('key is invalid') || errMsg.includes('api key') || response.status === 403) {
+                                shouldFallback = false;
                             }
                         }
-                    })
-                });
+                    } catch (_) {}
+
+                    if (shouldFallback) {
+                        if (response.status === 429) {
+                            game.log('AI: gemini-2.0-flash のクォータ（利用回数）制限に達しました。安定版モデル (gemini-1.5-flash) に切り替えて試してみるね！ ⚙️');
+                        } else {
+                            game.log('AI: 安定版モデル (gemini-1.5-flash) で試してみるね！ ⚙️');
+                        }
+                        response = await callGemini('gemini-1.5-flash');
+                    }
+                }
 
                 if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                    let errMsg = `HTTP error! status: ${response.status}`;
+                    try {
+                        const errData = await response.json();
+                        if (errData && errData.error && errData.error.message) {
+                            errMsg += ` - ${errData.error.message}`;
+                        }
+                    } catch (_) {}
+                    throw new Error(errMsg);
                 }
 
                 const data = await response.json();
@@ -414,7 +536,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
             } catch (e) {
                 console.error("Gemini API Error:", e);
-                game.log('AI: エラーがおきちゃった... APIキーが間違っているかもしれないよ。');
+                
+                game.log(`AI: エラーがおきちゃった... 😿`);
+                game.log(`詳細: ${e.message}`);
+                
+                if (e.message.includes('API_KEY_INVALID') || e.message.includes('invalid') || e.message.includes('403') || e.message.includes('400')) {
+                    game.log('👉 Gemini APIキーが間違っているか、登録・有効化されていない可能性があります。上の「⚙️ APIキー設定」から入力し直してみてね！');
+                } else if (e.message.includes('Failed to fetch') || e.message.includes('NetworkError')) {
+                    game.log('👉 ネットワークエラー！インターネットの接続や、CORS接続制限のアドオンなどを確認してね。');
+                } else {
+                    game.log('👉 キーをもう一度確認するか、少し時間を置いてから再度おねがいしてみてね！');
+                }
+
                 this.isOperating = false;
                 return;
             }
@@ -434,6 +567,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const blocklyDiv = document.getElementById('blockly-div');
 
             hand.style.display = 'block';
+
+            // きらきらの軌跡を起動
+            const trailInterval = this.startSparkleTrail(hand);
 
             const startX = blocklyDiv.offsetWidth / 2 - 100;
             const startY = 380;
@@ -480,28 +616,41 @@ document.addEventListener('DOMContentLoaded', () => {
                 currentOffset += 60;
             }
 
-            // 手を戻す
+            // 魔法の杖を戻す
             const charaRectFinal = aiChara.getBoundingClientRect();
-            hand.style.left = charaRectFinal.left + 'px';
-            hand.style.top = charaRectFinal.top + 'px';
+            hand.style.left = (window.scrollX + charaRectFinal.left) + 'px';
+            hand.style.top = (window.scrollY + charaRectFinal.top) + 'px';
             await new Promise(r => setTimeout(r, 500));
             hand.style.display = 'none';
+            
+            // きらきらの軌跡を停止
+            clearInterval(trailInterval);
         },
 
         async animateHandTo(hand, aiChara, blocklyDiv, targetX, targetY) {
-            // 手をAIキャラの位置に移動（準備）
+            // 杖をAIキャラの位置に移動（準備）
             const charaRect = aiChara.getBoundingClientRect();
-            hand.style.left = charaRect.left + 'px';
-            hand.style.top = charaRect.top + 'px';
+            hand.style.left = (window.scrollX + charaRect.left) + 'px';
+            hand.style.top = (window.scrollY + charaRect.top) + 'px';
             await new Promise(r => setTimeout(r, 200));
 
-            // 手をターゲットに移動
-            hand.style.left = (blocklyDiv.offsetLeft + targetX + 50) + 'px';
-            hand.style.top = (blocklyDiv.offsetTop + targetY + 20) + 'px';
+            // 杖をターゲット（ブロックの配置座標）に移動
+            const targetLeft = blocklyDiv.offsetLeft + targetX - 10;
+            const targetTop = blocklyDiv.offsetTop + targetY - 30;
+            hand.style.left = targetLeft + 'px';
+            hand.style.top = targetTop + 'px';
             await new Promise(r => setTimeout(r, 500));
 
-            // 配置時のクリックアニメ
+            // 配置時の魔法発動アニメーション
             hand.classList.add('hand-grabbing');
+
+            // 配置時のきらきらバーストエフェクト
+            const burstX = targetLeft + 20;
+            const burstY = targetTop + 20;
+            for (let i = 0; i < 10; i++) {
+                this.createSparkle(burstX, burstY);
+            }
+
             await new Promise(r => setTimeout(r, 200));
             hand.classList.remove('hand-grabbing');
         }
