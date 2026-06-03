@@ -360,100 +360,102 @@ document.addEventListener('DOMContentLoaded', () => {
              * @returns {object} { reasoning: string, commands: array }
              */
             const commands = [];
-            let reasoning = '';
+            let reasoning = `ユーザーの指示「${input}」を分析：\n`;
 
-            // 入力の正規化
-            const normalizedInput = input.toLowerCase();
-            
-            // ステージの障害物を分析
+            // 全角数字を半角に変換し、小文字化する
+            let normalizedInput = input.replace(/[０-９]/g, function(s) {
+                return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
+            }).toLowerCase();
+
+            // 障害物情報とゴール座標を取得
             const obstacles = stageData.obstacles;
-            const firstObstacle = obstacles.length > 0 ? obstacles[0] : null;
-            
-            reasoning = `ユーザーの指示「${input}」を分析：`;
+            const goalX = 750; // 通常のゴール目標位置
 
-            // パターンマッチング
-            const moveMatch = input.match(/(\d+)\s*(ピクセル|px|すすむ|移動|進む)/);
-            const jumpMatch = input.match(/(\d+)\s*(高さ|たかさ|でジャンプ|ジャンプ)/);
-            
-            // キーワード検出
-            const hasJump = /ジャンプ|跳ぶ|飛ぶ|とぶ/.test(input);
-            const hasMove = /すすむ|進む|移動|走る|歩く/.test(input);
-            const hasAvoid = /よける|避ける|超える|越える|乗り越え|クリア/.test(input);
-            const allObstacles = /全て|すべて|全ての|全部|全て|順番に/.test(input);
+            // 自動クリア・障害物回避の意図があるか判定
+            const hasAvoid = /よけ|避|クリア|ゴール|超え|越え|乗り越え|全部|すべて|自動|解決|お願い|おねがい/.test(normalizedInput);
+            const hasExplicitNumber = /\d+/.test(normalizedInput);
 
-            // ケース1: 数字で明確に指定されている場合
-            if (moveMatch) {
-                const distance = parseInt(moveMatch[1]);
-                commands.push({ type: 'move_forward', value: distance });
-                reasoning += ` → ${distance}ピクセル進む`;
-            }
-            if (jumpMatch) {
-                const height = parseInt(jumpMatch[1]);
-                commands.push({ type: 'jump', value: height });
-                reasoning += ` → 高さ${height}でジャンプ`;
-            }
+            // シーケンス自動生成（数値が明示されておらず、回避やクリアの意図がある場合）
+            if (hasAvoid && !hasExplicitNumber) {
+                reasoning += ` → 障害物を自動で避けてゴールするシーケンスを生成します。`;
+                let currentX = 20;
 
-            // ケース2: キーワード検出による推論
-            if (commands.length === 0) {
-                if (hasAvoid && firstObstacle) {
-                    // 障害物を避けるコマンド生成
-                    reasoning += ` → 障害物を避けるコマンドを生成`;
-                    
-                    // 最初の障害物までの距離を計算
-                    const distToObstacle = firstObstacle.x - 20 - 40; // 20=初期位置, 40=余裕
-                    
-                    if (firstObstacle.type === 'stone') {
-                        // 岩の場合: 移動してジャンプ
-                        if (distToObstacle > 0) {
-                            commands.push({ type: 'move_forward', value: distToObstacle });
-                            reasoning += `、岩まで${distToObstacle}移動`;
-                        }
-                        commands.push({ type: 'jump', value: 90 });
-                        reasoning += `、高さ90でジャンプ`;
-                    } else if (firstObstacle.type === 'hole') {
-                        // 穴の場合: 移動して大きくジャンプ
-                        if (distToObstacle > 0) {
-                            commands.push({ type: 'move_forward', value: distToObstacle });
-                            reasoning += `、穴まで${distToObstacle}移動`;
-                        }
-                        commands.push({ type: 'jump', value: 130 });
-                        reasoning += `、高さ130でジャンプ`;
+                for (const obs of obstacles) {
+                    // 障害物の手前 45px まで進む
+                    const stopX = obs.x - 45;
+                    const distToStop = stopX - currentX;
+                    if (distToStop > 0) {
+                        commands.push({ type: 'move_forward', value: Math.round(distToStop) });
+                        reasoning += `\n - 障害物の手前まで ${Math.round(distToStop)}px 進む`;
+                        currentX += distToStop;
                     }
-                } else if (hasJump && !hasMove) {
-                    // ジャンプだけの場合
-                    commands.push({ type: 'jump', value: 80 });
-                    reasoning += ` → デフォルト高さ80でジャンプ`;
-                } else if (hasMove && !hasJump) {
-                    // 移動だけの場合
-                    commands.push({ type: 'move_forward', value: 100 });
-                    reasoning += ` → デフォルト距離100すすむ`;
-                } else if (allObstacles) {
-                    // すべての障害物を超える場合
-                    reasoning += ` → 全ての障害物を超えるシーケンス生成`;
                     
-                    for (const obs of obstacles) {
-                        const distToObs = obs.x - 20 - (commands.length === 0 ? 0 : 30);
-                        
-                        if (distToObs > 0) {
-                            commands.push({ type: 'move_forward', value: Math.max(30, distToObs) });
-                        }
-                        
-                        if (obs.type === 'stone') {
-                            commands.push({ type: 'jump', value: 90 });
-                        } else if (obs.type === 'hole') {
-                            commands.push({ type: 'jump', value: 130 });
-                        }
+                    // 障害物の種類に応じてジャンプの高さを変える
+                    let jumpHeight = 90;
+                    if (obs.type === 'hole') {
+                        jumpHeight = 130;
                     }
-                } else if (hasJump && hasMove) {
-                    // 移動とジャンプ両方含まれている場合
-                    commands.push({ type: 'move_forward', value: 80 });
-                    commands.push({ type: 'jump', value: 100 });
-                    reasoning += ` → 移動(80)とジャンプ(100)の組み合わせ`;
-                } else {
-                    // デフォルト: 前に進む
-                    commands.push({ type: 'move_forward', value: 50 });
-                    reasoning += ` → デフォルト動作：50すすむ`;
+                    commands.push({ type: 'jump', value: jumpHeight });
+                    reasoning += `\n - 障害物を超えるために高さ ${jumpHeight} でジャンプする`;
+                    
+                    // ジャンプ移動距離 (150px) を加算
+                    currentX += 150;
                 }
+
+                // ゴールまでの残りの距離を進む
+                if (currentX < goalX) {
+                    const distToGoal = goalX - currentX;
+                    commands.push({ type: 'move_forward', value: Math.round(distToGoal) });
+                    reasoning += `\n - ゴールまで残り ${Math.round(distToGoal)}px 進む`;
+                }
+
+                return {
+                    reasoning: reasoning,
+                    commands: commands
+                };
+            }
+
+            // 明示的な数値やアクションキーワードがある場合の解析（左から右への順序付きマッチング）
+            const regex = /(?:(\d+)\s*(?:ピクセル|px|歩|高さ|たかさ)?\s*(?:で)?\s*)?(ジャンプ|とぶ|飛|よけ|避|上|戻|バック|歩|進|走|右|左|ダッシュ)/g;
+            let match;
+            
+            while ((match = regex.exec(normalizedInput)) !== null) {
+                const hasNumber = match[1] !== undefined;
+                let val = hasNumber ? parseInt(match[1], 10) : null;
+                const keyword = match[2];
+
+                let actionType = '';
+                let defaultVal = 50;
+                let actionDesc = '';
+
+                if (keyword.match(/ジャンプ|とぶ|飛|よけ|避|上/)) {
+                    actionType = 'jump';
+                    defaultVal = 80;
+                    actionDesc = 'ジャンプ';
+                } else if (keyword.match(/戻|左|バック/)) {
+                    actionType = 'move_forward';
+                    defaultVal = -50;
+                    actionDesc = '後ろに戻る';
+                } else if (keyword.match(/歩|進|走|右|ダッシュ/)) {
+                    actionType = 'move_forward';
+                    defaultVal = 100;
+                    actionDesc = '前に進む';
+                }
+
+                if (actionType) {
+                    const finalVal = val !== null ? val : defaultVal;
+                    commands.push({
+                        type: actionType,
+                        value: finalVal
+                    });
+                    reasoning += `\n - 明示的指示: ${actionDesc} (${finalVal})`;
+                }
+            }
+
+            // 何もマッチしなかった場合のデフォルト動作
+            if (commands.length === 0) {
+                commands.push({ type: 'move_forward', value: 100 });
+                reasoning += `\n - 指示が判別できなかったため、デフォルトの移動 (100) を行います。`;
             }
 
             return {
@@ -611,7 +613,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Gemini APIを実行する内部関数
             const callGemini = async (modelName) => {
-                const apiVersion = modelName === 'gemini-1.5-flash' ? 'v1' : 'v1beta';
+                const apiVersion = 'v1beta';
                 return await fetch(`https://generativelanguage.googleapis.com/${apiVersion}/models/${modelName}:generateContent?key=${geminiApiKey}`, {
                     method: 'POST',
                     headers: {
@@ -712,7 +714,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 game.log('AI: ごめんね、うまく理解できなかったみたい💦');
                 return [];
             }
-        }
+        },
 
         async placeBlocksSequentially(blockData) {
             const hand = document.getElementById('ai-hand');
