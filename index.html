@@ -35,8 +35,17 @@
         </div>
         <div id="api-key-container" class="collapsed">
             <div class="api-key-inner">
-                <input type="password" id="api-key-input" placeholder="Gemini APIキーを入力してね">
-                <button id="save-api-key-btn">保存する</button>
+                <div class="mode-selector">
+                    <label>判定モード:</label>
+                    <select id="mode-select">
+                        <option value="gemini">🌐 Gemini API</option>
+                        <option value="nlp">🧠 高度な自然言語処理</option>
+                    </select>
+                </div>
+                <div id="gemini-settings">
+                    <input type="password" id="api-key-input" placeholder="Gemini APIキーを入力してね">
+                    <button id="save-api-key-btn">保存する</button>
+                </div>
             </div>
         </div>
     </header>

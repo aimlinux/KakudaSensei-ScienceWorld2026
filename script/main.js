@@ -4,10 +4,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const saveApiKeyBtn = document.getElementById('save-api-key-btn');
     const apiToggleBtn = document.getElementById('api-toggle-btn');
     const apiKeyContainer = document.getElementById('api-key-container');
+    const modeSelect = document.getElementById('mode-select');
+    const geminiSettings = document.getElementById('gemini-settings');
     let geminiApiKey = localStorage.getItem('geminiApiKey') || '';
+    let currentMode = localStorage.getItem('aiMode') || 'gemini';
 
     if (geminiApiKey && apiKeyInput) {
         apiKeyInput.value = geminiApiKey;
+    }
+
+    if (modeSelect) {
+        modeSelect.value = currentMode;
+        updateModeUI();
+        modeSelect.addEventListener('change', (e) => {
+            currentMode = e.target.value;
+            localStorage.setItem('aiMode', currentMode);
+            updateModeUI();
+        });
+    }
+
+    function updateModeUI() {
+        if (geminiSettings) {
+            geminiSettings.style.display = currentMode === 'gemini' ? 'flex' : 'none';
+        }
     }
 
     // API設定トグルパネルの開閉
@@ -331,6 +350,119 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // 高度な自然言語処理（ローカルNLP）関数
+    const localNLP = {
+        interpretCommand: function(input, stageData) {
+            /**
+             * ユーザーの指示を解析して、ゲームコマンドのシーケンスを生成する
+             * @param {string} input - ユーザー入力（日本語）
+             * @param {object} stageData - 現在のステージ情報
+             * @returns {object} { reasoning: string, commands: array }
+             */
+            const commands = [];
+            let reasoning = '';
+
+            // 入力の正規化
+            const normalizedInput = input.toLowerCase();
+            
+            // ステージの障害物を分析
+            const obstacles = stageData.obstacles;
+            const firstObstacle = obstacles.length > 0 ? obstacles[0] : null;
+            
+            reasoning = `ユーザーの指示「${input}」を分析：`;
+
+            // パターンマッチング
+            const moveMatch = input.match(/(\d+)\s*(ピクセル|px|すすむ|移動|進む)/);
+            const jumpMatch = input.match(/(\d+)\s*(高さ|たかさ|でジャンプ|ジャンプ)/);
+            
+            // キーワード検出
+            const hasJump = /ジャンプ|跳ぶ|飛ぶ|とぶ/.test(input);
+            const hasMove = /すすむ|進む|移動|走る|歩く/.test(input);
+            const hasAvoid = /よける|避ける|超える|越える|乗り越え|クリア/.test(input);
+            const allObstacles = /全て|すべて|全ての|全部|全て|順番に/.test(input);
+
+            // ケース1: 数字で明確に指定されている場合
+            if (moveMatch) {
+                const distance = parseInt(moveMatch[1]);
+                commands.push({ type: 'move_forward', value: distance });
+                reasoning += ` → ${distance}ピクセル進む`;
+            }
+            if (jumpMatch) {
+                const height = parseInt(jumpMatch[1]);
+                commands.push({ type: 'jump', value: height });
+                reasoning += ` → 高さ${height}でジャンプ`;
+            }
+
+            // ケース2: キーワード検出による推論
+            if (commands.length === 0) {
+                if (hasAvoid && firstObstacle) {
+                    // 障害物を避けるコマンド生成
+                    reasoning += ` → 障害物を避けるコマンドを生成`;
+                    
+                    // 最初の障害物までの距離を計算
+                    const distToObstacle = firstObstacle.x - 20 - 40; // 20=初期位置, 40=余裕
+                    
+                    if (firstObstacle.type === 'stone') {
+                        // 岩の場合: 移動してジャンプ
+                        if (distToObstacle > 0) {
+                            commands.push({ type: 'move_forward', value: distToObstacle });
+                            reasoning += `、岩まで${distToObstacle}移動`;
+                        }
+                        commands.push({ type: 'jump', value: 90 });
+                        reasoning += `、高さ90でジャンプ`;
+                    } else if (firstObstacle.type === 'hole') {
+                        // 穴の場合: 移動して大きくジャンプ
+                        if (distToObstacle > 0) {
+                            commands.push({ type: 'move_forward', value: distToObstacle });
+                            reasoning += `、穴まで${distToObstacle}移動`;
+                        }
+                        commands.push({ type: 'jump', value: 130 });
+                        reasoning += `、高さ130でジャンプ`;
+                    }
+                } else if (hasJump && !hasMove) {
+                    // ジャンプだけの場合
+                    commands.push({ type: 'jump', value: 80 });
+                    reasoning += ` → デフォルト高さ80でジャンプ`;
+                } else if (hasMove && !hasJump) {
+                    // 移動だけの場合
+                    commands.push({ type: 'move_forward', value: 100 });
+                    reasoning += ` → デフォルト距離100すすむ`;
+                } else if (allObstacles) {
+                    // すべての障害物を超える場合
+                    reasoning += ` → 全ての障害物を超えるシーケンス生成`;
+                    
+                    for (const obs of obstacles) {
+                        const distToObs = obs.x - 20 - (commands.length === 0 ? 0 : 30);
+                        
+                        if (distToObs > 0) {
+                            commands.push({ type: 'move_forward', value: Math.max(30, distToObs) });
+                        }
+                        
+                        if (obs.type === 'stone') {
+                            commands.push({ type: 'jump', value: 90 });
+                        } else if (obs.type === 'hole') {
+                            commands.push({ type: 'jump', value: 130 });
+                        }
+                    }
+                } else if (hasJump && hasMove) {
+                    // 移動とジャンプ両方含まれている場合
+                    commands.push({ type: 'move_forward', value: 80 });
+                    commands.push({ type: 'jump', value: 100 });
+                    reasoning += ` → 移動(80)とジャンプ(100)の組み合わせ`;
+                } else {
+                    // デフォルト: 前に進む
+                    commands.push({ type: 'move_forward', value: 50 });
+                    reasoning += ` → デフォルト動作：50すすむ`;
+                }
+            }
+
+            return {
+                reasoning: reasoning,
+                commands: commands
+            };
+        }
+    };
+
     // AI Controller for Animation and Placement
     const aiController = {
         isOperating: false,
@@ -392,7 +524,8 @@ document.addEventListener('DOMContentLoaded', () => {
         async interpretAndAct(input) {
             if (this.isOperating) return;
 
-            if (!geminiApiKey) {
+            // Geminiモードの場合のみAPIキーをチェック
+            if (currentMode === 'gemini' && !geminiApiKey) {
                 game.log('AI: APIキーが 設定されていないよ！ 上の「⚙️ APIキー設定」から保存してね。');
                 game.updateBubble('APIキーがないよ！');
                 if (apiKeyContainer) apiKeyContainer.classList.add('show');
@@ -410,132 +543,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
             try {
                 const stageData = game.stages[game.currentStage];
-                const prompt = `
-あなたはゲームのAIプログラマーです。ユーザーの指示と現在のステージ状況を分析し、キャラクターを操作するための正確なコマンドを生成してください。
-
-【ゲームの仕様】
-- キャラクターの初期位置は x=20 です。
-- ゴール地点は x=750 付近です。
-- 障害物を越えるには、障害物の少し手前（x座標から-30程度）まで移動してからジャンプする必要があります。
-- 'stone'（岩）: ぶつからないようにジャンプします。高さ(value)は50以上必要で、余裕をもって80を推奨します。
-- 'hole'（穴）: 穴の幅(width)を飛び越える必要があります。幅より十分な距離を稼ぐため、100〜150程度の高さでジャンプしてください。
-- 利用可能なコマンド:
-  - 'move_forward' (value: 進むピクセル距離。デフォルト50)
-  - 'jump' (value: ジャンプの高さ。デフォルト80)
-
-【現在の状況】
-- ステージ名: ${stageData.label}
-- 障害物リスト (位置x, 幅width): ${JSON.stringify(stageData.obstacles)}
-- ユーザーからの指示: "${input}"
-
-ユーザーの指示が曖昧な場合（例：「岩をよけて」）は、ステージ情報をもとに、障害物を正確に避けるコマンドを推論してください。具体的な数値が指示された場合はそれを優先してください。
-`;
-
-                // Gemini APIを実行する内部関数
-                const callGemini = async (modelName) => {
-                    const apiVersion = modelName === 'gemini-1.5-flash' ? 'v1' : 'v1beta';
-                    return await fetch(`https://generativelanguage.googleapis.com/${apiVersion}/models/${modelName}:generateContent?key=${geminiApiKey}`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            contents: [{ parts: [{ text: prompt }] }],
-                            generationConfig: {
-                                temperature: 0.1,
-                                responseMimeType: "application/json",
-                                responseSchema: {
-                                    type: "OBJECT",
-                                    properties: {
-                                        reasoning: {
-                                            type: "STRING",
-                                            description: "現在の状況とユーザーの指示をもとに、キャラクターがどう動くべきかの思考プロセスや理由"
-                                        },
-                                        commands: {
-                                            type: "ARRAY",
-                                            items: {
-                                                type: "OBJECT",
-                                                properties: {
-                                                    type: {
-                                                        type: "STRING",
-                                                        enum: ["move_forward", "jump"]
-                                                    },
-                                                    value: {
-                                                        type: "INTEGER"
-                                                    }
-                                                },
-                                                required: ["type", "value"]
-                                            }
-                                        }
-                                    },
-                                    required: ["reasoning", "commands"]
-                                }
-                            }
-                        })
-                    });
-                };
-
-                let response = await callGemini('gemini-2.0-flash');
-
-                // 2.0-flash が見つからない・権限がない・またはクォータ上限(429)の場合の自動フォールバック処理
-                if (!response.ok && (response.status === 404 || response.status === 400 || response.status === 429)) {
-                    let shouldFallback = true;
-                    try {
-                        const clonedResponse = response.clone();
-                        const errData = await clonedResponse.json();
-                        if (errData && errData.error && errData.error.message) {
-                            const errMsg = errData.error.message.toLowerCase();
-                            // APIキー自体が無効な場合などはフォールバックしない
-                            if (errMsg.includes('key is invalid') || errMsg.includes('api key') || response.status === 403) {
-                                shouldFallback = false;
-                            }
-                        }
-                    } catch (_) {}
-
-                    if (shouldFallback) {
-                        if (response.status === 429) {
-                            game.log('AI: gemini-2.0-flash のクォータ（利用回数）制限に達しました。安定版モデル (gemini-1.5-flash) に切り替えて試してみるね！ ⚙️');
-                        } else {
-                            game.log('AI: 安定版モデル (gemini-1.5-flash) で試してみるね！ ⚙️');
-                        }
-                        response = await callGemini('gemini-1.5-flash');
-                    }
-                }
-
-                if (!response.ok) {
-                    let errMsg = `HTTP error! status: ${response.status}`;
-                    try {
-                        const errData = await response.json();
-                        if (errData && errData.error && errData.error.message) {
-                            errMsg += ` - ${errData.error.message}`;
-                        }
-                    } catch (_) {}
-                    throw new Error(errMsg);
-                }
-
-                const data = await response.json();
-                const aiText = data.candidates[0].content.parts[0].text;
-
-                try {
-                    const parsed = JSON.parse(aiText);
-                    blocksToAdd = parsed.commands;
-                    if (!Array.isArray(blocksToAdd)) {
-                        blocksToAdd = [];
-                    }
-
-                    // AIの思考プロセスをログに表示
-                    game.log(`AIの考え: ${parsed.reasoning}`);
-                    game.log(`AI: よし！ ${blocksToAdd.length}つの ブロックを ならべるよ！`);
-
-                } catch (parseError) {
-                    console.error("JSON Parse Error:", parseError, aiText);
-                    game.log('AI: ごめんね、うまく理解できなかったみたい💦');
-                    this.isOperating = false;
-                    return;
+                
+                // モード分岐: Gemini API または ローカルNLP
+                if (currentMode === 'gemini') {
+                    // ===== Gemini API モード =====
+                    blocksToAdd = await this.useGeminiAPI(input, stageData);
+                } else if (currentMode === 'nlp') {
+                    // ===== ローカルNLP モード =====
+                    const nlpResult = localNLP.interpretCommand(input, stageData);
+                    game.log(`AIの考え: ${nlpResult.reasoning}`);
+                    game.log(`AI: よし！ ${nlpResult.commands.length}つの ブロックを ならべるよ！`);
+                    blocksToAdd = nlpResult.commands;
                 }
 
             } catch (e) {
-                console.error("Gemini API Error:", e);
+                console.error("Interpretation Error:", e);
                 
                 game.log(`AI: エラーがおきちゃった... 😿`);
                 game.log(`詳細: ${e.message}`);
@@ -560,6 +582,137 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             this.isOperating = false;
         },
+
+        async useGeminiAPI(input, stageData) {
+            /**
+             * Gemini APIを使用してコマンドを生成
+             * @returns {array} コマンド配列
+             */
+            const prompt = `
+あなたはゲームのAIプログラマーです。ユーザーの指示と現在のステージ状況を分析し、キャラクターを操作するための正確なコマンドを生成してください。
+
+【ゲームの仕様】
+- キャラクターの初期位置は x=20 です。
+- ゴール地点は x=750 付近です。
+- 障害物を越えるには、障害物の少し手前（x座標から-30程度）まで移動してからジャンプする必要があります。
+- 'stone'（岩）: ぶつからないようにジャンプします。高さ(value)は50以上必要で、余裕をもって80を推奨します。
+- 'hole'（穴）: 穴の幅(width)を飛び越える必要があります。幅より十分な距離を稼ぐため、100〜150程度の高さでジャンプしてください。
+- 利用可能なコマンド:
+  - 'move_forward' (value: 進むピクセル距離。デフォルト50)
+  - 'jump' (value: ジャンプの高さ。デフォルト80)
+
+【現在の状況】
+- ステージ名: ${stageData.label}
+- 障害物リスト (位置x, 幅width): ${JSON.stringify(stageData.obstacles)}
+- ユーザーからの指示: "${input}"
+
+ユーザーの指示が曖昧な場合（例：「岩をよけて」）は、ステージ情報をもとに、障害物を正確に避けるコマンドを推論してください。具体的な数値が指示された場合はそれを優先してください。
+`;
+
+            // Gemini APIを実行する内部関数
+            const callGemini = async (modelName) => {
+                const apiVersion = modelName === 'gemini-1.5-flash' ? 'v1' : 'v1beta';
+                return await fetch(`https://generativelanguage.googleapis.com/${apiVersion}/models/${modelName}:generateContent?key=${geminiApiKey}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: prompt }] }],
+                        generationConfig: {
+                            temperature: 0.1,
+                            responseMimeType: "application/json",
+                            responseSchema: {
+                                type: "OBJECT",
+                                properties: {
+                                    reasoning: {
+                                        type: "STRING",
+                                        description: "現在の状況とユーザーの指示をもとに、キャラクターがどう動くべきかの思考プロセスや理由"
+                                    },
+                                    commands: {
+                                        type: "ARRAY",
+                                        items: {
+                                            type: "OBJECT",
+                                            properties: {
+                                                type: {
+                                                    type: "STRING",
+                                                    enum: ["move_forward", "jump"]
+                                                },
+                                                value: {
+                                                    type: "INTEGER"
+                                                }
+                                            },
+                                            required: ["type", "value"]
+                                        }
+                                    }
+                                },
+                                required: ["reasoning", "commands"]
+                            }
+                        }
+                    })
+                });
+            };
+
+            let response = await callGemini('gemini-2.0-flash');
+
+            // 2.0-flash が見つからない・権限がない・またはクォータ上限(429)の場合の自動フォールバック処理
+            if (!response.ok && (response.status === 404 || response.status === 400 || response.status === 429)) {
+                let shouldFallback = true;
+                try {
+                    const clonedResponse = response.clone();
+                    const errData = await clonedResponse.json();
+                    if (errData && errData.error && errData.error.message) {
+                        const errMsg = errData.error.message.toLowerCase();
+                        // APIキー自体が無効な場合などはフォールバックしない
+                        if (errMsg.includes('key is invalid') || errMsg.includes('api key') || response.status === 403) {
+                            shouldFallback = false;
+                        }
+                    }
+                } catch (_) {}
+
+                if (shouldFallback) {
+                    if (response.status === 429) {
+                        game.log('AI: gemini-2.0-flash のクォータ（利用回数）制限に達しました。安定版モデル (gemini-1.5-flash) に切り替えて試してみるね！ ⚙️');
+                    } else {
+                        game.log('AI: 安定版モデル (gemini-1.5-flash) で試してみるね！ ⚙️');
+                    }
+                    response = await callGemini('gemini-1.5-flash');
+                }
+            }
+
+            if (!response.ok) {
+                let errMsg = `HTTP error! status: ${response.status}`;
+                try {
+                    const errData = await response.json();
+                    if (errData && errData.error && errData.error.message) {
+                        errMsg += ` - ${errData.error.message}`;
+                    }
+                } catch (_) {}
+                throw new Error(errMsg);
+            }
+
+            const data = await response.json();
+            const aiText = data.candidates[0].content.parts[0].text;
+
+            try {
+                const parsed = JSON.parse(aiText);
+                const blocksToAdd = parsed.commands;
+                if (!Array.isArray(blocksToAdd)) {
+                    return [];
+                }
+
+                // AIの思考プロセスをログに表示
+                game.log(`AIの考え: ${parsed.reasoning}`);
+                game.log(`AI: よし！ ${blocksToAdd.length}つの ブロックを ならべるよ！`);
+                
+                return blocksToAdd;
+
+            } catch (parseError) {
+                console.error("JSON Parse Error:", parseError, aiText);
+                game.log('AI: ごめんね、うまく理解できなかったみたい💦');
+                return [];
+            }
+        }
 
         async placeBlocksSequentially(blockData) {
             const hand = document.getElementById('ai-hand');
