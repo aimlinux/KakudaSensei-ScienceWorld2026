@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
         vocab: VOCAB,
         tokenToId: new Map(),
         idToToken: [],
-        maxLen: 12,
+        maxLen: 24,
         model: null,
         isTrained: false,
         isTraining: false,
@@ -163,16 +163,89 @@ document.addEventListener('DOMContentLoaded', () => {
             const model = tf.sequential();
             model.add(tf.layers.embedding({
                 inputDim: vocabSize,
-                outputDim: 32,
+                outputDim: 48,
                 inputLength: this.maxLen
             }));
-            model.add(tf.layers.simpleRNN({ units: 32 }));
+            model.add(tf.layers.simpleRNN({ units: 48 }));
             model.add(tf.layers.dense({ units: vocabSize, activation: "softmax" }));
             model.compile({
-                optimizer: tf.train.adam(0.01),
+                optimizer: tf.train.adam(0.005),
                 loss: "sparseCategoricalCrossentropy"
             });
             return model;
+        },
+
+        ensureModel() {
+            const vocabSize = this.vocab.length;
+            if (this.model) {
+                const embedding = this.model.layers[0];
+                if (embedding.inputDim !== vocabSize) {
+                    this.model.dispose();
+                    this.model = null;
+                    this.isTrained = false;
+                }
+            }
+            if (!this.model) {
+                this.model = this.buildModel();
+            }
+        },
+
+        getAllowedOutputTokens(outputTokens, actionCount) {
+            const last = outputTokens[outputTokens.length - 1];
+            const prev = outputTokens[outputTokens.length - 2];
+            const numberTokens = this.vocab.filter(isNumberToken);
+            const reasons = ["stone", "hole", "enemy"];
+
+            if (outputTokens.length === 0) {
+                return ["REASON"];
+            }
+            if (last === "REASON") {
+                return reasons;
+            }
+            if (reasons.includes(last)) {
+                return ["ACTION"];
+            }
+            if (last === "ACTION") {
+                return ["move", "jump"];
+            }
+            if (last === "move" || last === "jump") {
+                return ["VALUE"];
+            }
+            if (last === "VALUE") {
+                return numberTokens.length > 0 ? numberTokens : ["50", "80", "120", "150"];
+            }
+            if (isNumberToken(last)) {
+                if (actionCount >= PSEUDO_MAX_BLOCKS) {
+                    return ["<END>"];
+                }
+                return ["ACTION", "<END>"];
+            }
+            if (prev === "ACTION" && (last === "move" || last === "jump")) {
+                return ["VALUE"];
+            }
+            return this.vocab.filter(tok => tok !== "<PAD>" && tok !== "<START>");
+        },
+
+        pickConstrainedToken(probsData, allowed, hintedNumber) {
+            if (hintedNumber !== null && allowed.every(tok => isNumberToken(tok) || tok === "<END>")) {
+                const hintedToken = String(binNumber(hintedNumber));
+                if (allowed.includes(hintedToken)) {
+                    return hintedToken;
+                }
+            }
+
+            let bestToken = allowed[0];
+            let bestProb = -1;
+            for (const token of allowed) {
+                const id = this.tokenToId.get(token);
+                if (id === undefined) continue;
+                const prob = probsData[id];
+                if (prob > bestProb) {
+                    bestProb = prob;
+                    bestToken = token;
+                }
+            }
+            return bestToken;
         },
 
         async train(logFn) {
@@ -187,9 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             this.isTraining = true;
-            if (!this.model) {
-                this.model = this.buildModel();
-            }
+            this.ensureModel();
 
             const xs = [];
             const ys = [];
@@ -202,16 +273,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 for (let i = 1; i < full.length; i++) {
                     const context = full.slice(0, i);
                     const target = full[i];
+                    const targetId = this.tokenToId.get(target);
+                    if (targetId === undefined) continue;
                     xs.push(this.vectorize(context));
-                    ys.push(this.tokenToId.get(target));
+                    ys.push(targetId);
                 }
+            }
+
+            if (xs.length === 0) {
+                logFn("AI: 学習できるデータがないよ。語彙を確認してね。");
+                this.isTraining = false;
+                return;
             }
 
             const xTensor = tf.tensor2d(xs, [xs.length, this.maxLen], "float32");
             const yTensor = tf.tensor1d(ys, "float32");
 
-            const epochs = 30;
-            logFn(`AI: 学習を開始 (${xs.length}ステップ)`);
+            const epochs = 50;
+            logFn(`AI: 学習を開始 (${xs.length}ステップ / 語彙${this.vocab.length})`);
             await this.model.fit(xTensor, yTensor, {
                 epochs,
                 batchSize: 32,
@@ -242,20 +321,32 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const tokens = ["<START>", ...seedTokens];
+            const inputValueQueue = seedTokens.filter(isNumberToken).map(tok => parseInt(tok, 10));
+            let outputValueIndex = 0;
+            let actionCount = 0;
+
             for (let step = 0; step < maxSteps; step++) {
                 const inputIds = this.vectorize(tokens);
                 const inputTensor = tf.tensor2d([inputIds], [1, this.maxLen], "float32");
                 const probs = this.model.predict(inputTensor);
-                const probsFloat = probs.toFloat();
-                const { values, indices } = tf.topk(probsFloat, 3, true);
+                const probsData = await probs.data();
 
-                const topValues = await values.data();
-                const topIndices = await indices.data();
+                const outputTokens = tokens.slice(1 + seedTokens.length);
+                const allowed = this.getAllowedOutputTokens(outputTokens, actionCount);
+                const hintedNumber = (
+                    outputTokens.length > 0 &&
+                    outputTokens[outputTokens.length - 1] === "VALUE" &&
+                    outputValueIndex < inputValueQueue.length
+                ) ? inputValueQueue[outputValueIndex] : null;
 
-                const candidates = Array.from(topIndices).map((id, i) => ({
-                    token: this.idToToken[id],
-                    prob: topValues[i]
-                }));
+                const nextToken = this.pickConstrainedToken(probsData, allowed, hintedNumber);
+                const candidates = allowed
+                    .map(token => ({
+                        token,
+                        prob: probsData[this.tokenToId.get(token)] ?? 0
+                    }))
+                    .sort((a, b) => b.prob - a.prob)
+                    .slice(0, 3);
 
                 logCandidatesFn(candidates);
 
@@ -263,15 +354,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     await sleep(delayMs);
                 }
 
-                const nextToken = candidates[0].token;
                 inputTensor.dispose();
                 probs.dispose();
-                probsFloat.dispose();
-                values.dispose();
-                indices.dispose();
 
                 if (nextToken === "<END>") break;
                 tokens.push(nextToken);
+
+                if (nextToken === "move" || nextToken === "jump") {
+                    actionCount += 1;
+                }
+                if (isNumberToken(nextToken)) {
+                    outputValueIndex += 1;
+                }
             }
             return { tokens, usedFallback: false };
         },
@@ -454,8 +548,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const inputTokens = TinyRNN.tokenize(inputText);
             const needsNormalize = inputTokens.length <= 2 && /[^\x00-\x7F]/.test(inputText);
+
+            const stageMatch = inputText.match(/stage([123])/);
+            const stageId = stageMatch ? stageMatch[1] : null;
             const normalizedInputTokens = needsNormalize
-                ? tokenizeJapaneseForTraining(inputText)
+                ? tokenizeJapaneseForTraining(inputText, stageId)
                 : inputTokens;
 
             const outputTokens = TinyRNN.tokenize(outputText).map((tok) => {
@@ -680,7 +777,9 @@ document.addEventListener('DOMContentLoaded', () => {
         while (i < tokens.length) {
             if (tokens[i] === "ACTION" && tokens[i + 1]) {
                 const rawAction = tokens[i + 1];
+                if (rawAction !== "move" && rawAction !== "jump") { i += 1; continue; }
                 const action = rawAction === "move" ? "move_forward" : rawAction;
+
                 let value = 80;
 
                 if (tokens[i + 2] === "VALUE" && tokens[i + 3]) {

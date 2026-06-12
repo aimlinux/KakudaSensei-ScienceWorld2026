@@ -19,7 +19,7 @@
 1行1サンプルで input => output か input<TAB>output 形式
 例: stone jump => REASON stone ACTION jump VALUE 50
 
-具体的な数値が入っていない場合は、適当な、絶対に失敗する値を入れる
+具体的な数値が入っていない場合は、適当な、絶対に失敗する値(**推論時の重みに影響しないように、同じような明らかにおかしな値（10でクランプされる）を入れないように**)を入れる
 言われていない行動はしない
 
 
@@ -39,6 +39,37 @@
 ```text
 200進んで150ジャンプしてから450進んで => REASON hole ACTION move VALUE 200 ACTION jump VALUE 150 ACTION move VALUE 450
 ```
+成功事例の範囲は以下のようにすること。逆に失敗事例はこの範囲から外しかつ、極端な値に偏らないようにすること。
+当たり判定の計算
+共通の前提
+
+プレイヤー初期位置: playerX = 20
+プレイヤーの幅: 40px（playerCenter = playerX + 20）
+jumpで勝手に playerX += 15 × 10回 = +150px 移動する（重要！）
+ゴール: playerX >= 750
+
+
+ステージ1：岩1個（x=300, width=30）
+石の当たり判定： Math.abs(playerX - 300) < 30 → playerX が 271〜329 のとき衝突
+クリア条件： ジャンプ高さ >= 50
+パラメータ安全な範囲備考move①（岩の手前まで）241〜270271以上だと岩に当たる。20から引いて221〜250歩jump height50以上50未満だとジャンプ中でも衝突（jump中に+150px移動）自動jump後の位置 = move① + 150move②（ゴールまで）750 - (move① + 150) 以上——
+具体例（学習データの正解値 206〜257）：
+
+move 230 → playerX=250、岩まで50px余裕
+jump後 → playerX=400
+move 350 → playerX=750 ゴール ✅
+
+
+ステージ2：岩2個（x=200, x=400、各width=30）
+パラメータ安全な範囲move①100〜170（171以上で岩①に衝突）jump① height50以上jump①後位置move① + 150move②jump①後から岩②手前まで：岩②x=400なので 400 - (move①+150) - 30 以内jump② height50以上move③ゴールまで
+
+ステージ3：穴（x=250, width=120）→ 穴の範囲 x=250〜370
+穴の判定： playerCenter(=playerX+20) >= 250 && playerCenter <= 370
+→ playerX が 230〜350 のとき落下
+クリア条件： isJumping = true かつ currentJumpHeight > 0（高さ1以上でOK）
+パラメータ安全な範囲move①209〜229（playerX=229→center=249、ギリギリ穴の手前）jump height1以上（穴は高さ不問、飛んでさえいればOK）（jump中+150px）穴の終端370を超えてlanding → 230+150=380 ✅move②750 - (move①+150) 以上
+
+
 成功例にも失敗例にも、想定されるステージ名を先頭に明記すること（アウトプットには書かない）
 stage1 ～
 stage2 ～
