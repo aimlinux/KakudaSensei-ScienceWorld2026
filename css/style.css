@@ -16,7 +16,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--bg-dark);
-    background-image: linear-gradient(135deg, #e0f2fe 0%, #fbcfe8 100%);
+    background-image: linear-gradient(135deg, #e0f2fe 0%, #c41277 100%);
     color: var(--dark);
     display: flex;
     flex-direction: column;
