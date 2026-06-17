@@ -372,8 +372,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const goalX = 750; // 通常のゴール目標位置
 
             // 自動クリア・障害物回避の意図があるか判定
-            const hasAvoid = /よけ|避|クリア|ゴール|超え|越え|乗り越え|全部|すべて|自動|解決|お願い|おねがい/.test(normalizedInput);
+            const hasAvoid = /よけ|避|避け|避けて|回避|回避して|クリア|ゴール|超え|越え|乗り越え|乗り越えて|全部|すべて|自動|解決|お願い|おねがい|進|すすむ|進んで|前進|前へ|前に|先に|先へ|右へ|右に|左へ|左に|歩|歩いて|走|走って|ダッシュ|ジャンプ|ジャンプして|飛べ|飛んで|跳ねて|跳んで|飛び越え|飛び越えて|上がる|上がって|下がる|下がって|ぶつからない|ぶつからず|ぶつからずに/.test(normalizedInput);
             const hasExplicitNumber = /\d+/.test(normalizedInput);
+            const isMetaCheat = /ゴールして|クリアして|全部やって|おまかせ|勝手に|なんとかして|もうやって|メタ命令|やっておいて|やってくれ|やってください|まかせる|任せる|あとは任せる/.test(normalizedInput);
+
+            if (isMetaCheat) {
+                reasoning += '\n - 「ゴールして」などメタな命令にはずるしちゃだめだよ。できるだけ具体的に指示してね。';
+            }
 
             // シーケンス自動生成（数値が明示されておらず、回避やクリアの意図がある場合）
             if (hasAvoid && !hasExplicitNumber) {
@@ -416,7 +421,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // 明示的な数値やアクションキーワードがある場合の解析（左から右への順序付きマッチング）
-            const regex = /(?:(\d+)\s*(?:ピクセル|px|歩|高さ|たかさ)?\s*(?:で)?\s*)?(ジャンプ|とぶ|飛|よけ|避|上|戻|バック|歩|進|走|右|左|ダッシュ)/g;
+            const regex = /(?:(\d+)\s*(?:ピクセル|px|歩|高さ|たかさ|くらい|ぐらい|ほど)?\s*(?:で|の高さで)?\s*)?(ジャンプ|ジャンプし|ジャンプして|とぶ|飛ぶ|飛|飛べ|飛んで|跳ねて|跳んで|飛び越え|飛び越えて|はねる|よける|避ける|回避|上がる|上がって|戻る|戻|バック|うしろ|うしろに|左に|左へ|左|右に|右へ|右|前に|前へ|前進|進む|進|進んで|歩く|歩|歩いて|走る|走|走って|ダッシュ)/g;
             let match;
             
             while ((match = regex.exec(normalizedInput)) !== null) {
@@ -428,15 +433,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 let defaultVal = 50;
                 let actionDesc = '';
 
-                if (keyword.match(/ジャンプ|とぶ|飛|よけ|避|上/)) {
+                if (keyword.match(/ジャンプ|とぶ|飛ぶ|飛|はねる|よける|避ける|回避|上/)) {
                     actionType = 'jump';
                     defaultVal = 80;
                     actionDesc = 'ジャンプ';
-                } else if (keyword.match(/戻|左|バック/)) {
+                } else if (keyword.match(/戻る|戻|左|バック|うしろ/)) {
                     actionType = 'move_forward';
                     defaultVal = -50;
                     actionDesc = '後ろに戻る';
-                } else if (keyword.match(/歩|進|走|右|ダッシュ/)) {
+                } else if (keyword.match(/前|右|歩|進|走|ダッシュ/)) {
                     actionType = 'move_forward';
                     defaultVal = 100;
                     actionDesc = '前に進む';
