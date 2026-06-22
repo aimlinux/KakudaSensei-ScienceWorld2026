@@ -133,68 +133,114 @@ document.addEventListener('DOMContentLoaded', () => {
         await sleep(1500);
 
         let blocksToGenerate = [];
+        let thoughtMessage = '';
 
         // 全角数字を半角に変換する
         const normalizedText = text.replace(/[０-９]/g, function(s) {
             return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
-        });
+        }).toLowerCase();
 
-        const regex = /(?:(-?\d+)[^\d]*?)?(ジャンプ|とぶ|飛|よけ|上|戻|バック|歩|進|走|右|左|ダッシュ)/g;
-        let match;
-        
-        while ((match = regex.exec(normalizedText)) !== null) {
-            const hasNumber = match[1] !== undefined;
-            let extractedVal = hasNumber ? parseInt(match[1], 10) : 50; // デフォルトは50
-            const keyword = match[2];
+        // 自動クリア・障害物回避の意図があるか判定
+        const hasAvoid = /よけ|避|避け|避けて|回避|回避して|クリア|ゴール|超え|越え|乗り越え|乗り越えて|全部|すべて|自動|解決|お願い|おねがい|進|すすむ|進んで|前進|前へ|前に|右へ|右に|左へ|左に|歩|歩いて|走|走って|ダッシュ|ジャンプ|ジャンプして|飛べ|飛んで|跳ねて|跳んで|飛び越え|飛び越えて|してください|してくれる|してくれますか|てもらえる|てもらえますか|てほしい|てください|ていただけますか|お願いします|おねがいします/.test(normalizedText);
+        const hasExplicitNumber = /\d+/.test(normalizedText);
 
-            let actionType = 'move';
-            let actionLabel = '前に進む';
-            let actionColor = 'green';
+        if (hasAvoid && !hasExplicitNumber) {
+            const stageData = STAGES[currentStage];
+            const obstacles = stageData.obstacles;
+            let currentX = 20;
 
-            if (keyword.match(/ジャンプ|とぶ|飛|よけ|上/)) {
-                actionType = 'jump';
-                actionLabel = 'ジャンプする';
-                actionColor = 'blue';
-            } else if (keyword.match(/戻|左|バック/)) {
-                actionType = 'move';
-                actionLabel = '後ろに戻る';
-                actionColor = 'green';
-                extractedVal = -Math.abs(extractedVal); // マイナスにする
-            } else if (keyword.match(/歩|進|走|右|ダッシュ/)) {
-                actionType = 'move';
-                actionLabel = '前に進む';
-                actionColor = 'green';
+            for (const obs of obstacles) {
+                const stopX = (obs.type === 'stone') ? obs.x - 50 : obs.x - 40;
+                const distToStop = stopX - currentX;
+                if (distToStop > 0) {
+                    blocksToGenerate.push({
+                        type: 'move',
+                        val: Math.round(distToStop),
+                        label: '前に進む',
+                        color: 'green',
+                        hasNumber: true
+                    });
+                    currentX += distToStop;
+                }
+
+                let jumpVal = 100;
+                if (obs.type === 'hole') {
+                    jumpVal = 180;
+                }
+                blocksToGenerate.push({
+                    type: 'jump',
+                    val: jumpVal,
+                    label: 'ジャンプする',
+                    color: 'blue',
+                    hasNumber: true
+                });
+                currentX += jumpVal;
             }
-
-            blocksToGenerate.push({
-                type: actionType,
-                val: extractedVal,
-                label: actionLabel,
-                color: actionColor,
-                hasNumber: hasNumber
-            });
-        }
-
-        let thoughtMessage = '';
-
-        if (blocksToGenerate.length === 0) {
-            // 知らない言葉の場合
-            blocksToGenerate.push({
-                type: 'move',
-                val: 50,
-                label: 'なぞのうごき',
-                color: 'green'
-            });
-            thoughtMessage = `「${text}」の意味がちょっと難しいな...💦<br>AIなりに解釈してとりあえず動かしてみるね！`;
-        } else if (blocksToGenerate.length === 1) {
-            thoughtMessage = `「${text}」だね！指示は1つみたいだ。`;
-            if (blocksToGenerate[0].hasNumber) {
-                thoughtMessage += `<br>数字も指定されているから、パラメータも設定したよ！`;
-            } else {
-                thoughtMessage += `<br>具体的な数字がないから、とりあえず「50」にしておくね。`;
-            }
+            thoughtMessage = `「${text}」だね！ステージの障害物に合わせて、自動で避けるブロックの組み合わせを作ったよ！`;
         } else {
-            thoughtMessage = `「${text}」って言われたぞ！<br>複数の指示を見つけたから、連続で**${blocksToGenerate.length}個**のブロックを作るね！`;
+            // 通常の明示的・順序付き抽出
+            const regex = /(?:(-?\d+)[^\d]*?)?(ジャンプ|とぶ|飛|よけ|避|上|戻|バック|歩|進|走|右|左|ダッシュ)/g;
+            let match;
+            
+            while ((match = regex.exec(normalizedText)) !== null) {
+                const hasNumber = match[1] !== undefined;
+                let extractedVal = hasNumber ? parseInt(match[1], 10) : null;
+                const keyword = match[2];
+
+                let actionType = 'move';
+                let actionLabel = '前に進む';
+                let actionColor = 'green';
+                let defaultVal = 50;
+
+                if (keyword.match(/ジャンプ|とぶ|飛|よけ|避|上/)) {
+                    actionType = 'jump';
+                    actionLabel = 'ジャンプする';
+                    actionColor = 'blue';
+                    defaultVal = 80;
+                } else if (keyword.match(/戻|左|バック/)) {
+                    actionType = 'move';
+                    actionLabel = '後ろに戻る';
+                    actionColor = 'green';
+                    defaultVal = -50;
+                    if (extractedVal !== null) {
+                        extractedVal = -Math.abs(extractedVal); // マイナスにする
+                    }
+                } else if (keyword.match(/歩|進|走|右|ダッシュ/)) {
+                    actionType = 'move';
+                    actionLabel = '前に進む';
+                    actionColor = 'green';
+                    defaultVal = 100;
+                }
+
+                blocksToGenerate.push({
+                    type: actionType,
+                    val: extractedVal !== null ? extractedVal : defaultVal,
+                    label: actionLabel,
+                    color: actionColor,
+                    hasNumber: hasNumber
+                });
+            }
+
+            if (blocksToGenerate.length === 0) {
+                // 知らない言葉の場合
+                blocksToGenerate.push({
+                    type: 'move',
+                    val: 50,
+                    label: 'なぞのうごき',
+                    color: 'green',
+                    hasNumber: false
+                });
+                thoughtMessage = `「${text}」の意味がちょっと難しいな...💦<br>AIなりに解釈してとりあえず動かしてみるね！`;
+            } else if (blocksToGenerate.length === 1) {
+                thoughtMessage = `「${text}」だね！指示は1つみたいだ。`;
+                if (blocksToGenerate[0].hasNumber) {
+                    thoughtMessage += `<br>数字も指定されているから、パラメータも設定したよ！`;
+                } else {
+                    thoughtMessage += `<br>具体的な数字がないから、とりあえず「${blocksToGenerate[0].val}」にしておくね。`;
+                }
+            } else {
+                thoughtMessage = `「${text}」って言われたぞ！<br>複数の指示を見つけたから、連続で**${blocksToGenerate.length}個**のブロックを作るね！`;
+            }
         }
 
         showThought(thoughtMessage);
