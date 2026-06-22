@@ -1451,11 +1451,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            } catch (parseError) {
-                console.error("JSON Parse Error:", parseError, aiText);
-                game.log('AI: ごめんね、うまく理解できなかったみたい💦');
-                return [];
+            if (blocksToAdd.length === 0) {
+                game.log('AI: ブロックを作れなかったよ。');
+            } else {
+                await this.placeBlocksSequentially(blocksToAdd);
             }
+
+            this.isOperating = false;
         },
 
         async placeBlocksSequentially(blockData) {
