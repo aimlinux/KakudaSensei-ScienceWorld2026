@@ -898,7 +898,7 @@ main {
     }
 
     .header-titles h1 {
-        font-size: 1.3rem;
+        font-size: 1. 5rem;
         flex-direction: column;
         align-items: flex-start;
         gap: 6px;
