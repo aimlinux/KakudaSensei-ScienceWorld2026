@@ -264,6 +264,7 @@ main {
 
 /* Blockly Workspace inside Glass Frame */
 #blockly-div {
+
     width: calc(100% - 860px - 380px);
     height: calc(100% - 40px);
     position: absolute;
@@ -582,6 +583,7 @@ main {
     position: absolute;
     top: 20px;
     right: 20px;
+
     width: 340px;
     max-height: calc(100vh - 170px);
     background: var(--panel-bg);
@@ -602,11 +604,92 @@ main {
     border-color: rgba(255, 94, 126, 0.3);
 }
 
-.panel-header {
+.ai-thought-row {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-height: 300px;
+    flex: 1;
+    overflow: hidden;
+}
+
+.panel-header.small {
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+}
+
+#token-viz {
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 14px;
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
+    flex: 0 0 140px;
+    display: flex;
+    flex-direction: column;
+}
+
+#token-viz-body {
+    position: relative;
+    flex: 1;
+    overflow-y: auto;
+}
+
+#token-viz-lines {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+#token-viz-rows {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 1;
+}
+
+.token-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.token-node {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 4px;
+    padding: 2px 6px;
+    border-radius: 10px;
+    background: rgba(78, 205, 196, 0.2);
+    color: #2c3e50;
+    font-weight: 700;
+}
+
+.token-meta {
+    font-size: 0.65em;
+    font-weight: 400;
+    opacity: 0.7;
+}
+
+/* .panel-header {
     font-weight: 800;
     color: var(--primary);
     text-shadow: 0 2px 4px rgba(255, 94, 126, 0.1);
     margin-bottom: 18px;
+    font-size: 0.95rem;
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 6px;
+    letter-spacing: 1px;
+} */
+
+.panel-header {
+    font-weight: bold;
+    color: var(--primary);
+    margin-bottom: 15px;
     font-size: 0.95rem;
     border-bottom: 2px solid var(--primary);
     padding-bottom: 6px;
@@ -617,12 +700,14 @@ main {
     flex: 1;
     overflow-y: auto;
     font-size: 0.85rem;
-    margin-bottom: 20px;
+    margin-bottom: 0;
     display: flex;
     flex-direction: column;
     gap: 10px;
     padding-right: 4px;
+    min-height: 150px;
 }
+
 
 /* Scrollbar for AI log */
 #ai-log::-webkit-scrollbar {
