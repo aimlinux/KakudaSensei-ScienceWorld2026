@@ -123,6 +123,738 @@ document.addEventListener('DOMContentLoaded', () => {
         return `await game.jump(${height});\n`;
     };
 
+    const usePseudoLLM = true;
+    const disablePseudoFallback = true;
+    const PSEUDO_MAX_BLOCKS = 6;
+    const PSEUDO_MAX_TOKENS = PSEUDO_MAX_BLOCKS * 4 + 6;
+    const BIN_SIZE = 10;
+    const useInputActionFallback = false;
+
+    const VOCAB = [
+        "<PAD>",
+        "<START>",
+        "<END>",
+        "REASON",
+        "ACTION",
+        "VALUE",
+        "stage1",
+        "stage2",
+        "stage3",
+        "jump",
+        "move",
+        "stone",
+        "hole",
+        "enemy",
+        "50",
+        "80",
+        "120",
+        "150"
+    ];
+
+    const TRAINING_DATA_PATH_KEY = 'pseudoLlmTrainingDataPath';
+    let trainingData = [];
+
+    const TinyRNN = {
+        vocab: VOCAB,
+        tokenToId: new Map(),
+        idToToken: [],
+        maxLen: 24,
+        model: null,
+        isTrained: false,
+        isTraining: false,
+        lastTrainedAt: null,
+
+        initVocab() {
+            this.idToToken = [...this.vocab];
+            this.tokenToId.clear();
+            this.idToToken.forEach((tok, idx) => this.tokenToId.set(tok, idx));
+        },
+
+        tokenize(text) {
+            return text.trim().split(/\s+/).filter(Boolean);
+        },
+
+        vectorize(tokens) {
+            const padId = this.tokenToId.get("<PAD>");
+            const ids = new Array(this.maxLen).fill(padId);
+            const trimmed = tokens.slice(-this.maxLen);
+            for (let i = 0; i < trimmed.length; i++) {
+                const id = this.tokenToId.get(trimmed[i]) ?? padId;
+                ids[this.maxLen - trimmed.length + i] = id;
+            }
+            return ids;
+        },
+
+        buildModel() {
+            if (!window.tf) return null;
+
+            const vocabSize = this.vocab.length;
+            const model = tf.sequential();
+            model.add(tf.layers.embedding({
+                inputDim: vocabSize,
+                outputDim: 48,
+                inputLength: this.maxLen
+            }));
+            model.add(tf.layers.simpleRNN({ units: 48 }));
+            model.add(tf.layers.dense({ units: vocabSize, activation: "softmax" }));
+            model.compile({
+                optimizer: tf.train.adam(0.005),
+                loss: "sparseCategoricalCrossentropy"
+            });
+            return model;
+        },
+
+        ensureModel() {
+            const vocabSize = this.vocab.length;
+            if (this.model) {
+                const embedding = this.model.layers[0];
+                if (embedding.inputDim !== vocabSize) {
+                    this.model.dispose();
+                    this.model = null;
+                    this.isTrained = false;
+                }
+            }
+            if (!this.model) {
+                this.model = this.buildModel();
+            }
+        },
+
+        getAllowedOutputTokens(outputTokens, actionCount) {
+            const last = outputTokens[outputTokens.length - 1];
+            const prev = outputTokens[outputTokens.length - 2];
+            const numberTokens = this.vocab.filter(isNumberToken);
+            const reasons = ["stone", "hole", "enemy"];
+
+            if (outputTokens.length === 0) {
+                return ["REASON"];
+            }
+            if (last === "REASON") {
+                return reasons;
+            }
+            if (reasons.includes(last)) {
+                return ["ACTION"];
+            }
+            if (last === "ACTION") {
+                return ["move", "jump"];
+            }
+            if (last === "move" || last === "jump") {
+                return ["VALUE"];
+            }
+            if (last === "VALUE") {
+                return numberTokens.length > 0 ? numberTokens : ["50", "80", "120", "150"];
+            }
+            if (isNumberToken(last)) {
+                if (actionCount >= PSEUDO_MAX_BLOCKS) {
+                    return ["<END>"];
+                }
+                return ["ACTION", "<END>"];
+            }
+            if (prev === "ACTION" && (last === "move" || last === "jump")) {
+                return ["VALUE"];
+            }
+            return this.vocab.filter(tok => tok !== "<PAD>" && tok !== "<START>");
+        },
+
+        pickConstrainedToken(probsData, allowed, hintedNumber) {
+            if (hintedNumber !== null && allowed.every(tok => isNumberToken(tok) || tok === "<END>")) {
+                const hintedToken = String(binNumber(hintedNumber));
+                if (allowed.includes(hintedToken)) {
+                    return hintedToken;
+                }
+            }
+
+            let bestToken = allowed[0];
+            let bestProb = -1;
+            for (const token of allowed) {
+                const id = this.tokenToId.get(token);
+                if (id === undefined) continue;
+                const prob = probsData[id];
+                if (prob > bestProb) {
+                    bestProb = prob;
+                    bestToken = token;
+                }
+            }
+            return bestToken;
+        },
+
+        async train(logFn) {
+            if (this.isTraining) return;
+            if (!window.tf) {
+                logFn("AI: 学習に tfjs が必要だよ。");
+                return;
+            }
+            if (trainingData.length === 0) {
+                logFn("AI: 学習データがないので、推論は疑似モードだよ。");
+                return;
+            }
+
+            this.isTraining = true;
+            this.ensureModel();
+
+            const xs = [];
+            const ys = [];
+
+            for (const sample of trainingData) {
+                const inputTokens = this.tokenize(sample.input);
+                const outputTokens = this.tokenize(sample.output);
+                const full = ["<START>", ...inputTokens, ...outputTokens, "<END>"];
+
+                for (let i = 1; i < full.length; i++) {
+                    const context = full.slice(0, i);
+                    const target = full[i];
+                    const targetId = this.tokenToId.get(target);
+                    if (targetId === undefined) continue;
+                    xs.push(this.vectorize(context));
+                    ys.push(targetId);
+                }
+            }
+
+            if (xs.length === 0) {
+                logFn("AI: 学習できるデータがないよ。語彙を確認してね。");
+                this.isTraining = false;
+                return;
+            }
+
+            const xTensor = tf.tensor2d(xs, [xs.length, this.maxLen], "float32");
+            const yTensor = tf.tensor1d(ys, "float32");
+
+            const epochs = 50;
+            logFn(`AI: 学習を開始 (${xs.length}ステップ / 語彙${this.vocab.length})`);
+            await this.model.fit(xTensor, yTensor, {
+                epochs,
+                batchSize: 32,
+                shuffle: true,
+                callbacks: {
+                    onEpochEnd: (epoch) => {
+                        const percent = Math.round(((epoch + 1) / epochs) * 100);
+                        logFn(`AI: 学習進捗 ${percent}%`);
+                    }
+                }
+            });
+            logFn("AI: 学習おわり！");
+
+            xTensor.dispose();
+            yTensor.dispose();
+            this.isTrained = true;
+            this.isTraining = false;
+            this.lastTrainedAt = new Date();
+        },
+
+        async generateTokens(seedTokens, maxSteps, logCandidatesFn, valueHint, delayMs = 1000, maxBlocks = PSEUDO_MAX_BLOCKS) {
+            if (!this.isTrained || !this.model) {
+                if (disablePseudoFallback) {
+                    return { tokens: [], usedFallback: false };
+                }
+                const fallbackTokens = await this.generateTokensHeuristic(seedTokens, logCandidatesFn, valueHint, delayMs, maxBlocks);
+                return { tokens: fallbackTokens, usedFallback: true };
+            }
+
+            const tokens = ["<START>", ...seedTokens];
+            const inputValueQueue = seedTokens.filter(isNumberToken).map(tok => parseInt(tok, 10));
+            let outputValueIndex = 0;
+            let actionCount = 0;
+
+            for (let step = 0; step < maxSteps; step++) {
+                const inputIds = this.vectorize(tokens);
+                const inputTensor = tf.tensor2d([inputIds], [1, this.maxLen], "float32");
+                const probs = this.model.predict(inputTensor);
+                const probsData = await probs.data();
+
+                const outputTokens = tokens.slice(1 + seedTokens.length);
+                const allowed = this.getAllowedOutputTokens(outputTokens, actionCount);
+                const hintedNumber = (
+                    outputTokens.length > 0 &&
+                    outputTokens[outputTokens.length - 1] === "VALUE" &&
+                    outputValueIndex < inputValueQueue.length
+                ) ? inputValueQueue[outputValueIndex] : null;
+
+                const nextToken = this.pickConstrainedToken(probsData, allowed, hintedNumber);
+                const candidates = allowed
+                    .map(token => ({
+                        token,
+                        prob: probsData[this.tokenToId.get(token)] ?? 0
+                    }))
+                    .sort((a, b) => b.prob - a.prob)
+                    .slice(0, 3);
+
+                logCandidatesFn(candidates);
+
+                if (delayMs > 0) {
+                    await sleep(delayMs);
+                }
+
+                inputTensor.dispose();
+                probs.dispose();
+
+                if (nextToken === "<END>") break;
+                tokens.push(nextToken);
+
+                if (nextToken === "move" || nextToken === "jump") {
+                    actionCount += 1;
+                }
+                if (isNumberToken(nextToken)) {
+                    outputValueIndex += 1;
+                }
+            }
+            return { tokens, usedFallback: false };
+        },
+
+        async generateTokensHeuristic(seedTokens, logCandidatesFn, valueHint, delayMs = 250, maxBlocks = PSEUDO_MAX_BLOCKS) {
+            const tokens = ["<START>", ...seedTokens];
+            const hasMove = seedTokens.includes("move");
+            const hasJump = seedTokens.includes("jump");
+            const reason = seedTokens.includes("hole")
+                ? "hole"
+                : seedTokens.includes("stone")
+                    ? "stone"
+                    : seedTokens.includes("enemy")
+                        ? "enemy"
+                        : hasMove
+                            ? "move"
+                            : "stone";
+            const jumpValue = seedTokens.includes("hole") ? "150" : "120";
+            const moveValue = valueHint ? String(valueHint) : "120";
+
+            const actionPlan = [];
+            if (hasMove) actionPlan.push({ type: "move", value: moveValue });
+            if (hasJump) actionPlan.push({ type: "jump", value: jumpValue });
+            if (!hasJump && (reason === "stone" || reason === "hole")) {
+                actionPlan.push({ type: "jump", value: jumpValue });
+            }
+            while (actionPlan.length < maxBlocks && hasMove) {
+                actionPlan.push({ type: "move", value: moveValue });
+            }
+
+            const steps = [
+                [
+                    { token: "REASON", prob: 0.92 },
+                    { token: "ACTION", prob: 0.06 },
+                    { token: "VALUE", prob: 0.02 }
+                ],
+                [
+                    { token: reason, prob: 0.9 },
+                    { token: "enemy", prob: 0.06 },
+                    { token: "stone", prob: 0.04 }
+                ],
+                [
+                    { token: "ACTION", prob: 0.9 },
+                    { token: "REASON", prob: 0.05 },
+                    { token: "VALUE", prob: 0.05 }
+                ]
+            ];
+
+            for (const plan of actionPlan) {
+                steps.push([
+                    { token: plan.type, prob: 0.9 },
+                    { token: plan.type === "move" ? "jump" : "move", prob: 0.05 },
+                    { token: plan.type, prob: 0.05 }
+                ]);
+                steps.push([
+                    { token: "VALUE", prob: 0.9 },
+                    { token: "ACTION", prob: 0.06 },
+                    { token: "REASON", prob: 0.04 }
+                ]);
+                steps.push([
+                    { token: plan.value, prob: 0.9 },
+                    { token: "120", prob: 0.06 },
+                    { token: "80", prob: 0.04 }
+                ]);
+                steps.push([
+                    { token: "ACTION", prob: 0.9 },
+                    { token: "REASON", prob: 0.05 },
+                    { token: "VALUE", prob: 0.05 }
+                ]);
+            }
+
+            steps.push([
+                { token: "<END>", prob: 1.0 },
+                { token: "VALUE", prob: 0.0 },
+                { token: "ACTION", prob: 0.0 }
+            ]);
+
+            for (const cands of steps) {
+                logCandidatesFn(cands);
+                if (delayMs > 0) {
+                    await sleep(delayMs);
+                }
+                const nextToken = cands[0].token;
+                if (nextToken === "<END>") break;
+                tokens.push(nextToken);
+            }
+
+            return tokens;
+        }
+    };
+
+    TinyRNN.initVocab();
+
+    const parseTrainingText = (text) => {
+        const lines = text.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+        const samples = [];
+        for (const line of lines) {
+            if (line.startsWith('#')) continue;
+            if (line.startsWith('{')) {
+                try {
+                    const parsed = JSON.parse(text);
+                    if (Array.isArray(parsed)) return parsed;
+                } catch (e) {
+                    return [];
+                }
+            }
+            const arrowParts = line.split('=>');
+            const tabParts = line.split('\t');
+            let input = '';
+            let output = '';
+            if (arrowParts.length === 2) {
+                input = arrowParts[0].trim();
+                output = arrowParts[1].trim();
+            } else if (tabParts.length === 2) {
+                input = tabParts[0].trim();
+                output = tabParts[1].trim();
+            }
+            if (input && output) samples.push({ input, output });
+        }
+        return samples;
+    };
+
+    const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+    const isNumberToken = (tok) => /^\d+$/.test(tok);
+    const binNumber = (value) => {
+        const n = Number(value);
+        if (!Number.isFinite(n)) return value;
+        return Math.round(n / BIN_SIZE) * BIN_SIZE;
+    };
+
+    const addStageToken = (tokens, stageId) => {
+        if (!stageId) return tokens;
+        const token = `stage${stageId}`;
+        if (!tokens.includes(token)) {
+            tokens.unshift(token);
+        }
+        return tokens;
+    };
+
+    const tokenizeJapaneseForTraining = (text, stageId) => {
+        const normalized = text.replace(/[０-９]/g, (d) => String.fromCharCode(d.charCodeAt(0) - 0xFEE0));
+        const tokens = [];
+
+        if (normalized.includes("石") || normalized.includes("いわ") || normalized.includes("岩")) {
+            tokens.push("stone");
+        }
+        if (normalized.includes("穴") || normalized.includes("たに")) {
+            tokens.push("hole");
+        }
+        if (normalized.includes("敵") || normalized.includes("てき")) {
+            tokens.push("enemy");
+        }
+
+        const actions = [];
+        const moveRegex = /(\d+)\s*(?:歩|前進|すす|進)/g;
+        const jumpRegex = /(?:高さ)?\s*(\d+)\s*(?:ジャンプ|跳|とび|飛)/g;
+        let match;
+
+        while ((match = moveRegex.exec(normalized)) !== null) {
+            actions.push({ index: match.index, type: "move", value: String(binNumber(match[1])) });
+        }
+        while ((match = jumpRegex.exec(normalized)) !== null) {
+            actions.push({ index: match.index, type: "jump", value: String(binNumber(match[1])) });
+        }
+
+        actions.sort((a, b) => a.index - b.index);
+        for (const action of actions) {
+            tokens.push(action.type, action.value);
+        }
+
+        return addStageToken(tokens, stageId);
+    };
+
+    const normalizeTrainingSamples = (samples) => {
+        const normalized = [];
+        for (const sample of samples) {
+            const inputText = sample.input || "";
+            const outputText = sample.output || "";
+
+            const inputTokens = TinyRNN.tokenize(inputText);
+            const needsNormalize = inputTokens.length <= 2 && /[^\x00-\x7F]/.test(inputText);
+
+            const stageMatch = inputText.match(/stage([123])/);
+            const stageId = stageMatch ? stageMatch[1] : null;
+            const normalizedInputTokens = needsNormalize
+                ? tokenizeJapaneseForTraining(inputText, stageId)
+                : inputTokens;
+
+            const outputTokens = TinyRNN.tokenize(outputText).map((tok) => {
+                if (isNumberToken(tok)) {
+                    return String(binNumber(tok));
+                }
+                return tok;
+            });
+
+            if (normalizedInputTokens.length === 0 || outputTokens.length === 0) continue;
+
+            normalized.push({
+                input: normalizedInputTokens.join(' '),
+                output: outputTokens.join(' ')
+            });
+        }
+        return normalized;
+    };
+
+    const extendVocabFromSamples = (samples, logFn) => {
+        const existing = new Set(VOCAB);
+        let added = 0;
+
+        for (const sample of samples) {
+            const tokens = `${sample.input} ${sample.output}`.trim().split(/\s+/).filter(Boolean);
+            for (const tok of tokens) {
+                if (!existing.has(tok)) {
+                    VOCAB.push(tok);
+                    existing.add(tok);
+                    added++;
+                }
+            }
+        }
+
+        if (added > 0) {
+            TinyRNN.initVocab();
+            TinyRNN.model = null;
+            TinyRNN.isTrained = false;
+            logFn(`AI: 語彙を ${added} 個追加したよ。`);
+        }
+    };
+
+    const saveTextFile = (filename, text) => {
+        const blob = new Blob([text], { type: 'application/json' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = filename;
+        link.click();
+        URL.revokeObjectURL(link.href);
+    };
+
+    const saveBinaryFile = (filename, buffer) => {
+        const blob = new Blob([buffer], { type: 'application/octet-stream' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = filename;
+        link.click();
+        URL.revokeObjectURL(link.href);
+    };
+
+    const saveModelToFiles = async (logFn) => {
+        if (!TinyRNN.model || !TinyRNN.isTrained) {
+            logFn('AI: 保存できる学習済みモデルがないよ。');
+            return;
+        }
+
+        let artifacts = null;
+        await TinyRNN.model.save(tf.io.withSaveHandler(async (modelArtifacts) => {
+            artifacts = modelArtifacts;
+            return {
+                modelArtifactsInfo: {
+                    dateSaved: new Date(),
+                    modelTopologyType: 'JSON',
+                    modelTopologyBytes: JSON.stringify(modelArtifacts.modelTopology).length,
+                    weightDataBytes: modelArtifacts.weightData ? modelArtifacts.weightData.byteLength : 0
+                }
+            };
+        }));
+
+        if (!artifacts || !artifacts.modelTopology || !artifacts.weightSpecs || !artifacts.weightData) {
+            logFn('AI: モデル保存に失敗したよ。');
+            return;
+        }
+
+        const modelJson = {
+            format: 'layers-model',
+            generatedBy: 'tfjs',
+            convertedBy: null,
+            modelTopology: artifacts.modelTopology,
+            weightsManifest: [
+                {
+                    paths: ['pseudo-rnn-model.weights.bin'],
+                    weights: artifacts.weightSpecs
+                }
+            ]
+        };
+
+        saveTextFile('pseudo-rnn-model.json', JSON.stringify(modelJson));
+        saveBinaryFile('pseudo-rnn-model.weights.bin', artifacts.weightData);
+        const meta = {
+            vocab: [...VOCAB],
+            maxLen: TinyRNN.maxLen
+        };
+        saveTextFile('pseudo-rnn-vocab.json', JSON.stringify(meta, null, 2));
+        logFn('AI: モデルと語彙ファイルを保存したよ。');
+    };
+
+    const loadModelFromFiles = async (files, logFn) => {
+        const fileList = Array.from(files || []);
+        if (fileList.length === 0) {
+            logFn('AI: 読み込むファイルがないよ。');
+            return;
+        }
+
+        const jsonFiles = fileList.filter(f => f.name.endsWith('.json'));
+        const binFiles = fileList.filter(f => f.name.endsWith('.bin'));
+        const vocabFile = jsonFiles.find(f => f.name.includes('vocab')) || null;
+        const modelJsonFile = jsonFiles.find(f => f !== vocabFile) || null;
+
+        if (!modelJsonFile || binFiles.length === 0) {
+            logFn('AI: model.json と weights.bin を選んでね。');
+            return;
+        }
+
+        if (vocabFile) {
+            try {
+                const text = await vocabFile.text();
+                const parsed = JSON.parse(text);
+                if (Array.isArray(parsed.vocab)) {
+                    VOCAB.length = 0;
+                    VOCAB.push(...parsed.vocab);
+                    TinyRNN.initVocab();
+                    if (parsed.maxLen) {
+                        TinyRNN.maxLen = parsed.maxLen;
+                    }
+                }
+            } catch (e) {
+                logFn('AI: 語彙ファイルの読み込みに失敗したよ。');
+            }
+        }
+
+        TinyRNN.model = await tf.loadLayersModel(tf.io.browserFiles([modelJsonFile, ...binFiles]));
+        TinyRNN.isTrained = true;
+        TinyRNN.isTraining = false;
+        TinyRNN.lastTrainedAt = new Date();
+        logFn('AI: モデルを読み込んだよ。');
+    };
+
+    const loadTrainingDataFromPath = async (path, logFn, options = {}) => {
+        if (!path) {
+            trainingData = [];
+            logFn('AI: 学習データのパスが空だよ。');
+            return;
+        }
+
+        if (path.endsWith('.js')) {
+            const script = document.createElement('script');
+            script.src = `${path}?v=${Date.now()}`;
+            script.onload = () => {
+                const data = window.PSEUDO_LLM_TRAINING_DATA;
+                if (Array.isArray(data)) {
+                    trainingData = normalizeTrainingSamples(data);
+                    extendVocabFromSamples(trainingData, logFn);
+                    logFn(`AI: 学習データを読み込んだよ (${trainingData.length}件)`);
+                    if (options.autoTrain) {
+                        TinyRNN.train(logFn);
+                    }
+                } else {
+                    trainingData = [];
+                    logFn('AI: JSから学習データが見つからなかったよ。');
+                }
+                script.remove();
+            };
+            script.onerror = () => {
+                trainingData = [];
+                logFn('AI: 学習データの読み込みに失敗したよ。');
+                script.remove();
+            };
+            document.body.appendChild(script);
+            return;
+        }
+
+        try {
+            const res = await fetch(path, { cache: 'no-store' });
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const text = await res.text();
+            const parsed = parseTrainingText(text);
+            trainingData = normalizeTrainingSamples(parsed);
+            extendVocabFromSamples(trainingData, logFn);
+            logFn(`AI: 学習データを読み込んだよ (${trainingData.length}件)`);
+            if (options.autoTrain) {
+                TinyRNN.train(logFn);
+            }
+        } catch (e) {
+            trainingData = [];
+            logFn('AI: 学習データの読み込みに失敗したよ。');
+        }
+    };
+
+    const normalizeInputToTokens = (input, stageId) => {
+        const normalized = input.replace(/[０-９]/g, (d) => String.fromCharCode(d.charCodeAt(0) - 0xFEE0));
+        const numMatch = normalized.match(/\d+/);
+        const valueHint = numMatch ? parseInt(numMatch[0], 10) : null;
+        const tokens = tokenizeJapaneseForTraining(input, stageId);
+
+        if (tokens.length === 0) {
+            tokens.push("stone", "jump");
+        }
+
+        return { tokens, valueHint };
+    };
+
+    const tokensToPlan = (tokens) => {
+        const result = { reasoning: "", commands: [] };
+        const reasonIdx = tokens.indexOf("REASON");
+
+        if (reasonIdx >= 0 && tokens[reasonIdx + 1]) {
+            result.reasoning = tokens[reasonIdx + 1];
+        }
+
+        let i = 0;
+        while (i < tokens.length) {
+            if (tokens[i] === "ACTION" && tokens[i + 1]) {
+                const rawAction = tokens[i + 1];
+                if (rawAction !== "move" && rawAction !== "jump") { i += 1; continue; }
+                const action = rawAction === "move" ? "move_forward" : rawAction;
+
+                let value = 80;
+
+                if (tokens[i + 2] === "VALUE" && tokens[i + 3]) {
+                    value = parseInt(tokens[i + 3], 10) || value;
+                    i += 4;
+                } else if (isNumberToken(tokens[i + 2])) {
+                    value = parseInt(tokens[i + 2], 10) || value;
+                    i += 3;
+                } else {
+                    let valueIdx = tokens.indexOf("VALUE", i + 2);
+                    if (valueIdx >= 0 && tokens[valueIdx + 1]) {
+                        value = parseInt(tokens[valueIdx + 1], 10) || value;
+                        i = valueIdx + 2;
+                    } else {
+                        i += 2;
+                    }
+                }
+
+                result.commands.push({ type: action, value });
+                if (result.commands.length >= PSEUDO_MAX_BLOCKS) {
+                    break;
+                }
+                continue;
+            }
+            i += 1;
+        }
+
+        return result;
+    };
+
+    const commandsFromSeedTokens = (tokens) => {
+        const commands = [];
+        for (let i = 0; i < tokens.length; i++) {
+            const action = tokens[i];
+            const value = tokens[i + 1];
+            if ((action === "move" || action === "jump") && isNumberToken(value)) {
+                commands.push({
+                    type: action === "move" ? "move_forward" : "jump",
+                    value: parseInt(value, 10)
+                });
+                i += 1;
+            }
+        }
+        return commands;
+    };
+
     // Game Logic Object
     const game = {
         playerX: 20,
@@ -543,63 +1275,83 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
+
             this.isOperating = true;
 
             game.log(`あなた: "${input}"`);
             game.updateBubble('かんがえちゅう...');
+
+            resetTokenViz();
 
             workspace.clear();
 
             let blocksToAdd = [];
 
             try {
-                const stageData = game.stages[game.currentStage];
-                
-                // モード分岐: Gemini API または ローカルNLP
-                if (currentMode === 'gemini') {
-                    // ===== Gemini API モード =====
-                    blocksToAdd = await this.useGeminiAPI(input, stageData);
-                } else if (currentMode === 'nlp') {
-                    // ===== ローカルNLP モード =====
-                    const nlpResult = localNLP.interpretCommand(input, stageData);
-                    game.log(`AIの考え: ${nlpResult.reasoning}`);
-                    game.log(`AI: では、${nlpResult.commands.length}つのブロックをならべますね。`);
-                    blocksToAdd = nlpResult.commands;
-                }
 
-            } catch (e) {
-                console.error("Interpretation Error:", e);
-                
-                game.log(`AI: エラーがおきちゃった... 😿`);
-                game.log(`詳細: ${e.message}`);
-                
-                if (e.message.includes('API_KEY_INVALID') || e.message.includes('invalid') || e.message.includes('403') || e.message.includes('400')) {
-                    game.log('👉 Gemini APIキーが間違っているか、登録・有効化されていない可能性があります。上の「⚙️ APIキー設定」から入力し直してみてね！');
-                } else if (e.message.includes('Failed to fetch') || e.message.includes('NetworkError')) {
-                    game.log('👉 ネットワークエラー！インターネットの接続や、CORS接続制限のアドオンなどを確認してね。');
+                if (usePseudoLLM) {
+                    const normalizedInput = normalizeInputToTokens(input, game.currentStage);
+                    const seedTokens = normalizedInput.tokens;
+                    if (TinyRNN.isTraining) {
+                        game.log('AI: いま学習中だよ。もう少しまってね。');
+                        this.isOperating = false;
+                        return;
+                    }
+                    if (!TinyRNN.isTrained || !TinyRNN.model) {
+                        game.log('AI: まだ学習がおわっていないよ。モデルを読み込むか、学習データを読み込んでね。');
+                        this.isOperating = false;
+                        return;
+                    }
+
+                    if (TinyRNN.lastTrainedAt) {
+                        const trainedAt = TinyRNN.lastTrainedAt.toLocaleTimeString('ja-JP');
+                        game.log(`AI: 学習済み (完了時刻 ${trainedAt})`);
+                    } else {
+                        game.log('AI: 学習済み');
+                    }
+
+                    const generation = await TinyRNN.generateTokens(
+                        seedTokens,
+                        PSEUDO_MAX_TOKENS,
+                        (cands) => {
+                            const line = cands
+                                .map(c => `${c.token} ${Math.round(c.prob * 100)}%`)
+                                .join(' / ');
+                            game.log(`候補: ${line}`);
+                            renderTokenViz(cands);
+                        },
+                        normalizedInput.valueHint,
+                        250,
+                        PSEUDO_MAX_BLOCKS
+                    );
+
+                    if (generation.usedFallback) {
+                        game.log('AI: 疑似フォールバックが使われたよ。');
+                    }
+
+                    const plan = tokensToPlan(generation.tokens);
+                    const reasoning = plan.reasoning || '???';
+                    if (useInputActionFallback) {
+                        const fallbackCommands = commandsFromSeedTokens(seedTokens);
+                        if (plan.commands.length < fallbackCommands.length) {
+                            plan.commands = fallbackCommands;
+                            game.log('AI: 入力の数値を優先して補ったよ。');
+                        }
+                    }
+                    game.log(`AIの考え: ${reasoning}`);
+                    blocksToAdd = plan.commands;
+                    game.log(`AI: よし！ ${blocksToAdd.length}つの ブロックを ならべるよ！`);
                 } else {
-                    game.log('👉 キーをもう一度確認するか、少し時間を置いてから再度おねがいしてみてね！');
-                }
+                    if (!geminiApiKey) {
+                        game.log('AI: APIキーが 設定されていないよ！ 上の入力欄に入れてね。');
+                        game.updateBubble('APIキーがないよ！');
+                        this.isOperating = false;
+                        return;
+                    }
 
-                this.isOperating = false;
-                return;
-            }
+                    const stageData = game.stages[game.currentStage];
+                    const prompt = `
 
-            if (blocksToAdd.length > 0) {
-                await this.placeBlocksSequentially(blocksToAdd);
-                game.updateBubble('できたよ！「うごかす」を おしてみて！');
-            } else {
-                game.updateBubble('ブロックはないみたい');
-            }
-            this.isOperating = false;
-        },
-
-        async useGeminiAPI(input, stageData) {
-            /**
-             * Gemini APIを使用してコマンドを生成
-             * @returns {array} コマンド配列
-             */
-            const prompt = `
 あなたはゲームのAIプログラマーです。ユーザーの指示と現在のステージ状況を分析し、キャラクターを操作するための正確なコマンドを生成してください。
 
 【ゲームの仕様】
@@ -620,103 +1372,84 @@ document.addEventListener('DOMContentLoaded', () => {
 ユーザーの指示が曖昧な場合（例：「岩をよけて」）は、ステージ情報をもとに、障害物を正確に避けるコマンドを推論してください。具体的な数値が指示された場合はそれを優先してください。
 `;
 
-            // Gemini APIを実行する内部関数
-            const callGemini = async (modelName) => {
-                const apiVersion = 'v1beta';
-                return await fetch(`https://generativelanguage.googleapis.com/${apiVersion}/models/${modelName}:generateContent?key=${geminiApiKey}`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        contents: [{ parts: [{ text: prompt }] }],
-                        generationConfig: {
-                            temperature: 0.1,
-                            responseMimeType: "application/json",
-                            responseSchema: {
-                                type: "OBJECT",
-                                properties: {
-                                    reasoning: {
-                                        type: "STRING",
-                                        description: "現在の状況とユーザーの指示をもとに、キャラクターがどう動くべきかの思考プロセスや理由"
-                                    },
-                                    commands: {
-                                        type: "ARRAY",
-                                        items: {
-                                            type: "OBJECT",
-                                            properties: {
-                                                type: {
-                                                    type: "STRING",
-                                                    enum: ["move_forward", "jump"]
+
+                    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${geminiApiKey}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            contents: [{ parts: [{ text: prompt }] }],
+                            generationConfig: {
+                                temperature: 0.1,
+                                responseMimeType: "application/json",
+                                responseSchema: {
+                                    type: "OBJECT",
+                                    properties: {
+                                        reasoning: {
+                                            type: "STRING",
+                                            description: "現在の状況とユーザーの指示をもとに、キャラクターがどう動くべきかの思考プロセスや理由"
+                                        },
+                                        commands: {
+                                            type: "ARRAY",
+                                            items: {
+                                                type: "OBJECT",
+                                                properties: {
+                                                    type: {
+                                                        type: "STRING",
+                                                        enum: ["move_forward", "jump"]
+                                                    },
+                                                    value: {
+                                                        type: "INTEGER"
+                                                    }
+
                                                 },
-                                                value: {
-                                                    type: "INTEGER"
-                                                }
-                                            },
-                                            required: ["type", "value"]
+                                                required: ["type", "value"]
+                                            }
                                         }
-                                    }
-                                },
-                                required: ["reasoning", "commands"]
+                                    },
+                                    required: ["reasoning", "commands"]
+                                }
                             }
+
+                        })
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const data = await response.json();
+                    const aiText = data.candidates[0].content.parts[0].text;
+
+                    try {
+                        const parsed = JSON.parse(aiText);
+                        blocksToAdd = parsed.commands;
+                        if (!Array.isArray(blocksToAdd)) {
+                            blocksToAdd = [];
                         }
-                    })
-                });
-            };
 
-            let response = await callGemini('gemini-2.0-flash');
+                        // AIの思考プロセスをログに表示
+                        game.log(`AIの考え: ${parsed.reasoning}`);
+                        game.log(`AI: よし！ ${blocksToAdd.length}つの ブロックを ならべるよ！`);
 
-            // 2.0-flash が見つからない・権限がない・またはクォータ上限(429)の場合の自動フォールバック処理
-            if (!response.ok && (response.status === 404 || response.status === 400 || response.status === 429)) {
-                let shouldFallback = true;
-                try {
-                    const clonedResponse = response.clone();
-                    const errData = await clonedResponse.json();
-                    if (errData && errData.error && errData.error.message) {
-                        const errMsg = errData.error.message.toLowerCase();
-                        // APIキー自体が無効な場合などはフォールバックしない
-                        if (errMsg.includes('key is invalid') || errMsg.includes('api key') || response.status === 403) {
-                            shouldFallback = false;
-                        }
+                    } catch (parseError) {
+                        console.error("JSON Parse Error:", parseError, aiText);
+                        game.log('AI: ごめんね、うまく理解できなかったみたい💦');
+                        this.isOperating = false;
+                        return;
                     }
-                } catch (_) {}
-
-                if (shouldFallback) {
-                    if (response.status === 429) {
-                        game.log('AI: gemini-2.0-flash のクォータ（利用回数）制限に達しました。安定版モデル (gemini-1.5-flash) に切り替えて試してみるね！ ⚙️');
-                    } else {
-                        game.log('AI: 安定版モデル (gemini-1.5-flash) で試してみるね！ ⚙️');
-                    }
-                    response = await callGemini('gemini-1.5-flash');
                 }
-            }
-
-            if (!response.ok) {
-                let errMsg = `HTTP error! status: ${response.status}`;
-                try {
-                    const errData = await response.json();
-                    if (errData && errData.error && errData.error.message) {
-                        errMsg += ` - ${errData.error.message}`;
-                    }
-                } catch (_) {}
-                throw new Error(errMsg);
-            }
-
-            const data = await response.json();
-            const aiText = data.candidates[0].content.parts[0].text;
-
-            try {
-                const parsed = JSON.parse(aiText);
-                const blocksToAdd = parsed.commands;
-                if (!Array.isArray(blocksToAdd)) {
-                    return [];
+            } catch (e) {
+                console.error("AI Error:", e);
+                if (usePseudoLLM) {
+                    game.log('AI: うまく生成できなかったみたい。');
+                } else {
+                    game.log('AI: エラーがおきちゃった... APIキーが間違っているかもしれないよ。');
                 }
-
-                // AIの思考プロセスをログに表示
-                game.log(`AIの考え: ${parsed.reasoning}`);
-                game.log(`AI: よし！ ${blocksToAdd.length}つの ブロックを ならべるよ！`);
-                
-                return blocksToAdd;
+                this.isOperating = false;
+                return;
+            }
 
             } catch (parseError) {
                 console.error("JSON Parse Error:", parseError, aiText);
@@ -823,6 +1556,121 @@ document.addEventListener('DOMContentLoaded', () => {
     // VIBEボタンの処理
     const vibeBtn = document.getElementById('vibe-btn');
     const vibeInput = document.getElementById('vibe-input');
+
+    const trainingPathInput = document.getElementById('training-data-path');
+    const loadTrainingBtn = document.getElementById('load-training-data-btn');
+    const saveModelBtn = document.getElementById('save-model-btn');
+    const loadModelInput = document.getElementById('load-model-input');
+    const loadModelBtn = document.getElementById('load-model-btn');
+    const tokenVizRows = document.getElementById('token-viz-rows');
+    const tokenVizLines = document.getElementById('token-viz-lines');
+    const tokenVizBody = document.getElementById('token-viz-body');
+
+    const TOKEN_LABELS = {
+        REASON: '理由',
+        ACTION: '動作',
+        VALUE: '数値',
+        move: '進む',
+        jump: 'ジャンプ',
+        stone: 'いわ',
+        hole: 'たに',
+        enemy: 'てき',
+        '<START>': 'はじめ',
+        '<END>': 'おわり',
+        stage1: 'ステージ1',
+        stage2: 'ステージ2',
+        stage3: 'ステージ3'
+    };
+
+    const tokenToLabel = (token) => TOKEN_LABELS[token] || token;
+
+    const drawTokenVizLines = () => {
+        if (!tokenVizLines || !tokenVizBody) return;
+        const rows = Array.from(tokenVizRows.querySelectorAll('.token-row'));
+        const bodyRect = tokenVizBody.getBoundingClientRect();
+        tokenVizLines.setAttribute('width', bodyRect.width);
+        tokenVizLines.setAttribute('height', bodyRect.height);
+        tokenVizLines.innerHTML = '';
+
+        const getCenter = (el) => {
+            const rect = el.getBoundingClientRect();
+            return {
+                x: rect.left - bodyRect.left + rect.width / 2,
+                y: rect.top - bodyRect.top + rect.height / 2
+            };
+        };
+
+        for (let i = 1; i < rows.length; i++) {
+            const prev = rows[i - 1].querySelector('.token-node');
+            const next = rows[i].querySelector('.token-node');
+            if (!prev || !next) continue;
+            const p1 = getCenter(prev);
+            const p2 = getCenter(next);
+            const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+            line.setAttribute('x1', p1.x);
+            line.setAttribute('y1', p1.y);
+            line.setAttribute('x2', p2.x);
+            line.setAttribute('y2', p2.y);
+            line.setAttribute('stroke', 'rgba(255, 107, 107, 0.6)');
+            line.setAttribute('stroke-width', '2');
+            tokenVizLines.appendChild(line);
+        }
+    };
+
+    const resetTokenViz = () => {
+        if (!tokenVizRows || !tokenVizLines) return;
+        tokenVizRows.innerHTML = '';
+        tokenVizLines.innerHTML = '';
+    };
+
+    const renderTokenViz = (candidates) => {
+        if (!tokenVizRows || !tokenVizBody) return;
+        const row = document.createElement('div');
+        row.className = 'token-row';
+
+        candidates.forEach((cand) => {
+            const span = document.createElement('span');
+            span.className = 'token-node';
+            const label = tokenToLabel(cand.token);
+            const percent = Math.round(cand.prob * 100);
+            const size = Math.max(0.8, Math.min(1.6, 0.8 + cand.prob * 1.2));
+            span.style.fontSize = `${size}rem`;
+            span.innerHTML = `<span>${label}</span><span class="token-meta">${percent}%</span>`;
+            row.appendChild(span);
+        });
+
+        tokenVizRows.appendChild(row);
+
+        requestAnimationFrame(drawTokenVizLines);
+    };
+
+        if (trainingPathInput) {
+        const savedPath = localStorage.getItem(TRAINING_DATA_PATH_KEY) || '';
+        trainingPathInput.value = savedPath;
+        if (savedPath) {
+            loadTrainingDataFromPath(savedPath, (msg) => game.log(msg), { autoTrain: false });
+        }
+    }
+
+        if (loadTrainingBtn && trainingPathInput) {
+        loadTrainingBtn.addEventListener('click', () => {
+            const path = trainingPathInput.value.trim();
+            localStorage.setItem(TRAINING_DATA_PATH_KEY, path);
+            loadTrainingDataFromPath(path, (msg) => game.log(msg), { autoTrain: true });
+        });
+    }
+
+    if (saveModelBtn) {
+        saveModelBtn.addEventListener('click', () => {
+            saveModelToFiles((msg) => game.log(msg));
+        });
+    }
+
+    if (loadModelBtn && loadModelInput) {
+        loadModelBtn.addEventListener('click', () => {
+            loadModelFromFiles(loadModelInput.files, (msg) => game.log(msg));
+        });
+    }
 
     if (vibeBtn && vibeInput) {
         vibeBtn.addEventListener('click', () => {
