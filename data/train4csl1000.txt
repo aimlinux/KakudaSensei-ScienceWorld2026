@@ -1,0 +1,1000 @@
+stage2 122歩進んで高さ18でジャンプ、153進んで5ジャンプして353進む	stage2 REASON stone ACTION move VALUE 122 ACTION jump VALUE 18 ACTION move VALUE 153 ACTION jump VALUE 5 ACTION move VALUE 353
+stage3 穴の向こうまで跳んで	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 123ジャンプして135進んで122ジャンプして156進んで399進んで	stage2 REASON stone ACTION jump VALUE 123 ACTION move VALUE 135 ACTION jump VALUE 122 ACTION move VALUE 156 ACTION move VALUE 399
+stage1 高さ113でジャンプして211進んで	stage1 REASON stone ACTION jump VALUE 113 ACTION move VALUE 211
+stage1 238歩進んで116ジャンプして162進む	stage1 REASON stone ACTION move VALUE 238 ACTION jump VALUE 116 ACTION move VALUE 162
+stage1 257歩進んで128の高さでジャンプして523進む	stage1 REASON stone ACTION move VALUE 257 ACTION jump VALUE 128 ACTION move VALUE 523
+stage1 うまいことジャンプして岩を越えて	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 208歩進んで高さ6でジャンプして439進む	stage3 REASON hole ACTION move VALUE 208 ACTION jump VALUE 6 ACTION move VALUE 439
+stage2 138歩進んで高さ128でジャンプ、続けて164進んで117でジャンプして357進む	stage2 REASON stone ACTION move VALUE 138 ACTION jump VALUE 128 ACTION move VALUE 164 ACTION jump VALUE 117 ACTION move VALUE 357
+stage3 170進んで159ジャンプして	stage3 REASON hole ACTION move VALUE 170 ACTION jump VALUE 159
+stage1 速く走って高くジャンプして	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 127進んで121ジャンプして135進んで126ジャンプして	stage2 REASON stone ACTION move VALUE 127 ACTION jump VALUE 121 ACTION move VALUE 135 ACTION jump VALUE 126
+stage1 206歩進んで116の高さでジャンプして512進む	stage1 REASON stone ACTION move VALUE 206 ACTION jump VALUE 116 ACTION move VALUE 512
+stage1 スタートから203進んで116高さでジャンプして512進んでゴール	stage1 REASON stone ACTION move VALUE 203 ACTION jump VALUE 116 ACTION move VALUE 512
+stage2 1つ目の岩まで117進んで110でジャンプ、2つ目まで157進んで131でジャンプして403進んで	stage2 REASON stone ACTION move VALUE 117 ACTION jump VALUE 110 ACTION move VALUE 157 ACTION jump VALUE 131 ACTION move VALUE 403
+stage2 1つ目の岩まで114進んで132でジャンプ、2つ目まで147進んで112でジャンプして406進んで	stage2 REASON stone ACTION move VALUE 114 ACTION jump VALUE 132 ACTION move VALUE 147 ACTION jump VALUE 112 ACTION move VALUE 406
+stage2 走ってジャンプを2回して進んで	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 222歩進んで114の高さでジャンプして525進む	stage1 REASON stone ACTION move VALUE 222 ACTION jump VALUE 114 ACTION move VALUE 525
+stage2 121歩進んで123で飛んで、138歩進んで125で飛んで357歩すすむ	stage2 REASON stone ACTION move VALUE 121 ACTION jump VALUE 123 ACTION move VALUE 138 ACTION jump VALUE 125 ACTION move VALUE 357
+stage1 うまいことジャンプして岩を越えて	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 231歩進んで5でジャンプして484進む	stage1 REASON stone ACTION move VALUE 231 ACTION jump VALUE 5 ACTION move VALUE 484
+stage1 218歩進んで114の高さでジャンプして540進む	stage1 REASON stone ACTION move VALUE 218 ACTION jump VALUE 114 ACTION move VALUE 540
+stage2 岩を2回ジャンプして越えて	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 1つ目の岩まで123進んで132でジャンプ、2つ目まで165進んで120でジャンプして394進んで	stage2 REASON stone ACTION move VALUE 123 ACTION jump VALUE 132 ACTION move VALUE 165 ACTION jump VALUE 120 ACTION move VALUE 394
+stage3 197進んで165ジャンプしてから469進んで	stage3 REASON hole ACTION move VALUE 197 ACTION jump VALUE 165 ACTION move VALUE 469
+stage3 179進んで146でしっかりジャンプしてから434進んでゴール	stage3 REASON hole ACTION move VALUE 179 ACTION jump VALUE 146 ACTION move VALUE 434
+stage2 まず142進んで131の高さでジャンプ、次に130進んで125でジャンプし359進んでゴール	stage2 REASON stone ACTION move VALUE 142 ACTION jump VALUE 131 ACTION move VALUE 130 ACTION jump VALUE 125 ACTION move VALUE 359
+stage3 229歩進んで高さ160でジャンプして459進む	stage3 REASON hole ACTION move VALUE 229 ACTION jump VALUE 160 ACTION move VALUE 459
+stage2 150移動して124ジャンプ、159移動して135ジャンプ、最後374移動	stage2 REASON stone ACTION move VALUE 150 ACTION jump VALUE 124 ACTION move VALUE 159 ACTION jump VALUE 135 ACTION move VALUE 374
+stage3 215進んで161でしっかりジャンプしてから457進んでゴール	stage3 REASON hole ACTION move VALUE 215 ACTION jump VALUE 161 ACTION move VALUE 457
+stage3 174進んで149でしっかりジャンプしてから427進んでゴール	stage3 REASON hole ACTION move VALUE 174 ACTION jump VALUE 149 ACTION move VALUE 427
+stage2 127移動して119ジャンプ、137移動して113ジャンプ、最後362移動	stage2 REASON stone ACTION move VALUE 127 ACTION jump VALUE 119 ACTION move VALUE 137 ACTION jump VALUE 113 ACTION move VALUE 362
+stage2 110ジャンプして118進んで113ジャンプして141進んで366進んで	stage2 REASON stone ACTION jump VALUE 110 ACTION move VALUE 118 ACTION jump VALUE 113 ACTION move VALUE 141 ACTION move VALUE 366
+stage2 2個の岩を飛び越えてゴールへ	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 まず215進んで、126でジャンプして、その後496進んで	stage1 REASON stone ACTION move VALUE 215 ACTION jump VALUE 126 ACTION move VALUE 496
+stage3 171歩進んで高さ140でジャンプして86進む	stage3 REASON hole ACTION move VALUE 171 ACTION jump VALUE 140 ACTION move VALUE 86
+stage3 199進んで165ジャンプして	stage3 REASON hole ACTION move VALUE 199 ACTION jump VALUE 165
+stage1 231進んで高さ114でジャンプして	stage1 REASON stone ACTION move VALUE 231 ACTION jump VALUE 114
+stage1 まず222進んで、133でジャンプして、その後499進んで	stage1 REASON stone ACTION move VALUE 222 ACTION jump VALUE 133 ACTION move VALUE 499
+stage3 223進んで161ジャンプしてから91進んで	stage3 REASON hole ACTION move VALUE 223 ACTION jump VALUE 161 ACTION move VALUE 91
+stage1 スタートから239進んで113高さでジャンプして536進んでゴール	stage1 REASON stone ACTION move VALUE 239 ACTION jump VALUE 113 ACTION move VALUE 536
+stage2 まず143進んで118の高さでジャンプ、次に165進んで127でジャンプし406進んでゴール	stage2 REASON stone ACTION move VALUE 143 ACTION jump VALUE 118 ACTION move VALUE 165 ACTION jump VALUE 127 ACTION move VALUE 406
+stage3 379進んで162ジャンプしてから467進んで	stage3 REASON hole ACTION move VALUE 379 ACTION jump VALUE 162 ACTION move VALUE 467
+stage2 まず140進んで114の高さでジャンプ、次に170進んで121でジャンプし385進んでゴール	stage2 REASON stone ACTION move VALUE 140 ACTION jump VALUE 114 ACTION move VALUE 170 ACTION jump VALUE 121 ACTION move VALUE 385
+stage3 179進んで10ジャンプしてから424進んで	stage3 REASON hole ACTION move VALUE 179 ACTION jump VALUE 10 ACTION move VALUE 424
+stage2 134歩進んで高さ117でジャンプ、続けて134進んで118でジャンプして376進む	stage2 REASON stone ACTION move VALUE 134 ACTION jump VALUE 117 ACTION move VALUE 134 ACTION jump VALUE 118 ACTION move VALUE 376
+stage2 岩を2回越えて	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 171進んで30の高さで飛んで437進んでゴール	stage3 REASON hole ACTION move VALUE 171 ACTION jump VALUE 30 ACTION move VALUE 437
+stage2 138歩進んで高さ110でジャンプ、149進んで34でジャンプして379進む	stage2 REASON stone ACTION move VALUE 138 ACTION jump VALUE 110 ACTION move VALUE 149 ACTION jump VALUE 34 ACTION move VALUE 379
+stage1 少し走ってから跳んで	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 215進んで高さ126でジャンプしてから519進んで	stage1 REASON stone ACTION move VALUE 215 ACTION jump VALUE 126 ACTION move VALUE 519
+stage2 143移動して134ジャンプ、168移動して131ジャンプ、最後352移動	stage2 REASON stone ACTION move VALUE 143 ACTION jump VALUE 134 ACTION move VALUE 168 ACTION jump VALUE 131 ACTION move VALUE 352
+stage2 111ジャンプして114進んで118ジャンプして160進んで341進んで	stage2 REASON stone ACTION jump VALUE 111 ACTION move VALUE 114 ACTION jump VALUE 118 ACTION move VALUE 160 ACTION move VALUE 341
+stage2 121進んで128の力でジャンプ、136進んで110の力でジャンプして379進んで	stage2 REASON stone ACTION move VALUE 121 ACTION jump VALUE 128 ACTION move VALUE 136 ACTION jump VALUE 110 ACTION move VALUE 379
+stage1 229移動してから高さ131でジャンプし、486移動して	stage1 REASON stone ACTION move VALUE 229 ACTION jump VALUE 131 ACTION move VALUE 486
+stage3 穴の向こうまで跳んで	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 259歩走って高さ133でとんで535歩進む	stage1 REASON stone ACTION move VALUE 259 ACTION jump VALUE 133 ACTION move VALUE 535
+stage3 194進んで27の高さで飛んで442進んでゴール	stage3 REASON hole ACTION move VALUE 194 ACTION jump VALUE 27 ACTION move VALUE 442
+stage1 487歩進んで113ジャンプして557進む	stage1 REASON stone ACTION move VALUE 487 ACTION jump VALUE 113 ACTION move VALUE 557
+stage2 まず114進んで127の高さでジャンプ、次に133進んで121でジャンプし350進んでゴール	stage2 REASON stone ACTION move VALUE 114 ACTION jump VALUE 127 ACTION move VALUE 133 ACTION jump VALUE 121 ACTION move VALUE 350
+stage3 穴の手前まで202進んで158の高さでジャンプして向こうまで421進んで	stage3 REASON hole ACTION move VALUE 202 ACTION jump VALUE 158 ACTION move VALUE 421
+stage2 118ジャンプして127進んで119ジャンプして168進んで368進んで	stage2 REASON stone ACTION jump VALUE 118 ACTION move VALUE 127 ACTION jump VALUE 119 ACTION move VALUE 168 ACTION move VALUE 368
+stage1 473進んで高さ126でジャンプしてから510進んで	stage1 REASON stone ACTION move VALUE 473 ACTION jump VALUE 126 ACTION move VALUE 510
+stage2 148進んで26ジャンプ、155進んで34ジャンプ、最後に395進んで	stage2 REASON stone ACTION move VALUE 148 ACTION jump VALUE 26 ACTION move VALUE 155 ACTION jump VALUE 34 ACTION move VALUE 395
+stage2 120歩進んで122で飛んで、131歩進んで118で飛んで343歩すすむ	stage2 REASON stone ACTION move VALUE 120 ACTION jump VALUE 122 ACTION move VALUE 131 ACTION jump VALUE 118 ACTION move VALUE 343
+stage3 186進んで142ジャンプして	stage3 REASON hole ACTION move VALUE 186 ACTION jump VALUE 142
+stage3 217歩進んで163の高さで穴を跳び越えて444歩進む	stage3 REASON hole ACTION move VALUE 217 ACTION jump VALUE 163 ACTION move VALUE 444
+stage2 1つ目の岩まで118進んで117でジャンプ、2つ目まで139進んで112でジャンプして387進んで	stage2 REASON stone ACTION move VALUE 118 ACTION jump VALUE 117 ACTION move VALUE 139 ACTION jump VALUE 112 ACTION move VALUE 387
+stage2 128ジャンプして131進んで125ジャンプして143進んで363進んで	stage2 REASON stone ACTION jump VALUE 128 ACTION move VALUE 131 ACTION jump VALUE 125 ACTION move VALUE 143 ACTION move VALUE 363
+stage1 うまいことジャンプして岩を越えて	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 143歩進んで高さ14でジャンプ、136進んで38ジャンプして408進む	stage2 REASON stone ACTION move VALUE 143 ACTION jump VALUE 14 ACTION move VALUE 136 ACTION jump VALUE 38 ACTION move VALUE 408
+stage2 128進んで11ジャンプ、136進んで19ジャンプ、最後に408進んで	stage2 REASON stone ACTION move VALUE 128 ACTION jump VALUE 11 ACTION move VALUE 136 ACTION jump VALUE 19 ACTION move VALUE 408
+stage3 穴の手前まで201進んで145の高さでジャンプして向こうまで462進んで	stage3 REASON hole ACTION move VALUE 201 ACTION jump VALUE 145 ACTION move VALUE 462
+stage1 ちょうど227進んでから139でジャンプして510進んでね	stage1 REASON stone ACTION move VALUE 227 ACTION jump VALUE 139 ACTION move VALUE 510
+stage3 196進んで146ジャンプしてから435進んで	stage3 REASON hole ACTION move VALUE 196 ACTION jump VALUE 146 ACTION move VALUE 435
+stage2 128進んで126の力でジャンプ、135進んで113の力でジャンプして396進んで	stage2 REASON stone ACTION move VALUE 128 ACTION jump VALUE 126 ACTION move VALUE 135 ACTION jump VALUE 113 ACTION move VALUE 396
+stage2 149進んで116ジャンプ、165進んで123ジャンプ、最後に402進んで	stage2 REASON stone ACTION move VALUE 149 ACTION jump VALUE 116 ACTION move VALUE 165 ACTION jump VALUE 123 ACTION move VALUE 402
+stage2 1つ目の岩まで144進んで133でジャンプ、2つ目まで165進んで120でジャンプして403進んで	stage2 REASON stone ACTION move VALUE 144 ACTION jump VALUE 133 ACTION move VALUE 165 ACTION jump VALUE 120 ACTION move VALUE 403
+stage1 511進んで高さ130でジャンプしてから546進んで	stage1 REASON stone ACTION move VALUE 511 ACTION jump VALUE 130 ACTION move VALUE 546
+stage2 まず118進んで129の高さでジャンプ、次に170進んで110でジャンプし403進んでゴール	stage2 REASON stone ACTION move VALUE 118 ACTION jump VALUE 129 ACTION move VALUE 170 ACTION jump VALUE 110 ACTION move VALUE 403
+stage2 114進んで117ジャンプ、158進んで130ジャンプ、最後に378進んで	stage2 REASON stone ACTION move VALUE 114 ACTION jump VALUE 117 ACTION move VALUE 158 ACTION jump VALUE 130 ACTION move VALUE 378
+stage1 スタートから214進んで127高さでジャンプして509進んでゴール	stage1 REASON stone ACTION move VALUE 214 ACTION jump VALUE 127 ACTION move VALUE 509
+stage1 218進んで高さ119でジャンプしてから529進んで	stage1 REASON stone ACTION move VALUE 218 ACTION jump VALUE 119 ACTION move VALUE 529
+stage3 174歩進んで153の高さで穴を跳び越えて472歩進む	stage3 REASON hole ACTION move VALUE 174 ACTION jump VALUE 153 ACTION move VALUE 472
+stage3 大きな穴を飛び越えて	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 高さ127でジャンプして233進んで	stage1 REASON stone ACTION jump VALUE 127 ACTION move VALUE 233
+stage2 136進んで135の力でジャンプ、158進んで113の力でジャンプして347進んで	stage2 REASON stone ACTION move VALUE 136 ACTION jump VALUE 135 ACTION move VALUE 158 ACTION jump VALUE 113 ACTION move VALUE 347
+stage2 まず124進んで130の高さでジャンプ、次に163進んで125でジャンプし382進んでゴール	stage2 REASON stone ACTION move VALUE 124 ACTION jump VALUE 130 ACTION move VALUE 163 ACTION jump VALUE 125 ACTION move VALUE 382
+stage1 ジャンプして岩を越えて	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 120歩進んで120で飛んで、151歩進んで122で飛んで356歩すすむ	stage2 REASON stone ACTION move VALUE 120 ACTION jump VALUE 120 ACTION move VALUE 151 ACTION jump VALUE 122 ACTION move VALUE 356
+stage3 198歩進んで165の高さで穴を跳び越えて467歩進む	stage3 REASON hole ACTION move VALUE 198 ACTION jump VALUE 165 ACTION move VALUE 467
+stage2 まず131進んで114の高さでジャンプ、次に150進んで131でジャンプし395進んでゴール	stage2 REASON stone ACTION move VALUE 131 ACTION jump VALUE 114 ACTION move VALUE 150 ACTION jump VALUE 131 ACTION move VALUE 395
+stage1 504歩進んで116ジャンプして540進む	stage1 REASON stone ACTION move VALUE 504 ACTION jump VALUE 116 ACTION move VALUE 540
+stage2 115歩進んで高さ123でジャンプ、148進んで14でジャンプして405進む	stage2 REASON stone ACTION move VALUE 115 ACTION jump VALUE 123 ACTION move VALUE 148 ACTION jump VALUE 14 ACTION move VALUE 405
+stage1 220歩進んで133の高さでジャンプして542進む	stage1 REASON stone ACTION move VALUE 220 ACTION jump VALUE 133 ACTION move VALUE 542
+stage1 206進んで高さ126でジャンプしてから543進んで	stage1 REASON stone ACTION move VALUE 206 ACTION jump VALUE 126 ACTION move VALUE 543
+stage3 446歩進んで高さ162でジャンプして469進む	stage3 REASON hole ACTION move VALUE 446 ACTION jump VALUE 162 ACTION move VALUE 469
+stage2 149歩進んで高さ118でジャンプ、続けて168進んで117でジャンプして377進む	stage2 REASON stone ACTION move VALUE 149 ACTION jump VALUE 118 ACTION move VALUE 168 ACTION jump VALUE 117 ACTION move VALUE 377
+stage1 210進んで高さ124でジャンプして	stage1 REASON stone ACTION move VALUE 210 ACTION jump VALUE 124
+stage2 まず143進んで111の高さでジャンプ、次に138進んで119でジャンプし373進んでゴール	stage2 REASON stone ACTION move VALUE 143 ACTION jump VALUE 111 ACTION move VALUE 138 ACTION jump VALUE 119 ACTION move VALUE 373
+stage1 251歩進んで128ジャンプして94進む	stage1 REASON stone ACTION move VALUE 251 ACTION jump VALUE 128 ACTION move VALUE 94
+stage2 116歩進んで高さ14でジャンプ、140進んで29ジャンプして399進む	stage2 REASON stone ACTION move VALUE 116 ACTION jump VALUE 14 ACTION move VALUE 140 ACTION jump VALUE 29 ACTION move VALUE 399
+stage2 131歩進んで高さ27でジャンプ、133進んで23ジャンプして367進む	stage2 REASON stone ACTION move VALUE 131 ACTION jump VALUE 27 ACTION move VALUE 133 ACTION jump VALUE 23 ACTION move VALUE 367
+stage3 186進んで141ジャンプして	stage3 REASON hole ACTION move VALUE 186 ACTION jump VALUE 141
+stage1 高さ126でジャンプして256進んで	stage1 REASON stone ACTION jump VALUE 126 ACTION move VALUE 256
+stage3 220進んで141ジャンプして	stage3 REASON hole ACTION move VALUE 220 ACTION jump VALUE 141
+stage1 246進んで高さ110でジャンプして	stage1 REASON stone ACTION move VALUE 246 ACTION jump VALUE 110
+stage1 253歩走って高さ113でとんで492歩進む	stage1 REASON stone ACTION move VALUE 253 ACTION jump VALUE 113 ACTION move VALUE 492
+stage1 223進んで137の力でジャンプしてから538歩すすんで	stage1 REASON stone ACTION move VALUE 223 ACTION jump VALUE 137 ACTION move VALUE 538
+stage3 大きくジャンプして穴を越えて	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 石を越えてね	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 125ジャンプして144進んで111ジャンプして147進んで401進んで	stage2 REASON stone ACTION jump VALUE 125 ACTION move VALUE 144 ACTION jump VALUE 111 ACTION move VALUE 147 ACTION move VALUE 401
+stage3 171歩進んで高さ157でジャンプして466進む	stage3 REASON hole ACTION move VALUE 171 ACTION jump VALUE 157 ACTION move VALUE 466
+stage2 1つ目の岩まで149進んで134でジャンプ、2つ目まで166進んで111でジャンプして390進んで	stage2 REASON stone ACTION move VALUE 149 ACTION jump VALUE 134 ACTION move VALUE 166 ACTION jump VALUE 111 ACTION move VALUE 390
+stage2 119進んで115の力でジャンプ、159進んで118の力でジャンプして369進んで	stage2 REASON stone ACTION move VALUE 119 ACTION jump VALUE 115 ACTION move VALUE 159 ACTION jump VALUE 118 ACTION move VALUE 369
+stage3 207進んで26ジャンプしてから435進んで	stage3 REASON hole ACTION move VALUE 207 ACTION jump VALUE 26 ACTION move VALUE 435
+stage3 思い切りジャンプして穴を越えて	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 192進んで156ジャンプして大きな穴を越えて480進んで	stage3 REASON hole ACTION move VALUE 192 ACTION jump VALUE 156 ACTION move VALUE 480
+stage2 138歩進んで高さ134でジャンプ、続けて139進んで134でジャンプして410進む	stage2 REASON stone ACTION move VALUE 138 ACTION jump VALUE 134 ACTION move VALUE 139 ACTION jump VALUE 134 ACTION move VALUE 410
+stage2 138進んで5ジャンプ、160進んで34ジャンプ、最後に405進んで	stage2 REASON stone ACTION move VALUE 138 ACTION jump VALUE 5 ACTION move VALUE 160 ACTION jump VALUE 34 ACTION move VALUE 405
+stage1 248進んで高さ23でジャンプしてから500進んで	stage1 REASON stone ACTION move VALUE 248 ACTION jump VALUE 23 ACTION move VALUE 500
+stage1 なんかうまいことやって	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 223進んで162ジャンプして	stage3 REASON hole ACTION move VALUE 223 ACTION jump VALUE 162
+stage3 540歩進んで高さ153でジャンプして430進む	stage3 REASON hole ACTION move VALUE 540 ACTION jump VALUE 153 ACTION move VALUE 430
+stage1 ちょうど218進んでから132でジャンプして549進んでね	stage1 REASON stone ACTION move VALUE 218 ACTION jump VALUE 132 ACTION move VALUE 549
+stage1 238歩進んで131の高さでジャンプして510進む	stage1 REASON stone ACTION move VALUE 238 ACTION jump VALUE 131 ACTION move VALUE 510
+stage1 234歩走って高さ119でとんで492歩進む	stage1 REASON stone ACTION move VALUE 234 ACTION jump VALUE 119 ACTION move VALUE 492
+stage3 219歩進んで高さ163でジャンプして441進む	stage3 REASON hole ACTION move VALUE 219 ACTION jump VALUE 163 ACTION move VALUE 441
+stage2 149進んで19ジャンプ、148進んで9ジャンプ、最後に357進んで	stage2 REASON stone ACTION move VALUE 149 ACTION jump VALUE 19 ACTION move VALUE 148 ACTION jump VALUE 9 ACTION move VALUE 357
+stage3 224進んで150ジャンプして	stage3 REASON hole ACTION move VALUE 224 ACTION jump VALUE 150
+stage2 119進んで11ジャンプ、154進んで6ジャンプ、最後に369進んで	stage2 REASON stone ACTION move VALUE 119 ACTION jump VALUE 11 ACTION move VALUE 154 ACTION jump VALUE 6 ACTION move VALUE 369
+stage2 135進んで126ジャンプして140進んで371進んで	stage2 REASON stone ACTION move VALUE 135 ACTION jump VALUE 126 ACTION move VALUE 140 ACTION move VALUE 371
+stage3 200進んで153ジャンプしてから192進んで	stage3 REASON hole ACTION move VALUE 200 ACTION jump VALUE 153 ACTION move VALUE 192
+stage2 122進んで118の力でジャンプ、166進んで117の力でジャンプして350進んで	stage2 REASON stone ACTION move VALUE 122 ACTION jump VALUE 118 ACTION move VALUE 166 ACTION jump VALUE 117 ACTION move VALUE 350
+stage1 岩の手前まで251進んで119ジャンプして向こうまで520進んで	stage1 REASON stone ACTION move VALUE 251 ACTION jump VALUE 119 ACTION move VALUE 520
+stage3 穴を飛んで渡って	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 229進んで146ジャンプして大きな穴を越えて459進んで	stage3 REASON hole ACTION move VALUE 229 ACTION jump VALUE 146 ACTION move VALUE 459
+stage1 213進んで高さ19でジャンプしてから538進んで	stage1 REASON stone ACTION move VALUE 213 ACTION jump VALUE 19 ACTION move VALUE 538
+stage1 211移動してから高さ130でジャンプし、522移動して	stage1 REASON stone ACTION move VALUE 211 ACTION jump VALUE 130 ACTION move VALUE 522
+stage3 まず203進み高さ148で飛び越えて454進んでゴール	stage3 REASON hole ACTION move VALUE 203 ACTION jump VALUE 148 ACTION move VALUE 454
+stage3 穴の手前まで225進んで155の高さでジャンプして向こうまで438進んで	stage3 REASON hole ACTION move VALUE 225 ACTION jump VALUE 155 ACTION move VALUE 438
+stage2 2つジャンプしてゴールへ	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 372歩進んで高さ161でジャンプして477進む	stage3 REASON hole ACTION move VALUE 372 ACTION jump VALUE 161 ACTION move VALUE 477
+stage2 117進んで122ジャンプ、159進んで11ジャンプ、最後に390進んで	stage2 REASON stone ACTION move VALUE 117 ACTION jump VALUE 122 ACTION move VALUE 159 ACTION jump VALUE 11 ACTION move VALUE 390
+stage2 132進んで131ジャンプ、141進んで114ジャンプ、最後に389進んで	stage2 REASON stone ACTION move VALUE 132 ACTION jump VALUE 131 ACTION move VALUE 141 ACTION jump VALUE 114 ACTION move VALUE 389
+stage1 257歩進んで118の高さでジャンプして497進む	stage1 REASON stone ACTION move VALUE 257 ACTION jump VALUE 118 ACTION move VALUE 497
+stage3 思い切りジャンプして穴を越えて	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 507進んで高さ123でジャンプしてから543進んで	stage1 REASON stone ACTION move VALUE 507 ACTION jump VALUE 123 ACTION move VALUE 543
+stage2 131移動して132ジャンプ、145移動して115ジャンプ、最後340移動	stage2 REASON stone ACTION move VALUE 131 ACTION jump VALUE 132 ACTION move VALUE 145 ACTION jump VALUE 115 ACTION move VALUE 340
+stage3 424歩進んで高さ159でジャンプして449進む	stage3 REASON hole ACTION move VALUE 424 ACTION jump VALUE 159 ACTION move VALUE 449
+stage2 連続でジャンプして2つの岩を越えて	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 190進んで157ジャンプしてから443進んで	stage3 REASON hole ACTION move VALUE 190 ACTION jump VALUE 157 ACTION move VALUE 443
+stage1 201歩走って高さ121でとんで517歩進む	stage1 REASON stone ACTION move VALUE 201 ACTION jump VALUE 121 ACTION move VALUE 517
+stage1 岩を超えてゴールまで行って	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 214歩進んで127ジャンプして166進む	stage1 REASON stone ACTION move VALUE 214 ACTION jump VALUE 127 ACTION move VALUE 166
+stage2 116歩進んで高さ111でジャンプ、続けて135進んで131でジャンプして358進む	stage2 REASON stone ACTION move VALUE 116 ACTION jump VALUE 111 ACTION move VALUE 135 ACTION jump VALUE 131 ACTION move VALUE 358
+stage1 235進んで121でジャンプ	stage1 REASON stone ACTION move VALUE 235 ACTION jump VALUE 121
+stage2 126進んで118ジャンプして166進んで117ジャンプして	stage2 REASON stone ACTION move VALUE 126 ACTION jump VALUE 118 ACTION move VALUE 166 ACTION jump VALUE 117
+stage3 197進んで146ジャンプしてから451進んで	stage3 REASON hole ACTION move VALUE 197 ACTION jump VALUE 146 ACTION move VALUE 451
+stage2 148移動して115ジャンプ、137移動して110ジャンプ、最後396移動	stage2 REASON stone ACTION move VALUE 148 ACTION jump VALUE 115 ACTION move VALUE 137 ACTION jump VALUE 110 ACTION move VALUE 396
+stage2 127進んで135ジャンプ、155進んで127ジャンプ、最後に400進んで	stage2 REASON stone ACTION move VALUE 127 ACTION jump VALUE 135 ACTION move VALUE 155 ACTION jump VALUE 127 ACTION move VALUE 400
+stage3 174進んで159ジャンプして	stage3 REASON hole ACTION move VALUE 174 ACTION jump VALUE 159
+stage2 112進んで26ジャンプ、140進んで5ジャンプ、最後に374進んで	stage2 REASON stone ACTION move VALUE 112 ACTION jump VALUE 26 ACTION move VALUE 140 ACTION jump VALUE 5 ACTION move VALUE 374
+stage1 208進んで高さ33でジャンプしてから551進んで	stage1 REASON stone ACTION move VALUE 208 ACTION jump VALUE 33 ACTION move VALUE 551
+stage3 178進んで19の高さで飛んで440進んでゴール	stage3 REASON hole ACTION move VALUE 178 ACTION jump VALUE 19 ACTION move VALUE 440
+stage3 531歩進んで高さ155でジャンプして446進む	stage3 REASON hole ACTION move VALUE 531 ACTION jump VALUE 155 ACTION move VALUE 446
+stage2 127歩進んで高さ121でジャンプ、143進んで36でジャンプして345進む	stage2 REASON stone ACTION move VALUE 127 ACTION jump VALUE 121 ACTION move VALUE 143 ACTION jump VALUE 36 ACTION move VALUE 345
+stage2 まず142進んで125の高さでジャンプ、次に144進んで128でジャンプし400進んでゴール	stage2 REASON stone ACTION move VALUE 142 ACTION jump VALUE 125 ACTION move VALUE 144 ACTION jump VALUE 128 ACTION move VALUE 400
+stage3 穴の手前まで228進んで160の高さでジャンプして向こうまで463進んで	stage3 REASON hole ACTION move VALUE 228 ACTION jump VALUE 160 ACTION move VALUE 463
+stage1 228進んで高さ139でジャンプしてから522進んで	stage1 REASON stone ACTION move VALUE 228 ACTION jump VALUE 139 ACTION move VALUE 522
+stage3 206歩進んで高さ152でジャンプして428進む	stage3 REASON hole ACTION move VALUE 206 ACTION jump VALUE 152 ACTION move VALUE 428
+stage3 533歩進んで高さ149でジャンプして433進む	stage3 REASON hole ACTION move VALUE 533 ACTION jump VALUE 149 ACTION move VALUE 433
+stage2 111ジャンプして130進んで128ジャンプして154進んで382進んで	stage2 REASON stone ACTION jump VALUE 111 ACTION move VALUE 130 ACTION jump VALUE 128 ACTION move VALUE 154 ACTION move VALUE 382
+stage3 215歩進んで158の高さで穴を跳び越えて475歩進む	stage3 REASON hole ACTION move VALUE 215 ACTION jump VALUE 158 ACTION move VALUE 475
+stage3 高くジャンプして向こう側へ行って	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 239移動してから高さ125でジャンプし、499移動して	stage1 REASON stone ACTION move VALUE 239 ACTION jump VALUE 125 ACTION move VALUE 499
+stage3 勢いよくジャンプして	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 142進んで127ジャンプ、138進んで120ジャンプ、最後に404進んで	stage2 REASON stone ACTION move VALUE 142 ACTION jump VALUE 127 ACTION move VALUE 138 ACTION jump VALUE 120 ACTION move VALUE 404
+stage3 206進んで161ジャンプしてから139進んで	stage3 REASON hole ACTION move VALUE 206 ACTION jump VALUE 161 ACTION move VALUE 139
+stage1 232進んで136の力でジャンプしてから557歩すすんで	stage1 REASON stone ACTION move VALUE 232 ACTION jump VALUE 136 ACTION move VALUE 557
+stage2 122進んで123ジャンプして169進んで123ジャンプして	stage2 REASON stone ACTION move VALUE 122 ACTION jump VALUE 123 ACTION move VALUE 169 ACTION jump VALUE 123
+stage2 143移動して134ジャンプ、135移動して119ジャンプ、最後346移動	stage2 REASON stone ACTION move VALUE 143 ACTION jump VALUE 134 ACTION move VALUE 135 ACTION jump VALUE 119 ACTION move VALUE 346
+stage1 248歩進んで130ジャンプして101進む	stage1 REASON stone ACTION move VALUE 248 ACTION jump VALUE 130 ACTION move VALUE 101
+stage2 2つの岩を飛び越えて	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 201進んで高さ125でジャンプしてから482進んで	stage1 REASON stone ACTION move VALUE 201 ACTION jump VALUE 125 ACTION move VALUE 482
+stage2 118進んで113の力でジャンプ、159進んで121の力でジャンプして410進んで	stage2 REASON stone ACTION move VALUE 118 ACTION jump VALUE 113 ACTION move VALUE 159 ACTION jump VALUE 121 ACTION move VALUE 410
+stage2 130進んで130ジャンプして147進んで115ジャンプして	stage2 REASON stone ACTION move VALUE 130 ACTION jump VALUE 130 ACTION move VALUE 147 ACTION jump VALUE 115
+stage1 まず230進んで、119でジャンプして、その後491進んで	stage1 REASON stone ACTION move VALUE 230 ACTION jump VALUE 119 ACTION move VALUE 491
+stage1 少し走ってから跳んで	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 132進んで110ジャンプして160進んで118ジャンプして	stage2 REASON stone ACTION move VALUE 132 ACTION jump VALUE 110 ACTION move VALUE 160 ACTION jump VALUE 118
+stage3 205進んで144でしっかりジャンプしてから454進んでゴール	stage3 REASON hole ACTION move VALUE 205 ACTION jump VALUE 144 ACTION move VALUE 454
+stage2 123進んで10ジャンプ、162進んで11ジャンプ、最後に357進んで	stage2 REASON stone ACTION move VALUE 123 ACTION jump VALUE 10 ACTION move VALUE 162 ACTION jump VALUE 11 ACTION move VALUE 357
+stage1 258進んで123の力でジャンプしてから551歩すすんで	stage1 REASON stone ACTION move VALUE 258 ACTION jump VALUE 123 ACTION move VALUE 551
+stage2 126進んで123の力でジャンプ、135進んで129の力でジャンプして373進んで	stage2 REASON stone ACTION move VALUE 126 ACTION jump VALUE 123 ACTION move VALUE 135 ACTION jump VALUE 129 ACTION move VALUE 373
+stage3 211進んで158でしっかりジャンプしてから480進んでゴール	stage3 REASON hole ACTION move VALUE 211 ACTION jump VALUE 158 ACTION move VALUE 480
+stage2 126移動して117ジャンプ、157移動して114ジャンプ、最後405移動	stage2 REASON stone ACTION move VALUE 126 ACTION jump VALUE 117 ACTION move VALUE 157 ACTION jump VALUE 114 ACTION move VALUE 405
+stage2 150進んで120ジャンプ、138進んで21ジャンプ、最後に409進んで	stage2 REASON stone ACTION move VALUE 150 ACTION jump VALUE 120 ACTION move VALUE 138 ACTION jump VALUE 21 ACTION move VALUE 409
+stage3 228進んで149ジャンプしてから80進んで	stage3 REASON hole ACTION move VALUE 228 ACTION jump VALUE 149 ACTION move VALUE 80
+stage1 206歩走って高さ113でとんで508歩進む	stage1 REASON stone ACTION move VALUE 206 ACTION jump VALUE 113 ACTION move VALUE 508
+stage2 136進んで129ジャンプ、159進んで118ジャンプ、最後に406進んで	stage2 REASON stone ACTION move VALUE 136 ACTION jump VALUE 129 ACTION move VALUE 159 ACTION jump VALUE 118 ACTION move VALUE 406
+stage3 大きな穴を飛び越えて	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 ちょっと進んでジャンプして	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 岩の上を跳んで向こうへ行って	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 なんかうまいことやって	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 133移動して116ジャンプ、133移動して132ジャンプ、最後340移動	stage2 REASON stone ACTION move VALUE 133 ACTION jump VALUE 116 ACTION move VALUE 133 ACTION jump VALUE 132 ACTION move VALUE 340
+stage1 まず211進んで、116でジャンプして、その後517進んで	stage1 REASON stone ACTION move VALUE 211 ACTION jump VALUE 116 ACTION move VALUE 517
+stage2 まず127進んで126の高さでジャンプ、次に145進んで116でジャンプし381進んでゴール	stage2 REASON stone ACTION move VALUE 127 ACTION jump VALUE 126 ACTION move VALUE 145 ACTION jump VALUE 116 ACTION move VALUE 381
+stage3 202移動してから150の力で大きくジャンプし422移動して	stage3 REASON hole ACTION move VALUE 202 ACTION jump VALUE 150 ACTION move VALUE 422
+stage2 岩を2回ジャンプして越えて	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 穴の向こうまで跳んで	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 大きくジャンプして穴を越えて	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 岩が2つあるから2回飛んで	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 大きくとんで穴を渡って	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 218進んで15の高さで飛んで435進んでゴール	stage3 REASON hole ACTION move VALUE 218 ACTION jump VALUE 15 ACTION move VALUE 435
+stage1 224進んで高さ112でジャンプしてから89進んで	stage1 REASON stone ACTION move VALUE 224 ACTION jump VALUE 112 ACTION move VALUE 89
+stage2 岩を2回ジャンプして越えて	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 穴の手前まで172進んで155の高さでジャンプして向こうまで468進んで	stage3 REASON hole ACTION move VALUE 172 ACTION jump VALUE 155 ACTION move VALUE 468
+stage3 大きな穴を飛び越えて	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 136歩進んで高さ117でジャンプ、続けて158進んで128でジャンプして379進む	stage2 REASON stone ACTION move VALUE 136 ACTION jump VALUE 117 ACTION move VALUE 158 ACTION jump VALUE 128 ACTION move VALUE 379
+stage3 194移動してから144の力で大きくジャンプし431移動して	stage3 REASON hole ACTION move VALUE 194 ACTION jump VALUE 144 ACTION move VALUE 431
+stage1 うまいことジャンプして岩を越えて	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 232歩走って高さ127でとんで544歩進む	stage1 REASON stone ACTION move VALUE 232 ACTION jump VALUE 127 ACTION move VALUE 544
+stage2 2回ジャンプしてゴールへ	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 岩の手前まで206進んで110ジャンプして向こうまで557進んで	stage1 REASON stone ACTION move VALUE 206 ACTION jump VALUE 110 ACTION move VALUE 557
+stage3 215移動してから155の力で大きくジャンプし424移動して	stage3 REASON hole ACTION move VALUE 215 ACTION jump VALUE 155 ACTION move VALUE 424
+stage2 1つ目の岩まで140進んで123でジャンプ、2つ目まで138進んで131でジャンプして399進んで	stage2 REASON stone ACTION move VALUE 140 ACTION jump VALUE 123 ACTION move VALUE 138 ACTION jump VALUE 131 ACTION move VALUE 399
+stage2 121歩進んで高さ117でジャンプ、148進んで40でジャンプして384進む	stage2 REASON stone ACTION move VALUE 121 ACTION jump VALUE 117 ACTION move VALUE 148 ACTION jump VALUE 40 ACTION move VALUE 384
+stage2 1つ目の岩まで123進んで130でジャンプ、2つ目まで154進んで129でジャンプして383進んで	stage2 REASON stone ACTION move VALUE 123 ACTION jump VALUE 130 ACTION move VALUE 154 ACTION jump VALUE 129 ACTION move VALUE 383
+stage3 217歩進んで高さ161でジャンプして473進む	stage3 REASON hole ACTION move VALUE 217 ACTION jump VALUE 161 ACTION move VALUE 473
+stage1 岩の上を跳んで向こうへ行って	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 239進んで125でジャンプ	stage1 REASON stone ACTION move VALUE 239 ACTION jump VALUE 125
+stage2 1つ目の岩まで148進んで121でジャンプ、2つ目まで158進んで135でジャンプして381進んで	stage2 REASON stone ACTION move VALUE 148 ACTION jump VALUE 121 ACTION move VALUE 158 ACTION jump VALUE 135 ACTION move VALUE 381
+stage1 215進んで高さ16でジャンプしてから484進んで	stage1 REASON stone ACTION move VALUE 215 ACTION jump VALUE 16 ACTION move VALUE 484
+stage1 221進んで高さ111でジャンプしてから168進んで	stage1 REASON stone ACTION move VALUE 221 ACTION jump VALUE 111 ACTION move VALUE 168
+stage1 ジャンプして岩を越えて	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 220進んで140ジャンプして大きな穴を越えて438進んで	stage3 REASON hole ACTION move VALUE 220 ACTION jump VALUE 140 ACTION move VALUE 438
+stage3 381歩進んで高さ160でジャンプして465進む	stage3 REASON hole ACTION move VALUE 381 ACTION jump VALUE 160 ACTION move VALUE 465
+stage1 250歩進んで127の高さでジャンプして528進む	stage1 REASON stone ACTION move VALUE 250 ACTION jump VALUE 127 ACTION move VALUE 528
+stage2 2回ジャンプしてゴールへ	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 184歩進んで151の高さで穴を跳び越えて426歩進む	stage3 REASON hole ACTION move VALUE 184 ACTION jump VALUE 151 ACTION move VALUE 426
+stage1 まず221進んで、111でジャンプして、その後492進んで	stage1 REASON stone ACTION move VALUE 221 ACTION jump VALUE 111 ACTION move VALUE 492
+stage3 199進んで156でしっかりジャンプしてから456進んでゴール	stage3 REASON hole ACTION move VALUE 199 ACTION jump VALUE 156 ACTION move VALUE 456
+stage2 132歩進んで124で飛んで、143歩進んで117で飛んで370歩すすむ	stage2 REASON stone ACTION move VALUE 132 ACTION jump VALUE 124 ACTION move VALUE 143 ACTION jump VALUE 117 ACTION move VALUE 370
+stage3 穴の手前まで191進んで157の高さでジャンプして向こうまで428進んで	stage3 REASON hole ACTION move VALUE 191 ACTION jump VALUE 157 ACTION move VALUE 428
+stage3 穴の手前まで225進んで161の高さでジャンプして向こうまで439進んで	stage3 REASON hole ACTION move VALUE 225 ACTION jump VALUE 161 ACTION move VALUE 439
+stage3 227進んで151ジャンプして大きな穴を越えて434進んで	stage3 REASON hole ACTION move VALUE 227 ACTION jump VALUE 151 ACTION move VALUE 434
+stage1 246進んで121の力でジャンプしてから525歩すすんで	stage1 REASON stone ACTION move VALUE 246 ACTION jump VALUE 121 ACTION move VALUE 525
+stage3 まず200進み高さ146で飛び越えて472進んでゴール	stage3 REASON hole ACTION move VALUE 200 ACTION jump VALUE 146 ACTION move VALUE 472
+stage3 217移動してから156の力で大きくジャンプし473移動して	stage3 REASON hole ACTION move VALUE 217 ACTION jump VALUE 156 ACTION move VALUE 473
+stage3 218進んで144ジャンプして	stage3 REASON hole ACTION move VALUE 218 ACTION jump VALUE 144
+stage2 まず110進んで114の高さでジャンプ、次に159進んで116でジャンプし342進んでゴール	stage2 REASON stone ACTION move VALUE 110 ACTION jump VALUE 114 ACTION move VALUE 159 ACTION jump VALUE 116 ACTION move VALUE 342
+stage3 227進んで34の高さで飛んで433進んでゴール	stage3 REASON hole ACTION move VALUE 227 ACTION jump VALUE 34 ACTION move VALUE 433
+stage2 133進んで124ジャンプして165進んで375進んで	stage2 REASON stone ACTION move VALUE 133 ACTION jump VALUE 124 ACTION move VALUE 165 ACTION move VALUE 375
+stage3 穴の向こうまで跳んで	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 134歩進んで高さ40でジャンプ、144進んで11ジャンプして375進む	stage2 REASON stone ACTION move VALUE 134 ACTION jump VALUE 40 ACTION move VALUE 144 ACTION jump VALUE 11 ACTION move VALUE 375
+stage2 129移動して130ジャンプ、141移動して132ジャンプ、最後342移動	stage2 REASON stone ACTION move VALUE 129 ACTION jump VALUE 130 ACTION move VALUE 141 ACTION jump VALUE 132 ACTION move VALUE 342
+stage1 まず256進んで、128でジャンプして、その後557進んで	stage1 REASON stone ACTION move VALUE 256 ACTION jump VALUE 128 ACTION move VALUE 557
+stage1 232進んで15ジャンプして499進んでゴール	stage1 REASON stone ACTION move VALUE 232 ACTION jump VALUE 15 ACTION move VALUE 499
+stage2 142移動して131ジャンプ、157移動して122ジャンプ、最後364移動	stage2 REASON stone ACTION move VALUE 142 ACTION jump VALUE 131 ACTION move VALUE 157 ACTION jump VALUE 122 ACTION move VALUE 364
+stage1 岩の手前まで214進んで119ジャンプして向こうまで526進んで	stage1 REASON stone ACTION move VALUE 214 ACTION jump VALUE 119 ACTION move VALUE 526
+stage3 511歩進んで高さ164でジャンプして445進む	stage3 REASON hole ACTION move VALUE 511 ACTION jump VALUE 164 ACTION move VALUE 445
+stage3 穴の手前まで215進んで154の高さでジャンプして向こうまで464進んで	stage3 REASON hole ACTION move VALUE 215 ACTION jump VALUE 154 ACTION move VALUE 464
+stage1 石を越えてね	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 186歩進んで142の高さで穴を跳び越えて479歩進む	stage3 REASON hole ACTION move VALUE 186 ACTION jump VALUE 142 ACTION move VALUE 479
+stage3 227進んで142ジャンプしてから443進んで	stage3 REASON hole ACTION move VALUE 227 ACTION jump VALUE 142 ACTION move VALUE 443
+stage3 219歩進んで高さ159でジャンプして132進む	stage3 REASON hole ACTION move VALUE 219 ACTION jump VALUE 159 ACTION move VALUE 132
+stage1 214歩走って高さ112でとんで534歩進む	stage1 REASON stone ACTION move VALUE 214 ACTION jump VALUE 112 ACTION move VALUE 534
+stage2 岩が2つあるから2回飛んで	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 ちょうど247進んでから131でジャンプして536進んでね	stage1 REASON stone ACTION move VALUE 247 ACTION jump VALUE 131 ACTION move VALUE 536
+stage1 249進んで113の力でジャンプしてから511歩すすんで	stage1 REASON stone ACTION move VALUE 249 ACTION jump VALUE 113 ACTION move VALUE 511
+stage3 204進んで164ジャンプしてから475進んで	stage3 REASON hole ACTION move VALUE 204 ACTION jump VALUE 164 ACTION move VALUE 475
+stage3 220進んで157ジャンプしてから474進んで	stage3 REASON hole ACTION move VALUE 220 ACTION jump VALUE 157 ACTION move VALUE 474
+stage3 216進んで149ジャンプして大きな穴を越えて425進んで	stage3 REASON hole ACTION move VALUE 216 ACTION jump VALUE 149 ACTION move VALUE 425
+stage2 1つ目の岩まで130進んで127でジャンプ、2つ目まで131進んで111でジャンプして371進んで	stage2 REASON stone ACTION move VALUE 130 ACTION jump VALUE 127 ACTION move VALUE 131 ACTION jump VALUE 111 ACTION move VALUE 371
+stage2 135歩進んで高さ112でジャンプ、続けて140進んで132でジャンプして352進む	stage2 REASON stone ACTION move VALUE 135 ACTION jump VALUE 112 ACTION move VALUE 140 ACTION jump VALUE 132 ACTION move VALUE 352
+stage3 まず202進み高さ146で飛び越えて444進んでゴール	stage3 REASON hole ACTION move VALUE 202 ACTION jump VALUE 146 ACTION move VALUE 444
+stage3 171歩進んで高さ162でジャンプして424進む	stage3 REASON hole ACTION move VALUE 171 ACTION jump VALUE 162 ACTION move VALUE 424
+stage2 2つジャンプしてゴールへ	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 大きくジャンプして穴を越えて	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 199歩進んで高さ165でジャンプして465進む	stage3 REASON hole ACTION move VALUE 199 ACTION jump VALUE 165 ACTION move VALUE 465
+stage3 205歩進んで高さ152でジャンプして476進む	stage3 REASON hole ACTION move VALUE 205 ACTION jump VALUE 152 ACTION move VALUE 476
+stage3 185歩進んで162の高さで穴を跳び越えて455歩進む	stage3 REASON hole ACTION move VALUE 185 ACTION jump VALUE 162 ACTION move VALUE 455
+stage2 136進んで124ジャンプ、133進んで111ジャンプ、最後に369進んで	stage2 REASON stone ACTION move VALUE 136 ACTION jump VALUE 124 ACTION move VALUE 133 ACTION jump VALUE 111 ACTION move VALUE 369
+stage3 228進んで146ジャンプして大きな穴を越えて424進んで	stage3 REASON hole ACTION move VALUE 228 ACTION jump VALUE 146 ACTION move VALUE 424
+stage2 2つジャンプしてゴールへ	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 492進んで高さ115でジャンプしてから489進んで	stage1 REASON stone ACTION move VALUE 492 ACTION jump VALUE 115 ACTION move VALUE 489
+stage3 190歩進んで高さ156でジャンプして115進む	stage3 REASON hole ACTION move VALUE 190 ACTION jump VALUE 156 ACTION move VALUE 115
+stage2 1つ目の岩まで130進んで118でジャンプ、2つ目まで142進んで126でジャンプして382進んで	stage2 REASON stone ACTION move VALUE 130 ACTION jump VALUE 118 ACTION move VALUE 142 ACTION jump VALUE 126 ACTION move VALUE 382
+stage2 111進んで116ジャンプ、167進んで112ジャンプ、最後に386進んで	stage2 REASON stone ACTION move VALUE 111 ACTION jump VALUE 116 ACTION move VALUE 167 ACTION jump VALUE 112 ACTION move VALUE 386
+stage3 394歩進んで高さ161でジャンプして421進む	stage3 REASON hole ACTION move VALUE 394 ACTION jump VALUE 161 ACTION move VALUE 421
+stage1 394歩進んで122ジャンプして527進む	stage1 REASON stone ACTION move VALUE 394 ACTION jump VALUE 122 ACTION move VALUE 527
+stage2 131歩進んで高さ110でジャンプ、続けて139進んで119でジャンプして376進む	stage2 REASON stone ACTION move VALUE 131 ACTION jump VALUE 110 ACTION move VALUE 139 ACTION jump VALUE 119 ACTION move VALUE 376
+stage1 まず207進んで、130でジャンプして、その後560進んで	stage1 REASON stone ACTION move VALUE 207 ACTION jump VALUE 130 ACTION move VALUE 560
+stage3 185進んで144ジャンプしてから184進んで	stage3 REASON hole ACTION move VALUE 185 ACTION jump VALUE 144 ACTION move VALUE 184
+stage1 245歩進んで127の高さでジャンプして526進む	stage1 REASON stone ACTION move VALUE 245 ACTION jump VALUE 127 ACTION move VALUE 526
+stage3 188進んで140ジャンプしてから176進んで	stage3 REASON hole ACTION move VALUE 188 ACTION jump VALUE 140 ACTION move VALUE 176
+stage2 137歩進んで115で飛んで、148歩進んで119で飛んで378歩すすむ	stage2 REASON stone ACTION move VALUE 137 ACTION jump VALUE 115 ACTION move VALUE 148 ACTION jump VALUE 119 ACTION move VALUE 378
+stage1 岩の手前まで207進んで139ジャンプして向こうまで511進んで	stage1 REASON stone ACTION move VALUE 207 ACTION jump VALUE 139 ACTION move VALUE 511
+stage3 207進んで147ジャンプして	stage3 REASON hole ACTION move VALUE 207 ACTION jump VALUE 147
+stage2 岩が2つあるから2回飛んで	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 まず198進み高さ164で飛び越えて428進んでゴール	stage3 REASON hole ACTION move VALUE 198 ACTION jump VALUE 164 ACTION move VALUE 428
+stage1 いい感じに岩を越えて	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 129歩進んで高さ7でジャンプ、148進んで31ジャンプして370進む	stage2 REASON stone ACTION move VALUE 129 ACTION jump VALUE 7 ACTION move VALUE 148 ACTION jump VALUE 31 ACTION move VALUE 370
+stage3 461進んで162ジャンプしてから435進んで	stage3 REASON hole ACTION move VALUE 461 ACTION jump VALUE 162 ACTION move VALUE 435
+stage2 136移動して117ジャンプ、131移動して115ジャンプ、最後374移動	stage2 REASON stone ACTION move VALUE 136 ACTION jump VALUE 117 ACTION move VALUE 131 ACTION jump VALUE 115 ACTION move VALUE 374
+stage1 412進んで高さ110でジャンプしてから532進んで	stage1 REASON stone ACTION move VALUE 412 ACTION jump VALUE 110 ACTION move VALUE 532
+stage2 146進んで128ジャンプして162進んで340進んで	stage2 REASON stone ACTION move VALUE 146 ACTION jump VALUE 128 ACTION move VALUE 162 ACTION move VALUE 340
+stage2 144歩進んで112で飛んで、148歩進んで118で飛んで357歩すすむ	stage2 REASON stone ACTION move VALUE 144 ACTION jump VALUE 112 ACTION move VALUE 148 ACTION jump VALUE 118 ACTION move VALUE 357
+stage3 176進んで152ジャンプして	stage3 REASON hole ACTION move VALUE 176 ACTION jump VALUE 152
+stage1 スタートから251進んで133高さでジャンプして490進んでゴール	stage1 REASON stone ACTION move VALUE 251 ACTION jump VALUE 133 ACTION move VALUE 490
+stage2 142進んで124ジャンプ、163進んで36ジャンプ、最後に378進んで	stage2 REASON stone ACTION move VALUE 142 ACTION jump VALUE 124 ACTION move VALUE 163 ACTION jump VALUE 36 ACTION move VALUE 378
+stage2 125進んで127ジャンプ、162進んで28ジャンプ、最後に397進んで	stage2 REASON stone ACTION move VALUE 125 ACTION jump VALUE 127 ACTION move VALUE 162 ACTION jump VALUE 28 ACTION move VALUE 397
+stage2 133歩進んで高さ130でジャンプ、続けて148進んで127でジャンプして383進む	stage2 REASON stone ACTION move VALUE 133 ACTION jump VALUE 130 ACTION move VALUE 148 ACTION jump VALUE 127 ACTION move VALUE 383
+stage3 368進んで154ジャンプしてから438進んで	stage3 REASON hole ACTION move VALUE 368 ACTION jump VALUE 154 ACTION move VALUE 438
+stage3 穴の手前まで204進んで153の高さでジャンプして向こうまで437進んで	stage3 REASON hole ACTION move VALUE 204 ACTION jump VALUE 153 ACTION move VALUE 437
+stage1 230進んで127の力でジャンプしてから498歩すすんで	stage1 REASON stone ACTION move VALUE 230 ACTION jump VALUE 127 ACTION move VALUE 498
+stage1 224進んで34ジャンプして542進んでゴール	stage1 REASON stone ACTION move VALUE 224 ACTION jump VALUE 34 ACTION move VALUE 542
+stage1 239歩進んで119ジャンプして147進む	stage1 REASON stone ACTION move VALUE 239 ACTION jump VALUE 119 ACTION move VALUE 147
+stage2 147移動して131ジャンプ、169移動して117ジャンプ、最後354移動	stage2 REASON stone ACTION move VALUE 147 ACTION jump VALUE 131 ACTION move VALUE 169 ACTION jump VALUE 117 ACTION move VALUE 354
+stage3 173歩進んで高さ141でジャンプして455進む	stage3 REASON hole ACTION move VALUE 173 ACTION jump VALUE 141 ACTION move VALUE 455
+stage2 134歩進んで高さ118でジャンプ、153進んで362進む	stage2 REASON stone ACTION move VALUE 134 ACTION jump VALUE 118 ACTION move VALUE 153 ACTION move VALUE 362
+stage1 244歩走って高さ121でとんで543歩進む	stage1 REASON stone ACTION move VALUE 244 ACTION jump VALUE 121 ACTION move VALUE 543
+stage3 181歩進んで高さ159でジャンプして461進む	stage3 REASON hole ACTION move VALUE 181 ACTION jump VALUE 159 ACTION move VALUE 461
+stage2 123進んで118ジャンプして146進んで399進んで	stage2 REASON stone ACTION move VALUE 123 ACTION jump VALUE 118 ACTION move VALUE 146 ACTION move VALUE 399
+stage2 走ってジャンプを2回して進んで	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 岩が2つあるから2回飛んで	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 222歩進んで161の高さで穴を跳び越えて473歩進む	stage3 REASON hole ACTION move VALUE 222 ACTION jump VALUE 161 ACTION move VALUE 473
+stage1 いい感じにジャンプして	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 岩を2回越えて	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 スタートから200進んで120高さでジャンプして530進んでゴール	stage1 REASON stone ACTION move VALUE 200 ACTION jump VALUE 120 ACTION move VALUE 530
+stage2 145歩進んで高さ112でジャンプ、続けて153進んで124でジャンプして357進む	stage2 REASON stone ACTION move VALUE 145 ACTION jump VALUE 112 ACTION move VALUE 153 ACTION jump VALUE 124 ACTION move VALUE 357
+stage2 110進んで123ジャンプして141進んで117ジャンプして	stage2 REASON stone ACTION move VALUE 110 ACTION jump VALUE 123 ACTION move VALUE 141 ACTION jump VALUE 117
+stage2 146進んで122ジャンプ、156進んで28ジャンプ、最後に383進んで	stage2 REASON stone ACTION move VALUE 146 ACTION jump VALUE 122 ACTION move VALUE 156 ACTION jump VALUE 28 ACTION move VALUE 383
+stage2 111歩進んで高さ118でジャンプ、続けて138進んで135でジャンプして374進む	stage2 REASON stone ACTION move VALUE 111 ACTION jump VALUE 118 ACTION move VALUE 138 ACTION jump VALUE 135 ACTION move VALUE 374
+stage2 岩を2回越えて	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 465歩進んで119ジャンプして498進む	stage1 REASON stone ACTION move VALUE 465 ACTION jump VALUE 119 ACTION move VALUE 498
+stage1 237進んで118でジャンプ	stage1 REASON stone ACTION move VALUE 237 ACTION jump VALUE 118
+stage2 133移動して126ジャンプ、167移動して121ジャンプ、最後360移動	stage2 REASON stone ACTION move VALUE 133 ACTION jump VALUE 126 ACTION move VALUE 167 ACTION jump VALUE 121 ACTION move VALUE 360
+stage2 2つジャンプしてゴールへ	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 487歩進んで122ジャンプして542進む	stage1 REASON stone ACTION move VALUE 487 ACTION jump VALUE 122 ACTION move VALUE 542
+stage1 スタートから233進んで140高さでジャンプして488進んでゴール	stage1 REASON stone ACTION move VALUE 233 ACTION jump VALUE 140 ACTION move VALUE 488
+stage1 203歩進んで110ジャンプして143進む	stage1 REASON stone ACTION move VALUE 203 ACTION jump VALUE 110 ACTION move VALUE 143
+stage3 228移動してから142の力で大きくジャンプし454移動して	stage3 REASON hole ACTION move VALUE 228 ACTION jump VALUE 142 ACTION move VALUE 454
+stage2 走ってジャンプを2回して進んで	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 岩の手前まで205進んで131ジャンプして向こうまで481進んで	stage1 REASON stone ACTION move VALUE 205 ACTION jump VALUE 131 ACTION move VALUE 481
+stage2 136歩進んで高さ114でジャンプ、続けて145進んで131でジャンプして379進む	stage2 REASON stone ACTION move VALUE 136 ACTION jump VALUE 114 ACTION move VALUE 145 ACTION jump VALUE 131 ACTION move VALUE 379
+stage1 岩の手前まで210進んで130ジャンプして向こうまで505進んで	stage1 REASON stone ACTION move VALUE 210 ACTION jump VALUE 130 ACTION move VALUE 505
+stage1 岩を飛び越えて	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 131歩進んで高さ118でジャンプ、136進んで40でジャンプして355進む	stage2 REASON stone ACTION move VALUE 131 ACTION jump VALUE 118 ACTION move VALUE 136 ACTION jump VALUE 40 ACTION move VALUE 355
+stage2 136進んで133ジャンプ、161進んで113ジャンプ、最後に390進んで	stage2 REASON stone ACTION move VALUE 136 ACTION jump VALUE 133 ACTION move VALUE 161 ACTION jump VALUE 113 ACTION move VALUE 390
+stage2 1つ目の岩まで116進んで129でジャンプ、2つ目まで134進んで126でジャンプして385進んで	stage2 REASON stone ACTION move VALUE 116 ACTION jump VALUE 129 ACTION move VALUE 134 ACTION jump VALUE 126 ACTION move VALUE 385
+stage1 246進んで124の力でジャンプしてから529歩すすんで	stage1 REASON stone ACTION move VALUE 246 ACTION jump VALUE 124 ACTION move VALUE 529
+stage2 120進んで110ジャンプ、162進んで13ジャンプ、最後に366進んで	stage2 REASON stone ACTION move VALUE 120 ACTION jump VALUE 110 ACTION move VALUE 162 ACTION jump VALUE 13 ACTION move VALUE 366
+stage1 254進んで111の力でジャンプしてから482歩すすんで	stage1 REASON stone ACTION move VALUE 254 ACTION jump VALUE 111 ACTION move VALUE 482
+stage1 260歩進んで112の高さでジャンプして535進む	stage1 REASON stone ACTION move VALUE 260 ACTION jump VALUE 112 ACTION move VALUE 535
+stage2 まず123進んで112の高さでジャンプ、次に158進んで111でジャンプし408進んでゴール	stage2 REASON stone ACTION move VALUE 123 ACTION jump VALUE 112 ACTION move VALUE 158 ACTION jump VALUE 111 ACTION move VALUE 408
+stage3 170歩進んで高さ150でジャンプして171進む	stage3 REASON hole ACTION move VALUE 170 ACTION jump VALUE 150 ACTION move VALUE 171
+stage1 246歩進んで119の高さでジャンプして498進む	stage1 REASON stone ACTION move VALUE 246 ACTION jump VALUE 119 ACTION move VALUE 498
+stage3 高くジャンプして向こう側へ行って	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 125進んで36ジャンプ、146進んで10ジャンプ、最後に403進んで	stage2 REASON stone ACTION move VALUE 125 ACTION jump VALUE 36 ACTION move VALUE 146 ACTION jump VALUE 10 ACTION move VALUE 403
+stage3 180進んで140ジャンプしてから438進んで	stage3 REASON hole ACTION move VALUE 180 ACTION jump VALUE 140 ACTION move VALUE 438
+stage2 125歩進んで114で飛んで、165歩進んで135で飛んで340歩すすむ	stage2 REASON stone ACTION move VALUE 125 ACTION jump VALUE 114 ACTION move VALUE 165 ACTION jump VALUE 135 ACTION move VALUE 340
+stage1 249歩進んで40でジャンプして536進む	stage1 REASON stone ACTION move VALUE 249 ACTION jump VALUE 40 ACTION move VALUE 536
+stage2 132進んで112ジャンプ、157進んで113ジャンプ、最後に395進んで	stage2 REASON stone ACTION move VALUE 132 ACTION jump VALUE 112 ACTION move VALUE 157 ACTION jump VALUE 113 ACTION move VALUE 395
+stage3 352歩進んで高さ165でジャンプして461進む	stage3 REASON hole ACTION move VALUE 352 ACTION jump VALUE 165 ACTION move VALUE 461
+stage1 386進んで高さ125でジャンプしてから512進んで	stage1 REASON stone ACTION move VALUE 386 ACTION jump VALUE 125 ACTION move VALUE 512
+stage1 423歩進んで117ジャンプして537進む	stage1 REASON stone ACTION move VALUE 423 ACTION jump VALUE 117 ACTION move VALUE 537
+stage2 141進んで123ジャンプして130進んで126ジャンプして	stage2 REASON stone ACTION move VALUE 141 ACTION jump VALUE 123 ACTION move VALUE 130 ACTION jump VALUE 126
+stage1 245進んで128の力でジャンプしてから481歩すすんで	stage1 REASON stone ACTION move VALUE 245 ACTION jump VALUE 128 ACTION move VALUE 481
+stage1 226進んで37ジャンプして518進んでゴール	stage1 REASON stone ACTION move VALUE 226 ACTION jump VALUE 37 ACTION move VALUE 518
+stage1 238歩進んで17でジャンプして527進む	stage1 REASON stone ACTION move VALUE 238 ACTION jump VALUE 17 ACTION move VALUE 527
+stage2 130移動して112ジャンプ、135移動して125ジャンプ、最後371移動	stage2 REASON stone ACTION move VALUE 130 ACTION jump VALUE 112 ACTION move VALUE 135 ACTION jump VALUE 125 ACTION move VALUE 371
+stage1 237進んで113の力でジャンプしてから542歩すすんで	stage1 REASON stone ACTION move VALUE 237 ACTION jump VALUE 113 ACTION move VALUE 542
+stage1 岩の手前まで223進んで126ジャンプして向こうまで533進んで	stage1 REASON stone ACTION move VALUE 223 ACTION jump VALUE 126 ACTION move VALUE 533
+stage3 171進んで165でしっかりジャンプしてから447進んでゴール	stage3 REASON hole ACTION move VALUE 171 ACTION jump VALUE 165 ACTION move VALUE 447
+stage1 204歩進んで137の高さでジャンプして483進む	stage1 REASON stone ACTION move VALUE 204 ACTION jump VALUE 137 ACTION move VALUE 483
+stage3 穴の近くで高くジャンプして	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 ちょうど219進んでから120でジャンプして548進んでね	stage1 REASON stone ACTION move VALUE 219 ACTION jump VALUE 120 ACTION move VALUE 548
+stage2 124進んで124ジャンプ、157進んで116ジャンプ、最後に391進んで	stage2 REASON stone ACTION move VALUE 124 ACTION jump VALUE 124 ACTION move VALUE 157 ACTION jump VALUE 116 ACTION move VALUE 391
+stage1 218移動してから高さ126でジャンプし、484移動して	stage1 REASON stone ACTION move VALUE 218 ACTION jump VALUE 126 ACTION move VALUE 484
+stage2 119歩進んで高さ131でジャンプ、続けて167進んで132でジャンプして365進む	stage2 REASON stone ACTION move VALUE 119 ACTION jump VALUE 131 ACTION move VALUE 167 ACTION jump VALUE 132 ACTION move VALUE 365
+stage2 岩を2回越えて	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 229進んで113でジャンプ	stage1 REASON stone ACTION move VALUE 229 ACTION jump VALUE 113
+stage1 ちょうど221進んでから122でジャンプして508進んでね	stage1 REASON stone ACTION move VALUE 221 ACTION jump VALUE 122 ACTION move VALUE 508
+stage3 183進んで161ジャンプして大きな穴を越えて445進んで	stage3 REASON hole ACTION move VALUE 183 ACTION jump VALUE 161 ACTION move VALUE 445
+stage1 いい感じに岩を越えて	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 114進んで113ジャンプ、161進んで33ジャンプ、最後に408進んで	stage2 REASON stone ACTION move VALUE 114 ACTION jump VALUE 113 ACTION move VALUE 161 ACTION jump VALUE 33 ACTION move VALUE 408
+stage1 まず238進んで、110でジャンプして、その後543進んで	stage1 REASON stone ACTION move VALUE 238 ACTION jump VALUE 110 ACTION move VALUE 543
+stage3 224歩進んで147の高さで穴を跳び越えて438歩進む	stage3 REASON hole ACTION move VALUE 224 ACTION jump VALUE 147 ACTION move VALUE 438
+stage1 215歩走って高さ116でとんで511歩進む	stage1 REASON stone ACTION move VALUE 215 ACTION jump VALUE 116 ACTION move VALUE 511
+stage1 高さ120でジャンプして238進んで	stage1 REASON stone ACTION jump VALUE 120 ACTION move VALUE 238
+stage3 220進んで148ジャンプして	stage3 REASON hole ACTION move VALUE 220 ACTION jump VALUE 148
+stage3 176進んで148ジャンプしてから158進んで	stage3 REASON hole ACTION move VALUE 176 ACTION jump VALUE 148 ACTION move VALUE 158
+stage1 237進んで高さ118でジャンプしてから132進んで	stage1 REASON stone ACTION move VALUE 237 ACTION jump VALUE 118 ACTION move VALUE 132
+stage1 なんかうまいことやって	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 229移動してから高さ117でジャンプし、533移動して	stage1 REASON stone ACTION move VALUE 229 ACTION jump VALUE 117 ACTION move VALUE 533
+stage1 228進んで18ジャンプして503進んでゴール	stage1 REASON stone ACTION move VALUE 228 ACTION jump VALUE 18 ACTION move VALUE 503
+stage3 174進んで151ジャンプしてから433進んで	stage3 REASON hole ACTION move VALUE 174 ACTION jump VALUE 151 ACTION move VALUE 433
+stage3 219進んで164ジャンプして	stage3 REASON hole ACTION move VALUE 219 ACTION jump VALUE 164
+stage1 うまいことジャンプして岩を越えて	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 112歩進んで132で飛んで、152歩進んで121で飛んで381歩すすむ	stage2 REASON stone ACTION move VALUE 112 ACTION jump VALUE 132 ACTION move VALUE 152 ACTION jump VALUE 121 ACTION move VALUE 381
+stage3 212進んで145ジャンプして大きな穴を越えて461進んで	stage3 REASON hole ACTION move VALUE 212 ACTION jump VALUE 145 ACTION move VALUE 461
+stage2 137歩進んで高さ128でジャンプ、164進んで382進む	stage2 REASON stone ACTION move VALUE 137 ACTION jump VALUE 128 ACTION move VALUE 164 ACTION move VALUE 382
+stage3 228歩進んで高さ151でジャンプして476進む	stage3 REASON hole ACTION move VALUE 228 ACTION jump VALUE 151 ACTION move VALUE 476
+stage1 岩をジャンプで越えてゴールへ	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 穴の手前まで184進んで164の高さでジャンプして向こうまで423進んで	stage3 REASON hole ACTION move VALUE 184 ACTION jump VALUE 164 ACTION move VALUE 423
+stage1 207進んで高さ125でジャンプしてから177進んで	stage1 REASON stone ACTION move VALUE 207 ACTION jump VALUE 125 ACTION move VALUE 177
+stage3 175進んで142ジャンプしてから447進んで	stage3 REASON hole ACTION move VALUE 175 ACTION jump VALUE 142 ACTION move VALUE 447
+stage1 427進んで高さ124でジャンプしてから498進んで	stage1 REASON stone ACTION move VALUE 427 ACTION jump VALUE 124 ACTION move VALUE 498
+stage2 130進んで115ジャンプして145進んで128ジャンプして	stage2 REASON stone ACTION move VALUE 130 ACTION jump VALUE 115 ACTION move VALUE 145 ACTION jump VALUE 128
+stage1 206進んで高さ129でジャンプしてから152進んで	stage1 REASON stone ACTION move VALUE 206 ACTION jump VALUE 129 ACTION move VALUE 152
+stage1 241進んで高さ40でジャンプしてから509進んで	stage1 REASON stone ACTION move VALUE 241 ACTION jump VALUE 40 ACTION move VALUE 509
+stage3 382進んで140ジャンプしてから428進んで	stage3 REASON hole ACTION move VALUE 382 ACTION jump VALUE 140 ACTION move VALUE 428
+stage2 134歩進んで高さ129でジャンプ、157進んで342進む	stage2 REASON stone ACTION move VALUE 134 ACTION jump VALUE 129 ACTION move VALUE 157 ACTION move VALUE 342
+stage1 岩の手前まで250進んで129ジャンプして向こうまで548進んで	stage1 REASON stone ACTION move VALUE 250 ACTION jump VALUE 129 ACTION move VALUE 548
+stage1 248歩進んで128ジャンプして123進む	stage1 REASON stone ACTION move VALUE 248 ACTION jump VALUE 128 ACTION move VALUE 123
+stage2 135歩進んで高さ15でジャンプ、155進んで22ジャンプして363進む	stage2 REASON stone ACTION move VALUE 135 ACTION jump VALUE 15 ACTION move VALUE 155 ACTION jump VALUE 22 ACTION move VALUE 363
+stage2 122歩進んで高さ129でジャンプ、続けて158進んで110でジャンプして363進む	stage2 REASON stone ACTION move VALUE 122 ACTION jump VALUE 129 ACTION move VALUE 158 ACTION jump VALUE 110 ACTION move VALUE 363
+stage1 492歩進んで110ジャンプして538進む	stage1 REASON stone ACTION move VALUE 492 ACTION jump VALUE 110 ACTION move VALUE 538
+stage3 まず178進み高さ145で飛び越えて459進んでゴール	stage3 REASON hole ACTION move VALUE 178 ACTION jump VALUE 145 ACTION move VALUE 459
+stage3 190進んで59ジャンプしてから462進んで	stage3 REASON hole ACTION move VALUE 190 ACTION jump VALUE 59 ACTION move VALUE 462
+stage3 221歩進んで高さ161でジャンプして128進む	stage3 REASON hole ACTION move VALUE 221 ACTION jump VALUE 161 ACTION move VALUE 128
+stage1 215進んで130でジャンプ	stage1 REASON stone ACTION move VALUE 215 ACTION jump VALUE 130
+stage2 141歩進んで高さ117でジャンプ、157進んで28でジャンプして395進む	stage2 REASON stone ACTION move VALUE 141 ACTION jump VALUE 117 ACTION move VALUE 157 ACTION jump VALUE 28 ACTION move VALUE 395
+stage2 121進んで122ジャンプ、133進んで39ジャンプ、最後に380進んで	stage2 REASON stone ACTION move VALUE 121 ACTION jump VALUE 122 ACTION move VALUE 133 ACTION jump VALUE 39 ACTION move VALUE 380
+stage1 228進んで高さ9でジャンプしてから518進んで	stage1 REASON stone ACTION move VALUE 228 ACTION jump VALUE 9 ACTION move VALUE 518
+stage3 200進んで157でしっかりジャンプしてから422進んでゴール	stage3 REASON hole ACTION move VALUE 200 ACTION jump VALUE 157 ACTION move VALUE 422
+stage2 まず112進んで127の高さでジャンプ、次に145進んで125でジャンプし388進んでゴール	stage2 REASON stone ACTION move VALUE 112 ACTION jump VALUE 127 ACTION move VALUE 145 ACTION jump VALUE 125 ACTION move VALUE 388
+stage3 185歩進んで高さ140でジャンプして425進む	stage3 REASON hole ACTION move VALUE 185 ACTION jump VALUE 140 ACTION move VALUE 425
+stage3 226進んで152でしっかりジャンプしてから472進んでゴール	stage3 REASON hole ACTION move VALUE 226 ACTION jump VALUE 152 ACTION move VALUE 472
+stage2 岩を2回ジャンプして越えて	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 175進んで160ジャンプして大きな穴を越えて423進んで	stage3 REASON hole ACTION move VALUE 175 ACTION jump VALUE 160 ACTION move VALUE 423
+stage2 まず141進んで131の高さでジャンプ、次に146進んで115でジャンプし382進んでゴール	stage2 REASON stone ACTION move VALUE 141 ACTION jump VALUE 131 ACTION move VALUE 146 ACTION jump VALUE 115 ACTION move VALUE 382
+stage1 233歩走って高さ121でとんで499歩進む	stage1 REASON stone ACTION move VALUE 233 ACTION jump VALUE 121 ACTION move VALUE 499
+stage1 ちょうど207進んでから127でジャンプして496進んでね	stage1 REASON stone ACTION move VALUE 207 ACTION jump VALUE 127 ACTION move VALUE 496
+stage1 なんかうまいことやって	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 145進んで6ジャンプ、158進んで26ジャンプ、最後に348進んで	stage2 REASON stone ACTION move VALUE 145 ACTION jump VALUE 6 ACTION move VALUE 158 ACTION jump VALUE 26 ACTION move VALUE 348
+stage1 230進んで高さ11でジャンプしてから518進んで	stage1 REASON stone ACTION move VALUE 230 ACTION jump VALUE 11 ACTION move VALUE 518
+stage2 121歩進んで127で飛んで、147歩進んで123で飛んで361歩すすむ	stage2 REASON stone ACTION move VALUE 121 ACTION jump VALUE 127 ACTION move VALUE 147 ACTION jump VALUE 123 ACTION move VALUE 361
+stage2 129進んで123の力でジャンプ、157進んで133の力でジャンプして360進んで	stage2 REASON stone ACTION move VALUE 129 ACTION jump VALUE 123 ACTION move VALUE 157 ACTION jump VALUE 133 ACTION move VALUE 360
+stage1 232歩走って高さ140でとんで503歩進む	stage1 REASON stone ACTION move VALUE 232 ACTION jump VALUE 140 ACTION move VALUE 503
+stage3 212進んで152でしっかりジャンプしてから425進んでゴール	stage3 REASON hole ACTION move VALUE 212 ACTION jump VALUE 152 ACTION move VALUE 425
+stage1 256進んで126の力でジャンプしてから530歩すすんで	stage1 REASON stone ACTION move VALUE 256 ACTION jump VALUE 126 ACTION move VALUE 530
+stage3 186歩進んで高さ153でジャンプして462進む	stage3 REASON hole ACTION move VALUE 186 ACTION jump VALUE 153 ACTION move VALUE 462
+stage2 117進んで118ジャンプ、169進んで112ジャンプ、最後に408進んで	stage2 REASON stone ACTION move VALUE 117 ACTION jump VALUE 118 ACTION move VALUE 169 ACTION jump VALUE 112 ACTION move VALUE 408
+stage3 184歩進んで高さ147でジャンプして430進む	stage3 REASON hole ACTION move VALUE 184 ACTION jump VALUE 147 ACTION move VALUE 430
+stage2 岩を2回ジャンプして越えて	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 まず227進んで、112でジャンプして、その後499進んで	stage1 REASON stone ACTION move VALUE 227 ACTION jump VALUE 112 ACTION move VALUE 499
+stage3 大きな穴を飛び越えて	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 128進んで112の力でジャンプ、154進んで133の力でジャンプして363進んで	stage2 REASON stone ACTION move VALUE 128 ACTION jump VALUE 112 ACTION move VALUE 154 ACTION jump VALUE 133 ACTION move VALUE 363
+stage2 まず120進んで117の高さでジャンプ、次に133進んで125でジャンプし383進んでゴール	stage2 REASON stone ACTION move VALUE 120 ACTION jump VALUE 117 ACTION move VALUE 133 ACTION jump VALUE 125 ACTION move VALUE 383
+stage1 まず250進んで、132でジャンプして、その後521進んで	stage1 REASON stone ACTION move VALUE 250 ACTION jump VALUE 132 ACTION move VALUE 521
+stage1 まず212進んで、134でジャンプして、その後538進んで	stage1 REASON stone ACTION move VALUE 212 ACTION jump VALUE 134 ACTION move VALUE 538
+stage2 118歩進んで高さ116でジャンプ、続けて143進んで117でジャンプして344進む	stage2 REASON stone ACTION move VALUE 118 ACTION jump VALUE 116 ACTION move VALUE 143 ACTION jump VALUE 117 ACTION move VALUE 344
+stage3 190歩進んで高さ9でジャンプして438進む	stage3 REASON hole ACTION move VALUE 190 ACTION jump VALUE 9 ACTION move VALUE 438
+stage2 111歩進んで高さ127でジャンプ、続けて139進んで113でジャンプして358進む	stage2 REASON stone ACTION move VALUE 111 ACTION jump VALUE 127 ACTION move VALUE 139 ACTION jump VALUE 113 ACTION move VALUE 358
+stage1 212歩進んで119ジャンプして112進む	stage1 REASON stone ACTION move VALUE 212 ACTION jump VALUE 119 ACTION move VALUE 112
+stage3 177進んで158ジャンプして	stage3 REASON hole ACTION move VALUE 177 ACTION jump VALUE 158
+stage1 高さ120でジャンプして206進んで	stage1 REASON stone ACTION jump VALUE 120 ACTION move VALUE 206
+stage3 穴の近くで高くジャンプして	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 355進んで154ジャンプしてから423進んで	stage3 REASON hole ACTION move VALUE 355 ACTION jump VALUE 154 ACTION move VALUE 423
+stage3 189進んで33ジャンプしてから444進んで	stage3 REASON hole ACTION move VALUE 189 ACTION jump VALUE 33 ACTION move VALUE 444
+stage1 岩の手前まで215進んで130ジャンプして向こうまで537進んで	stage1 REASON stone ACTION move VALUE 215 ACTION jump VALUE 130 ACTION move VALUE 537
+stage1 232進んで高さ139でジャンプしてから510進んで	stage1 REASON stone ACTION move VALUE 232 ACTION jump VALUE 139 ACTION move VALUE 510
+stage3 穴をジャンプして越えて	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 192歩進んで161の高さで穴を跳び越えて452歩進む	stage3 REASON hole ACTION move VALUE 192 ACTION jump VALUE 161 ACTION move VALUE 452
+stage3 544歩進んで高さ148でジャンプして444進む	stage3 REASON hole ACTION move VALUE 544 ACTION jump VALUE 148 ACTION move VALUE 444
+stage3 まず176進み高さ154で飛び越えて424進んでゴール	stage3 REASON hole ACTION move VALUE 176 ACTION jump VALUE 154 ACTION move VALUE 424
+stage2 114進んで116の力でジャンプ、143進んで131の力でジャンプして361進んで	stage2 REASON stone ACTION move VALUE 114 ACTION jump VALUE 116 ACTION move VALUE 143 ACTION jump VALUE 131 ACTION move VALUE 361
+stage2 133歩進んで高さ122でジャンプ、続けて161進んで130でジャンプして367進む	stage2 REASON stone ACTION move VALUE 133 ACTION jump VALUE 122 ACTION move VALUE 161 ACTION jump VALUE 130 ACTION move VALUE 367
+stage3 178歩進んで高さ42でジャンプして420進む	stage3 REASON hole ACTION move VALUE 178 ACTION jump VALUE 42 ACTION move VALUE 420
+stage3 208進んで165ジャンプして	stage3 REASON hole ACTION move VALUE 208 ACTION jump VALUE 165
+stage3 208進んで159ジャンプして	stage3 REASON hole ACTION move VALUE 208 ACTION jump VALUE 159
+stage1 高さ117でジャンプして208進んで	stage1 REASON stone ACTION jump VALUE 117 ACTION move VALUE 208
+stage1 まず226進んで、121でジャンプして、その後483進んで	stage1 REASON stone ACTION move VALUE 226 ACTION jump VALUE 121 ACTION move VALUE 483
+stage1 244進んで高さ112でジャンプしてから497進んで	stage1 REASON stone ACTION move VALUE 244 ACTION jump VALUE 112 ACTION move VALUE 497
+stage1 220歩進んで5でジャンプして532進む	stage1 REASON stone ACTION move VALUE 220 ACTION jump VALUE 5 ACTION move VALUE 532
+stage3 209進んで151ジャンプして大きな穴を越えて475進んで	stage3 REASON hole ACTION move VALUE 209 ACTION jump VALUE 151 ACTION move VALUE 475
+stage3 547歩進んで高さ158でジャンプして426進む	stage3 REASON hole ACTION move VALUE 547 ACTION jump VALUE 158 ACTION move VALUE 426
+stage3 226進んで153ジャンプして	stage3 REASON hole ACTION move VALUE 226 ACTION jump VALUE 153
+stage2 2個の岩を飛び越えてゴールへ	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 203歩進んで145の高さで穴を跳び越えて434歩進む	stage3 REASON hole ACTION move VALUE 203 ACTION jump VALUE 145 ACTION move VALUE 434
+stage3 193歩進んで高さ32でジャンプして455進む	stage3 REASON hole ACTION move VALUE 193 ACTION jump VALUE 32 ACTION move VALUE 455
+stage3 213進んで142ジャンプしてから192進んで	stage3 REASON hole ACTION move VALUE 213 ACTION jump VALUE 142 ACTION move VALUE 192
+stage3 181進んで150でしっかりジャンプしてから462進んでゴール	stage3 REASON hole ACTION move VALUE 181 ACTION jump VALUE 150 ACTION move VALUE 462
+stage1 242歩走って高さ127でとんで507歩進む	stage1 REASON stone ACTION move VALUE 242 ACTION jump VALUE 127 ACTION move VALUE 507
+stage2 111歩進んで高さ124でジャンプ、131進んで400進む	stage2 REASON stone ACTION move VALUE 111 ACTION jump VALUE 124 ACTION move VALUE 131 ACTION move VALUE 400
+stage3 228歩進んで160の高さで穴を跳び越えて435歩進む	stage3 REASON hole ACTION move VALUE 228 ACTION jump VALUE 160 ACTION move VALUE 435
+stage2 136進んで111ジャンプして133進んで112ジャンプして	stage2 REASON stone ACTION move VALUE 136 ACTION jump VALUE 111 ACTION move VALUE 133 ACTION jump VALUE 112
+stage3 222進んで26の高さで飛んで449進んでゴール	stage3 REASON hole ACTION move VALUE 222 ACTION jump VALUE 26 ACTION move VALUE 449
+stage2 134歩進んで高さ110でジャンプ、150進んで28でジャンプして370進む	stage2 REASON stone ACTION move VALUE 134 ACTION jump VALUE 110 ACTION move VALUE 150 ACTION jump VALUE 28 ACTION move VALUE 370
+stage1 240進んで高さ115でジャンプしてから144進んで	stage1 REASON stone ACTION move VALUE 240 ACTION jump VALUE 115 ACTION move VALUE 144
+stage1 211歩進んで129ジャンプして102進む	stage1 REASON stone ACTION move VALUE 211 ACTION jump VALUE 129 ACTION move VALUE 102
+stage2 まず113進んで122の高さでジャンプ、次に133進んで128でジャンプし389進んでゴール	stage2 REASON stone ACTION move VALUE 113 ACTION jump VALUE 122 ACTION move VALUE 133 ACTION jump VALUE 128 ACTION move VALUE 389
+stage3 214歩進んで153の高さで穴を跳び越えて475歩進む	stage3 REASON hole ACTION move VALUE 214 ACTION jump VALUE 153 ACTION move VALUE 475
+stage3 219進んで21ジャンプしてから425進んで	stage3 REASON hole ACTION move VALUE 219 ACTION jump VALUE 21 ACTION move VALUE 425
+stage2 127進んで114ジャンプして138進んで112ジャンプして	stage2 REASON stone ACTION move VALUE 127 ACTION jump VALUE 114 ACTION move VALUE 138 ACTION jump VALUE 112
+stage2 127ジャンプして122進んで115ジャンプして130進んで396進んで	stage2 REASON stone ACTION jump VALUE 127 ACTION move VALUE 122 ACTION jump VALUE 115 ACTION move VALUE 130 ACTION move VALUE 396
+stage2 130歩進んで131で飛んで、155歩進んで121で飛んで369歩すすむ	stage2 REASON stone ACTION move VALUE 130 ACTION jump VALUE 131 ACTION move VALUE 155 ACTION jump VALUE 121 ACTION move VALUE 369
+stage1 251進んで高さ121でジャンプしてから544進んで	stage1 REASON stone ACTION move VALUE 251 ACTION jump VALUE 121 ACTION move VALUE 544
+stage1 岩を超えてゴールまで行って	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 128進んで131ジャンプ、150進んで116ジャンプ、最後に405進んで	stage2 REASON stone ACTION move VALUE 128 ACTION jump VALUE 131 ACTION move VALUE 150 ACTION jump VALUE 116 ACTION move VALUE 405
+stage3 226進んで156ジャンプしてから85進んで	stage3 REASON hole ACTION move VALUE 226 ACTION jump VALUE 156 ACTION move VALUE 85
+stage2 1つ目の岩まで127進んで131でジャンプ、2つ目まで165進んで128でジャンプして410進んで	stage2 REASON stone ACTION move VALUE 127 ACTION jump VALUE 131 ACTION move VALUE 165 ACTION jump VALUE 128 ACTION move VALUE 410
+stage3 222進んで150ジャンプして	stage3 REASON hole ACTION move VALUE 222 ACTION jump VALUE 150
+stage3 447歩進んで高さ162でジャンプして435進む	stage3 REASON hole ACTION move VALUE 447 ACTION jump VALUE 162 ACTION move VALUE 435
+stage1 248進んで15ジャンプして556進んでゴール	stage1 REASON stone ACTION move VALUE 248 ACTION jump VALUE 15 ACTION move VALUE 556
+stage2 135歩進んで120で飛んで、133歩進んで130で飛んで394歩すすむ	stage2 REASON stone ACTION move VALUE 135 ACTION jump VALUE 120 ACTION move VALUE 133 ACTION jump VALUE 130 ACTION move VALUE 394
+stage3 223進んで143ジャンプしてから164進んで	stage3 REASON hole ACTION move VALUE 223 ACTION jump VALUE 143 ACTION move VALUE 164
+stage2 137歩進んで134で飛んで、170歩進んで111で飛んで373歩すすむ	stage2 REASON stone ACTION move VALUE 137 ACTION jump VALUE 134 ACTION move VALUE 170 ACTION jump VALUE 111 ACTION move VALUE 373
+stage3 勢いよくジャンプして	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 1つ目の岩まで146進んで122でジャンプ、2つ目まで147進んで128でジャンプして346進んで	stage2 REASON stone ACTION move VALUE 146 ACTION jump VALUE 122 ACTION move VALUE 147 ACTION jump VALUE 128 ACTION move VALUE 346
+stage1 石を越えてね	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 233進んで119の力でジャンプしてから519歩すすんで	stage1 REASON stone ACTION move VALUE 233 ACTION jump VALUE 119 ACTION move VALUE 519
+stage3 197進んで154ジャンプしてから124進んで	stage3 REASON hole ACTION move VALUE 197 ACTION jump VALUE 154 ACTION move VALUE 124
+stage2 2個の岩を飛び越えてゴールへ	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 217歩進んで高さ12でジャンプして463進む	stage3 REASON hole ACTION move VALUE 217 ACTION jump VALUE 12 ACTION move VALUE 463
+stage1 スタートから207進んで128高さでジャンプして550進んでゴール	stage1 REASON stone ACTION move VALUE 207 ACTION jump VALUE 128 ACTION move VALUE 550
+stage2 1つ目の岩まで138進んで128でジャンプ、2つ目まで166進んで121でジャンプして371進んで	stage2 REASON stone ACTION move VALUE 138 ACTION jump VALUE 128 ACTION move VALUE 166 ACTION jump VALUE 121 ACTION move VALUE 371
+stage1 216進んで35ジャンプして490進んでゴール	stage1 REASON stone ACTION move VALUE 216 ACTION jump VALUE 35 ACTION move VALUE 490
+stage2 134進んで121の力でジャンプ、138進んで127の力でジャンプして383進んで	stage2 REASON stone ACTION move VALUE 134 ACTION jump VALUE 121 ACTION move VALUE 138 ACTION jump VALUE 127 ACTION move VALUE 383
+stage3 214進んで140ジャンプしてから433進んで	stage3 REASON hole ACTION move VALUE 214 ACTION jump VALUE 140 ACTION move VALUE 433
+stage3 216進んで164ジャンプして大きな穴を越えて460進んで	stage3 REASON hole ACTION move VALUE 216 ACTION jump VALUE 164 ACTION move VALUE 460
+stage2 149進んで123ジャンプ、135進んで38ジャンプ、最後に374進んで	stage2 REASON stone ACTION move VALUE 149 ACTION jump VALUE 123 ACTION move VALUE 135 ACTION jump VALUE 38 ACTION move VALUE 374
+stage3 225進んで58ジャンプしてから438進んで	stage3 REASON hole ACTION move VALUE 225 ACTION jump VALUE 58 ACTION move VALUE 438
+stage3 226進んで159でしっかりジャンプしてから477進んでゴール	stage3 REASON hole ACTION move VALUE 226 ACTION jump VALUE 159 ACTION move VALUE 477
+stage1 ちょうど217進んでから140でジャンプして538進んでね	stage1 REASON stone ACTION move VALUE 217 ACTION jump VALUE 140 ACTION move VALUE 538
+stage1 227歩進んで131の高さでジャンプして493進む	stage1 REASON stone ACTION move VALUE 227 ACTION jump VALUE 131 ACTION move VALUE 493
+stage2 115進んで113ジャンプして136進んで407進んで	stage2 REASON stone ACTION move VALUE 115 ACTION jump VALUE 113 ACTION move VALUE 136 ACTION move VALUE 407
+stage3 179歩進んで高さ154でジャンプして131進む	stage3 REASON hole ACTION move VALUE 179 ACTION jump VALUE 154 ACTION move VALUE 131
+stage3 194進んで158でしっかりジャンプしてから446進んでゴール	stage3 REASON hole ACTION move VALUE 194 ACTION jump VALUE 158 ACTION move VALUE 446
+stage1 246移動してから高さ129でジャンプし、548移動して	stage1 REASON stone ACTION move VALUE 246 ACTION jump VALUE 129 ACTION move VALUE 548
+stage1 まず223進んで、139でジャンプして、その後485進んで	stage1 REASON stone ACTION move VALUE 223 ACTION jump VALUE 139 ACTION move VALUE 485
+stage1 走って岩を飛び越えて	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 417進んで高さ123でジャンプしてから487進んで	stage1 REASON stone ACTION move VALUE 417 ACTION jump VALUE 123 ACTION move VALUE 487
+stage2 131歩進んで117で飛んで、160歩進んで127で飛んで368歩すすむ	stage2 REASON stone ACTION move VALUE 131 ACTION jump VALUE 117 ACTION move VALUE 160 ACTION jump VALUE 127 ACTION move VALUE 368
+stage1 岩の手前まで211進んで118ジャンプして向こうまで532進んで	stage1 REASON stone ACTION move VALUE 211 ACTION jump VALUE 118 ACTION move VALUE 532
+stage1 岩の手前まで234進んで126ジャンプして向こうまで487進んで	stage1 REASON stone ACTION move VALUE 234 ACTION jump VALUE 126 ACTION move VALUE 487
+stage3 434進んで141ジャンプしてから432進んで	stage3 REASON hole ACTION move VALUE 434 ACTION jump VALUE 141 ACTION move VALUE 432
+stage3 大きくジャンプして穴を越えて	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 209進んで163ジャンプして	stage3 REASON hole ACTION move VALUE 209 ACTION jump VALUE 163
+stage3 182進んで152ジャンプして大きな穴を越えて456進んで	stage3 REASON hole ACTION move VALUE 182 ACTION jump VALUE 152 ACTION move VALUE 456
+stage3 221進んで151でしっかりジャンプしてから463進んでゴール	stage3 REASON hole ACTION move VALUE 221 ACTION jump VALUE 151 ACTION move VALUE 463
+stage1 234進んで高さ119でジャンプして	stage1 REASON stone ACTION move VALUE 234 ACTION jump VALUE 119
+stage2 走ってジャンプを2回して進んで	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 高さ123でジャンプして253進んで	stage1 REASON stone ACTION jump VALUE 123 ACTION move VALUE 253
+stage3 220歩進んで高さ157でジャンプして475進む	stage3 REASON hole ACTION move VALUE 220 ACTION jump VALUE 157 ACTION move VALUE 475
+stage1 スタートから259進んで110高さでジャンプして481進んでゴール	stage1 REASON stone ACTION move VALUE 259 ACTION jump VALUE 110 ACTION move VALUE 481
+stage2 133進んで115ジャンプして161進んで124ジャンプして	stage2 REASON stone ACTION move VALUE 133 ACTION jump VALUE 115 ACTION move VALUE 161 ACTION jump VALUE 124
+stage1 209進んで高さ130でジャンプしてから535進んで	stage1 REASON stone ACTION move VALUE 209 ACTION jump VALUE 130 ACTION move VALUE 535
+stage3 穴の手前まで219進んで150の高さでジャンプして向こうまで459進んで	stage3 REASON hole ACTION move VALUE 219 ACTION jump VALUE 150 ACTION move VALUE 459
+stage1 岩をジャンプで越えてゴールへ	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 177移動してから148の力で大きくジャンプし428移動して	stage3 REASON hole ACTION move VALUE 177 ACTION jump VALUE 148 ACTION move VALUE 428
+stage3 204移動してから163の力で大きくジャンプし443移動して	stage3 REASON hole ACTION move VALUE 204 ACTION jump VALUE 163 ACTION move VALUE 443
+stage1 うまいことジャンプして岩を越えて	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 202歩走って高さ127でとんで545歩進む	stage1 REASON stone ACTION move VALUE 202 ACTION jump VALUE 127 ACTION move VALUE 545
+stage1 249進んで129でジャンプ	stage1 REASON stone ACTION move VALUE 249 ACTION jump VALUE 129
+stage3 大きな穴を飛び越えて	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 122歩進んで高さ111でジャンプ、155進んで401進む	stage2 REASON stone ACTION move VALUE 122 ACTION jump VALUE 111 ACTION move VALUE 155 ACTION move VALUE 401
+stage1 236歩進んで126の高さでジャンプして491進む	stage1 REASON stone ACTION move VALUE 236 ACTION jump VALUE 126 ACTION move VALUE 491
+stage2 2つの岩を飛び越えて	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 穴の向こうまで跳んで	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 246歩進んで14でジャンプして549進む	stage1 REASON stone ACTION move VALUE 246 ACTION jump VALUE 14 ACTION move VALUE 549
+stage3 186進んで147ジャンプしてから177進んで	stage3 REASON hole ACTION move VALUE 186 ACTION jump VALUE 147 ACTION move VALUE 177
+stage1 204歩走って高さ110でとんで520歩進む	stage1 REASON stone ACTION move VALUE 204 ACTION jump VALUE 110 ACTION move VALUE 520
+stage1 ちょうど256進んでから119でジャンプして519進んでね	stage1 REASON stone ACTION move VALUE 256 ACTION jump VALUE 119 ACTION move VALUE 519
+stage1 461進んで高さ115でジャンプしてから496進んで	stage1 REASON stone ACTION move VALUE 461 ACTION jump VALUE 115 ACTION move VALUE 496
+stage3 穴をジャンプして越えて	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 219移動してから141の力で大きくジャンプし466移動して	stage3 REASON hole ACTION move VALUE 219 ACTION jump VALUE 141 ACTION move VALUE 466
+stage1 うまいことジャンプして岩を越えて	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 204移動してから157の力で大きくジャンプし437移動して	stage3 REASON hole ACTION move VALUE 204 ACTION jump VALUE 157 ACTION move VALUE 437
+stage2 129歩進んで130で飛んで、154歩進んで132で飛んで363歩すすむ	stage2 REASON stone ACTION move VALUE 129 ACTION jump VALUE 130 ACTION move VALUE 154 ACTION jump VALUE 132 ACTION move VALUE 363
+stage2 まず136進んで125の高さでジャンプ、次に145進んで113でジャンプし394進んでゴール	stage2 REASON stone ACTION move VALUE 136 ACTION jump VALUE 125 ACTION move VALUE 145 ACTION jump VALUE 113 ACTION move VALUE 394
+stage3 224進んで156ジャンプして	stage3 REASON hole ACTION move VALUE 224 ACTION jump VALUE 156
+stage2 113進んで130ジャンプして136進んで122ジャンプして	stage2 REASON stone ACTION move VALUE 113 ACTION jump VALUE 130 ACTION move VALUE 136 ACTION jump VALUE 122
+stage3 穴の手前まで221進んで164の高さでジャンプして向こうまで432進んで	stage3 REASON hole ACTION move VALUE 221 ACTION jump VALUE 164 ACTION move VALUE 432
+stage3 196進んで144ジャンプしてから107進んで	stage3 REASON hole ACTION move VALUE 196 ACTION jump VALUE 144 ACTION move VALUE 107
+stage2 113進んで127の力でジャンプ、144進んで112の力でジャンプして397進んで	stage2 REASON stone ACTION move VALUE 113 ACTION jump VALUE 127 ACTION move VALUE 144 ACTION jump VALUE 112 ACTION move VALUE 397
+stage2 まず113進んで123の高さでジャンプ、次に160進んで129でジャンプし389進んでゴール	stage2 REASON stone ACTION move VALUE 113 ACTION jump VALUE 123 ACTION move VALUE 160 ACTION jump VALUE 129 ACTION move VALUE 389
+stage3 穴の手前まで217進んで151の高さでジャンプして向こうまで470進んで	stage3 REASON hole ACTION move VALUE 217 ACTION jump VALUE 151 ACTION move VALUE 470
+stage3 171進んで142ジャンプして	stage3 REASON hole ACTION move VALUE 171 ACTION jump VALUE 142
+stage3 177進んで160ジャンプして大きな穴を越えて430進んで	stage3 REASON hole ACTION move VALUE 177 ACTION jump VALUE 160 ACTION move VALUE 430
+stage3 229進んで162でしっかりジャンプしてから436進んでゴール	stage3 REASON hole ACTION move VALUE 229 ACTION jump VALUE 162 ACTION move VALUE 436
+stage3 213歩進んで高さ143でジャンプして83進む	stage3 REASON hole ACTION move VALUE 213 ACTION jump VALUE 143 ACTION move VALUE 83
+stage1 214進んで高さ121でジャンプしてから548進んで	stage1 REASON stone ACTION move VALUE 214 ACTION jump VALUE 121 ACTION move VALUE 548
+stage3 228移動してから147の力で大きくジャンプし450移動して	stage3 REASON hole ACTION move VALUE 228 ACTION jump VALUE 147 ACTION move VALUE 450
+stage1 259歩進んで115の高さでジャンプして518進む	stage1 REASON stone ACTION move VALUE 259 ACTION jump VALUE 115 ACTION move VALUE 518
+stage3 穴の近くで高くジャンプして	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 258進んで高さ111でジャンプして	stage1 REASON stone ACTION move VALUE 258 ACTION jump VALUE 111
+stage2 127進んで123ジャンプして139進んで114ジャンプして	stage2 REASON stone ACTION move VALUE 127 ACTION jump VALUE 123 ACTION move VALUE 139 ACTION jump VALUE 114
+stage3 196進んで151ジャンプしてから447進んで	stage3 REASON hole ACTION move VALUE 196 ACTION jump VALUE 151 ACTION move VALUE 447
+stage2 110移動して129ジャンプ、161移動して126ジャンプ、最後393移動	stage2 REASON stone ACTION move VALUE 110 ACTION jump VALUE 129 ACTION move VALUE 161 ACTION jump VALUE 126 ACTION move VALUE 393
+stage1 244歩走って高さ123でとんで545歩進む	stage1 REASON stone ACTION move VALUE 244 ACTION jump VALUE 123 ACTION move VALUE 545
+stage2 124進んで135ジャンプ、167進んで125ジャンプ、最後に381進んで	stage2 REASON stone ACTION move VALUE 124 ACTION jump VALUE 135 ACTION move VALUE 167 ACTION jump VALUE 125 ACTION move VALUE 381
+stage2 112進んで116ジャンプして136進んで126ジャンプして	stage2 REASON stone ACTION move VALUE 112 ACTION jump VALUE 116 ACTION move VALUE 136 ACTION jump VALUE 126
+stage3 188進んで151ジャンプしてから440進んで	stage3 REASON hole ACTION move VALUE 188 ACTION jump VALUE 151 ACTION move VALUE 440
+stage2 133進んで110ジャンプ、141進んで34ジャンプ、最後に345進んで	stage2 REASON stone ACTION move VALUE 133 ACTION jump VALUE 110 ACTION move VALUE 141 ACTION jump VALUE 34 ACTION move VALUE 345
+stage3 大きな穴を飛び越えて	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 まず170進み高さ160で飛び越えて449進んでゴール	stage3 REASON hole ACTION move VALUE 170 ACTION jump VALUE 160 ACTION move VALUE 449
+stage1 スタートから258進んで135高さでジャンプして520進んでゴール	stage1 REASON stone ACTION move VALUE 258 ACTION jump VALUE 135 ACTION move VALUE 520
+stage1 スタートから200進んで122高さでジャンプして545進んでゴール	stage1 REASON stone ACTION move VALUE 200 ACTION jump VALUE 122 ACTION move VALUE 545
+stage2 112移動して134ジャンプ、168移動して134ジャンプ、最後401移動	stage2 REASON stone ACTION move VALUE 112 ACTION jump VALUE 134 ACTION move VALUE 168 ACTION jump VALUE 134 ACTION move VALUE 401
+stage2 114ジャンプして140進んで126ジャンプして166進んで392進んで	stage2 REASON stone ACTION jump VALUE 114 ACTION move VALUE 140 ACTION jump VALUE 126 ACTION move VALUE 166 ACTION move VALUE 392
+stage2 120ジャンプして145進んで117ジャンプして156進んで393進んで	stage2 REASON stone ACTION jump VALUE 120 ACTION move VALUE 145 ACTION jump VALUE 117 ACTION move VALUE 156 ACTION move VALUE 393
+stage3 221移動してから145の力で大きくジャンプし469移動して	stage3 REASON hole ACTION move VALUE 221 ACTION jump VALUE 145 ACTION move VALUE 469
+stage1 いい感じにジャンプして	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 210歩走って高さ116でとんで508歩進む	stage1 REASON stone ACTION move VALUE 210 ACTION jump VALUE 116 ACTION move VALUE 508
+stage2 岩を2回ジャンプして越えて	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 207歩進んで150の高さで穴を跳び越えて438歩進む	stage3 REASON hole ACTION move VALUE 207 ACTION jump VALUE 150 ACTION move VALUE 438
+stage1 岩を飛び越えて	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 251歩進んで123の高さでジャンプして496進む	stage1 REASON stone ACTION move VALUE 251 ACTION jump VALUE 123 ACTION move VALUE 496
+stage1 254歩走って高さ132でとんで508歩進む	stage1 REASON stone ACTION move VALUE 254 ACTION jump VALUE 132 ACTION move VALUE 508
+stage3 203進んで140ジャンプして	stage3 REASON hole ACTION move VALUE 203 ACTION jump VALUE 140
+stage2 131歩進んで高さ12でジャンプ、138進んで21ジャンプして358進む	stage2 REASON stone ACTION move VALUE 131 ACTION jump VALUE 12 ACTION move VALUE 138 ACTION jump VALUE 21 ACTION move VALUE 358
+stage3 勢いよくジャンプして	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 146歩進んで121で飛んで、166歩進んで119で飛んで399歩すすむ	stage2 REASON stone ACTION move VALUE 146 ACTION jump VALUE 121 ACTION move VALUE 166 ACTION jump VALUE 119 ACTION move VALUE 399
+stage3 191進んで150ジャンプしてから474進んで	stage3 REASON hole ACTION move VALUE 191 ACTION jump VALUE 150 ACTION move VALUE 474
+stage3 173歩進んで144の高さで穴を跳び越えて427歩進む	stage3 REASON hole ACTION move VALUE 173 ACTION jump VALUE 144 ACTION move VALUE 427
+stage1 246進んで高さ34でジャンプしてから560進んで	stage1 REASON stone ACTION move VALUE 246 ACTION jump VALUE 34 ACTION move VALUE 560
+stage2 146進んで119ジャンプして158進んで116ジャンプして	stage2 REASON stone ACTION move VALUE 146 ACTION jump VALUE 119 ACTION move VALUE 158 ACTION jump VALUE 116
+stage3 217移動してから140の力で大きくジャンプし478移動して	stage3 REASON hole ACTION move VALUE 217 ACTION jump VALUE 140 ACTION move VALUE 478
+stage3 大きくとんで穴を渡って	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 2個の岩を飛び越えてゴールへ	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 197進んで145ジャンプしてから426進んで	stage3 REASON hole ACTION move VALUE 197 ACTION jump VALUE 145 ACTION move VALUE 426
+stage3 171歩進んで高さ163でジャンプして453進む	stage3 REASON hole ACTION move VALUE 171 ACTION jump VALUE 163 ACTION move VALUE 453
+stage3 190進んで156ジャンプして大きな穴を越えて424進んで	stage3 REASON hole ACTION move VALUE 190 ACTION jump VALUE 156 ACTION move VALUE 424
+stage3 570歩進んで高さ151でジャンプして437進む	stage3 REASON hole ACTION move VALUE 570 ACTION jump VALUE 151 ACTION move VALUE 437
+stage2 2つジャンプしてゴールへ	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 213進んで高さ30でジャンプしてから492進んで	stage1 REASON stone ACTION move VALUE 213 ACTION jump VALUE 30 ACTION move VALUE 492
+stage2 1つ目の岩まで135進んで130でジャンプ、2つ目まで134進んで116でジャンプして366進んで	stage2 REASON stone ACTION move VALUE 135 ACTION jump VALUE 130 ACTION move VALUE 134 ACTION jump VALUE 116 ACTION move VALUE 366
+stage1 229進んで高さ113でジャンプしてから165進んで	stage1 REASON stone ACTION move VALUE 229 ACTION jump VALUE 113 ACTION move VALUE 165
+stage2 114歩進んで高さ113でジャンプ、142進んで11でジャンプして382進む	stage2 REASON stone ACTION move VALUE 114 ACTION jump VALUE 113 ACTION move VALUE 142 ACTION jump VALUE 11 ACTION move VALUE 382
+stage1 254歩走って高さ119でとんで494歩進む	stage1 REASON stone ACTION move VALUE 254 ACTION jump VALUE 119 ACTION move VALUE 494
+stage1 250進んで31ジャンプして555進んでゴール	stage1 REASON stone ACTION move VALUE 250 ACTION jump VALUE 31 ACTION move VALUE 555
+stage3 210進んで50の高さで飛んで450進んでゴール	stage3 REASON hole ACTION move VALUE 210 ACTION jump VALUE 50 ACTION move VALUE 450
+stage1 211進んで121の力でジャンプしてから509歩すすんで	stage1 REASON stone ACTION move VALUE 211 ACTION jump VALUE 121 ACTION move VALUE 509
+stage2 141進んで134の力でジャンプ、170進んで133の力でジャンプして369進んで	stage2 REASON stone ACTION move VALUE 141 ACTION jump VALUE 134 ACTION move VALUE 170 ACTION jump VALUE 133 ACTION move VALUE 369
+stage1 いい感じにジャンプして	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 214進んで140ジャンプして	stage3 REASON hole ACTION move VALUE 214 ACTION jump VALUE 140
+stage2 まず140進んで121の高さでジャンプ、次に153進んで113でジャンプし369進んでゴール	stage2 REASON stone ACTION move VALUE 140 ACTION jump VALUE 121 ACTION move VALUE 153 ACTION jump VALUE 113 ACTION move VALUE 369
+stage1 岩の手前まで237進んで129ジャンプして向こうまで486進んで	stage1 REASON stone ACTION move VALUE 237 ACTION jump VALUE 129 ACTION move VALUE 486
+stage1 235歩走って高さ116でとんで507歩進む	stage1 REASON stone ACTION move VALUE 235 ACTION jump VALUE 116 ACTION move VALUE 507
+stage2 まず111進んで121の高さでジャンプ、次に158進んで133でジャンプし397進んでゴール	stage2 REASON stone ACTION move VALUE 111 ACTION jump VALUE 121 ACTION move VALUE 158 ACTION jump VALUE 133 ACTION move VALUE 397
+stage2 127進んで113の力でジャンプ、132進んで122の力でジャンプして408進んで	stage2 REASON stone ACTION move VALUE 127 ACTION jump VALUE 113 ACTION move VALUE 132 ACTION jump VALUE 122 ACTION move VALUE 408
+stage3 370進んで155ジャンプしてから426進んで	stage3 REASON hole ACTION move VALUE 370 ACTION jump VALUE 155 ACTION move VALUE 426
+stage2 146歩進んで115で飛んで、169歩進んで128で飛んで378歩すすむ	stage2 REASON stone ACTION move VALUE 146 ACTION jump VALUE 115 ACTION move VALUE 169 ACTION jump VALUE 128 ACTION move VALUE 378
+stage2 走ってジャンプを2回して進んで	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 219歩走って高さ116でとんで532歩進む	stage1 REASON stone ACTION move VALUE 219 ACTION jump VALUE 116 ACTION move VALUE 532
+stage2 131進んで114ジャンプして132進んで112ジャンプして	stage2 REASON stone ACTION move VALUE 131 ACTION jump VALUE 114 ACTION move VALUE 132 ACTION jump VALUE 112
+stage2 133進んで117の力でジャンプ、168進んで111の力でジャンプして399進んで	stage2 REASON stone ACTION move VALUE 133 ACTION jump VALUE 117 ACTION move VALUE 168 ACTION jump VALUE 111 ACTION move VALUE 399
+stage2 136歩進んで高さ131でジャンプ、続けて141進んで113でジャンプして349進む	stage2 REASON stone ACTION move VALUE 136 ACTION jump VALUE 131 ACTION move VALUE 141 ACTION jump VALUE 113 ACTION move VALUE 349
+stage3 197進んで164ジャンプして大きな穴を越えて461進んで	stage3 REASON hole ACTION move VALUE 197 ACTION jump VALUE 164 ACTION move VALUE 461
+stage1 岩をジャンプで越えてゴールへ	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 岩が2つあるから2回飛んで	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 142移動して119ジャンプ、161移動して112ジャンプ、最後363移動	stage2 REASON stone ACTION move VALUE 142 ACTION jump VALUE 119 ACTION move VALUE 161 ACTION jump VALUE 112 ACTION move VALUE 363
+stage3 穴の手前まで214進んで140の高さでジャンプして向こうまで480進んで	stage3 REASON hole ACTION move VALUE 214 ACTION jump VALUE 140 ACTION move VALUE 480
+stage2 1つ目の岩まで135進んで127でジャンプ、2つ目まで157進んで131でジャンプして340進んで	stage2 REASON stone ACTION move VALUE 135 ACTION jump VALUE 127 ACTION move VALUE 157 ACTION jump VALUE 131 ACTION move VALUE 340
+stage3 大きな穴を飛び越えて	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 117歩進んで121で飛んで、141歩進んで116で飛んで350歩すすむ	stage2 REASON stone ACTION move VALUE 117 ACTION jump VALUE 121 ACTION move VALUE 141 ACTION jump VALUE 116 ACTION move VALUE 350
+stage2 119進んで128の力でジャンプ、134進んで121の力でジャンプして382進んで	stage2 REASON stone ACTION move VALUE 119 ACTION jump VALUE 128 ACTION move VALUE 134 ACTION jump VALUE 121 ACTION move VALUE 382
+stage2 131歩進んで高さ121でジャンプ、169進んで377進む	stage2 REASON stone ACTION move VALUE 131 ACTION jump VALUE 121 ACTION move VALUE 169 ACTION move VALUE 377
+stage2 118進んで115ジャンプして137進んで122ジャンプして	stage2 REASON stone ACTION move VALUE 118 ACTION jump VALUE 115 ACTION move VALUE 137 ACTION jump VALUE 122
+stage3 穴の手前まで192進んで162の高さでジャンプして向こうまで457進んで	stage3 REASON hole ACTION move VALUE 192 ACTION jump VALUE 162 ACTION move VALUE 457
+stage1 207進んで高さ127でジャンプしてから179進んで	stage1 REASON stone ACTION move VALUE 207 ACTION jump VALUE 127 ACTION move VALUE 179
+stage1 岩をジャンプで越えてゴールへ	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 191移動してから140の力で大きくジャンプし433移動して	stage3 REASON hole ACTION move VALUE 191 ACTION jump VALUE 140 ACTION move VALUE 433
+stage1 いい感じに岩を越えて	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 岩を2回ジャンプして越えて	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 スタートから208進んで140高さでジャンプして518進んでゴール	stage1 REASON stone ACTION move VALUE 208 ACTION jump VALUE 140 ACTION move VALUE 518
+stage3 まず206進み高さ153で飛び越えて431進んでゴール	stage3 REASON hole ACTION move VALUE 206 ACTION jump VALUE 153 ACTION move VALUE 431
+stage3 188進んで141ジャンプして	stage3 REASON hole ACTION move VALUE 188 ACTION jump VALUE 141
+stage2 112歩進んで121で飛んで、148歩進んで114で飛んで394歩すすむ	stage2 REASON stone ACTION move VALUE 112 ACTION jump VALUE 121 ACTION move VALUE 148 ACTION jump VALUE 114 ACTION move VALUE 394
+stage3 174進んで155ジャンプしてから475進んで	stage3 REASON hole ACTION move VALUE 174 ACTION jump VALUE 155 ACTION move VALUE 475
+stage1 228進んで高さ121でジャンプして	stage1 REASON stone ACTION move VALUE 228 ACTION jump VALUE 121
+stage3 穴の手前まで197進んで150の高さでジャンプして向こうまで462進んで	stage3 REASON hole ACTION move VALUE 197 ACTION jump VALUE 150 ACTION move VALUE 462
+stage1 234進んで136の力でジャンプしてから530歩すすんで	stage1 REASON stone ACTION move VALUE 234 ACTION jump VALUE 136 ACTION move VALUE 530
+stage2 119歩進んで高さ111でジャンプ、151進んで31でジャンプして378進む	stage2 REASON stone ACTION move VALUE 119 ACTION jump VALUE 111 ACTION move VALUE 151 ACTION jump VALUE 31 ACTION move VALUE 378
+stage1 いい感じにジャンプして	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 思い切りジャンプして穴を越えて	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 240進んで高さ121でジャンプしてから110進んで	stage1 REASON stone ACTION move VALUE 240 ACTION jump VALUE 121 ACTION move VALUE 110
+stage3 穴の手前まで190進んで142の高さでジャンプして向こうまで441進んで	stage3 REASON hole ACTION move VALUE 190 ACTION jump VALUE 142 ACTION move VALUE 441
+stage1 まず228進んで、131でジャンプして、その後496進んで	stage1 REASON stone ACTION move VALUE 228 ACTION jump VALUE 131 ACTION move VALUE 496
+stage1 220移動してから高さ111でジャンプし、492移動して	stage1 REASON stone ACTION move VALUE 220 ACTION jump VALUE 111 ACTION move VALUE 492
+stage2 112歩進んで116で飛んで、139歩進んで131で飛んで357歩すすむ	stage2 REASON stone ACTION move VALUE 112 ACTION jump VALUE 116 ACTION move VALUE 139 ACTION jump VALUE 131 ACTION move VALUE 357
+stage1 高さ117でジャンプして224進んで	stage1 REASON stone ACTION jump VALUE 117 ACTION move VALUE 224
+stage1 スタートから213進んで119高さでジャンプして543進んでゴール	stage1 REASON stone ACTION move VALUE 213 ACTION jump VALUE 119 ACTION move VALUE 543
+stage2 2つジャンプしてゴールへ	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 1つ目の岩まで135進んで116でジャンプ、2つ目まで163進んで132でジャンプして407進んで	stage2 REASON stone ACTION move VALUE 135 ACTION jump VALUE 116 ACTION move VALUE 163 ACTION jump VALUE 132 ACTION move VALUE 407
+stage2 まず142進んで112の高さでジャンプ、次に146進んで123でジャンプし399進んでゴール	stage2 REASON stone ACTION move VALUE 142 ACTION jump VALUE 112 ACTION move VALUE 146 ACTION jump VALUE 123 ACTION move VALUE 399
+stage2 118ジャンプして146進んで130ジャンプして167進んで350進んで	stage2 REASON stone ACTION jump VALUE 118 ACTION move VALUE 146 ACTION jump VALUE 130 ACTION move VALUE 167 ACTION move VALUE 350
+stage3 穴の手前まで201進んで156の高さでジャンプして向こうまで424進んで	stage3 REASON hole ACTION move VALUE 201 ACTION jump VALUE 156 ACTION move VALUE 424
+stage2 131歩進んで高さ9でジャンプ、170進んで23ジャンプして395進む	stage2 REASON stone ACTION move VALUE 131 ACTION jump VALUE 9 ACTION move VALUE 170 ACTION jump VALUE 23 ACTION move VALUE 395
+stage1 213進んで高さ123でジャンプしてから119進んで	stage1 REASON stone ACTION move VALUE 213 ACTION jump VALUE 123 ACTION move VALUE 119
+stage1 走って岩を飛び越えて	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 130歩進んで高さ15でジャンプ、158進んで11ジャンプして361進む	stage2 REASON stone ACTION move VALUE 130 ACTION jump VALUE 15 ACTION move VALUE 158 ACTION jump VALUE 11 ACTION move VALUE 361
+stage3 穴をジャンプして越えて	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 485歩進んで高さ140でジャンプして425進む	stage3 REASON hole ACTION move VALUE 485 ACTION jump VALUE 140 ACTION move VALUE 425
+stage1 227進んで130の力でジャンプしてから481歩すすんで	stage1 REASON stone ACTION move VALUE 227 ACTION jump VALUE 130 ACTION move VALUE 481
+stage1 237歩走って高さ132でとんで512歩進む	stage1 REASON stone ACTION move VALUE 237 ACTION jump VALUE 132 ACTION move VALUE 512
+stage1 437歩進んで124ジャンプして523進む	stage1 REASON stone ACTION move VALUE 437 ACTION jump VALUE 124 ACTION move VALUE 523
+stage2 まず144進んで132の高さでジャンプ、次に170進んで122でジャンプし343進んでゴール	stage2 REASON stone ACTION move VALUE 144 ACTION jump VALUE 132 ACTION move VALUE 170 ACTION jump VALUE 122 ACTION move VALUE 343
+stage3 195進んで147ジャンプして大きな穴を越えて464進んで	stage3 REASON hole ACTION move VALUE 195 ACTION jump VALUE 147 ACTION move VALUE 464
+stage2 116進んで114ジャンプ、168進んで113ジャンプ、最後に374進んで	stage2 REASON stone ACTION move VALUE 116 ACTION jump VALUE 114 ACTION move VALUE 168 ACTION jump VALUE 113 ACTION move VALUE 374
+stage2 150移動して111ジャンプ、154移動して133ジャンプ、最後350移動	stage2 REASON stone ACTION move VALUE 150 ACTION jump VALUE 111 ACTION move VALUE 154 ACTION jump VALUE 133 ACTION move VALUE 350
+stage2 112移動して121ジャンプ、143移動して112ジャンプ、最後362移動	stage2 REASON stone ACTION move VALUE 112 ACTION jump VALUE 121 ACTION move VALUE 143 ACTION jump VALUE 112 ACTION move VALUE 362
+stage1 いい感じに岩を越えて	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 201歩進んで165の高さで穴を跳び越えて477歩進む	stage3 REASON hole ACTION move VALUE 201 ACTION jump VALUE 165 ACTION move VALUE 477
+stage2 124歩進んで高さ111でジャンプ、続けて141進んで114でジャンプして397進む	stage2 REASON stone ACTION move VALUE 124 ACTION jump VALUE 111 ACTION move VALUE 141 ACTION jump VALUE 114 ACTION move VALUE 397
+stage3 まず196進み高さ162で飛び越えて425進んでゴール	stage3 REASON hole ACTION move VALUE 196 ACTION jump VALUE 162 ACTION move VALUE 425
+stage3 穴の手前まで181進んで150の高さでジャンプして向こうまで423進んで	stage3 REASON hole ACTION move VALUE 181 ACTION jump VALUE 150 ACTION move VALUE 423
+stage1 高さ113でジャンプして244進んで	stage1 REASON stone ACTION jump VALUE 113 ACTION move VALUE 244
+stage2 2つジャンプしてゴールへ	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 175進んで147ジャンプしてから478進んで	stage3 REASON hole ACTION move VALUE 175 ACTION jump VALUE 147 ACTION move VALUE 478
+stage2 121歩進んで134で飛んで、157歩進んで130で飛んで383歩すすむ	stage2 REASON stone ACTION move VALUE 121 ACTION jump VALUE 134 ACTION move VALUE 157 ACTION jump VALUE 130 ACTION move VALUE 383
+stage3 399進んで145ジャンプしてから455進んで	stage3 REASON hole ACTION move VALUE 399 ACTION jump VALUE 145 ACTION move VALUE 455
+stage2 112進んで123の力でジャンプ、133進んで113の力でジャンプして378進んで	stage2 REASON stone ACTION move VALUE 112 ACTION jump VALUE 123 ACTION move VALUE 133 ACTION jump VALUE 113 ACTION move VALUE 378
+stage1 速く走って高くジャンプして	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 2個の岩を飛び越えてゴールへ	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 249移動してから高さ136でジャンプし、504移動して	stage1 REASON stone ACTION move VALUE 249 ACTION jump VALUE 136 ACTION move VALUE 504
+stage2 115歩進んで高さ116でジャンプ、139進んで37でジャンプして383進む	stage2 REASON stone ACTION move VALUE 115 ACTION jump VALUE 116 ACTION move VALUE 139 ACTION jump VALUE 37 ACTION move VALUE 383
+stage3 228進んで156ジャンプして大きな穴を越えて435進んで	stage3 REASON hole ACTION move VALUE 228 ACTION jump VALUE 156 ACTION move VALUE 435
+stage2 127進んで16ジャンプ、153進んで31ジャンプ、最後に377進んで	stage2 REASON stone ACTION move VALUE 127 ACTION jump VALUE 16 ACTION move VALUE 153 ACTION jump VALUE 31 ACTION move VALUE 377
+stage3 穴の向こうまで跳んで	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 226進んで146ジャンプしてから443進んで	stage3 REASON hole ACTION move VALUE 226 ACTION jump VALUE 146 ACTION move VALUE 443
+stage2 124ジャンプして130進んで122ジャンプして150進んで361進んで	stage2 REASON stone ACTION jump VALUE 124 ACTION move VALUE 130 ACTION jump VALUE 122 ACTION move VALUE 150 ACTION move VALUE 361
+stage1 いい感じにジャンプして	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 139歩進んで高さ125でジャンプ、続けて163進んで126でジャンプして385進む	stage2 REASON stone ACTION move VALUE 139 ACTION jump VALUE 125 ACTION move VALUE 163 ACTION jump VALUE 126 ACTION move VALUE 385
+stage3 まず186進み高さ155で飛び越えて422進んでゴール	stage3 REASON hole ACTION move VALUE 186 ACTION jump VALUE 155 ACTION move VALUE 422
+stage2 114進んで12ジャンプ、154進んで18ジャンプ、最後に392進んで	stage2 REASON stone ACTION move VALUE 114 ACTION jump VALUE 12 ACTION move VALUE 154 ACTION jump VALUE 18 ACTION move VALUE 392
+stage3 184進んで160ジャンプしてから105進んで	stage3 REASON hole ACTION move VALUE 184 ACTION jump VALUE 160 ACTION move VALUE 105
+stage1 岩の手前まで205進んで113ジャンプして向こうまで558進んで	stage1 REASON stone ACTION move VALUE 205 ACTION jump VALUE 113 ACTION move VALUE 558
+stage3 穴の向こうまで跳んで	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 128歩進んで123で飛んで、141歩進んで127で飛んで407歩すすむ	stage2 REASON stone ACTION move VALUE 128 ACTION jump VALUE 123 ACTION move VALUE 141 ACTION jump VALUE 127 ACTION move VALUE 407
+stage1 241進んで高さ119でジャンプしてから91進んで	stage1 REASON stone ACTION move VALUE 241 ACTION jump VALUE 119 ACTION move VALUE 91
+stage2 113移動して128ジャンプ、169移動して130ジャンプ、最後352移動	stage2 REASON stone ACTION move VALUE 113 ACTION jump VALUE 128 ACTION move VALUE 169 ACTION jump VALUE 130 ACTION move VALUE 352
+stage2 133歩進んで高さ117でジャンプ、168進んで18でジャンプして375進む	stage2 REASON stone ACTION move VALUE 133 ACTION jump VALUE 117 ACTION move VALUE 168 ACTION jump VALUE 18 ACTION move VALUE 375
+stage1 204移動してから高さ133でジャンプし、555移動して	stage1 REASON stone ACTION move VALUE 204 ACTION jump VALUE 133 ACTION move VALUE 555
+stage1 258歩進んで139の高さでジャンプして543進む	stage1 REASON stone ACTION move VALUE 258 ACTION jump VALUE 139 ACTION move VALUE 543
+stage1 208進んで高さ118でジャンプして	stage1 REASON stone ACTION move VALUE 208 ACTION jump VALUE 118
+stage3 穴をジャンプして越えて	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 いい感じにジャンプして	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 223進んで121の力でジャンプしてから488歩すすんで	stage1 REASON stone ACTION move VALUE 223 ACTION jump VALUE 121 ACTION move VALUE 488
+stage3 まず209進み高さ155で飛び越えて423進んでゴール	stage3 REASON hole ACTION move VALUE 209 ACTION jump VALUE 155 ACTION move VALUE 423
+stage2 まず116進んで117の高さでジャンプ、次に145進んで110でジャンプし372進んでゴール	stage2 REASON stone ACTION move VALUE 116 ACTION jump VALUE 117 ACTION move VALUE 145 ACTION jump VALUE 110 ACTION move VALUE 372
+stage2 1つ目の岩まで119進んで135でジャンプ、2つ目まで140進んで131でジャンプして391進んで	stage2 REASON stone ACTION move VALUE 119 ACTION jump VALUE 135 ACTION move VALUE 140 ACTION jump VALUE 131 ACTION move VALUE 391
+stage2 135歩進んで121で飛んで、145歩進んで123で飛んで397歩すすむ	stage2 REASON stone ACTION move VALUE 135 ACTION jump VALUE 121 ACTION move VALUE 145 ACTION jump VALUE 123 ACTION move VALUE 397
+stage2 まず136進んで120の高さでジャンプ、次に152進んで116でジャンプし397進んでゴール	stage2 REASON stone ACTION move VALUE 136 ACTION jump VALUE 120 ACTION move VALUE 152 ACTION jump VALUE 116 ACTION move VALUE 397
+stage2 112歩進んで134で飛んで、149歩進んで120で飛んで406歩すすむ	stage2 REASON stone ACTION move VALUE 112 ACTION jump VALUE 134 ACTION move VALUE 149 ACTION jump VALUE 120 ACTION move VALUE 406
+stage1 236歩走って高さ125でとんで513歩進む	stage1 REASON stone ACTION move VALUE 236 ACTION jump VALUE 125 ACTION move VALUE 513
+stage3 219進んで164ジャンプして	stage3 REASON hole ACTION move VALUE 219 ACTION jump VALUE 164
+stage3 213移動してから157の力で大きくジャンプし465移動して	stage3 REASON hole ACTION move VALUE 213 ACTION jump VALUE 157 ACTION move VALUE 465
+stage1 高さ114でジャンプして250進んで	stage1 REASON stone ACTION jump VALUE 114 ACTION move VALUE 250
+stage2 岩が2つあるから2回飛んで	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 471進んで148ジャンプしてから461進んで	stage3 REASON hole ACTION move VALUE 471 ACTION jump VALUE 148 ACTION move VALUE 461
+stage2 146進んで115の力でジャンプ、149進んで127の力でジャンプして361進んで	stage2 REASON stone ACTION move VALUE 146 ACTION jump VALUE 115 ACTION move VALUE 149 ACTION jump VALUE 127 ACTION move VALUE 361
+stage3 216歩進んで161の高さで穴を跳び越えて435歩進む	stage3 REASON hole ACTION move VALUE 216 ACTION jump VALUE 161 ACTION move VALUE 435
+stage1 ちょうど210進んでから114でジャンプして523進んでね	stage1 REASON stone ACTION move VALUE 210 ACTION jump VALUE 114 ACTION move VALUE 523
+stage2 149進んで9ジャンプ、152進んで5ジャンプ、最後に374進んで	stage2 REASON stone ACTION move VALUE 149 ACTION jump VALUE 9 ACTION move VALUE 152 ACTION jump VALUE 5 ACTION move VALUE 374
+stage3 勢いよくジャンプして	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 199歩進んで164の高さで穴を跳び越えて454歩進む	stage3 REASON hole ACTION move VALUE 199 ACTION jump VALUE 164 ACTION move VALUE 454
+stage1 209歩進んで137の高さでジャンプして547進む	stage1 REASON stone ACTION move VALUE 209 ACTION jump VALUE 137 ACTION move VALUE 547
+stage1 スタートから218進んで121高さでジャンプして507進んでゴール	stage1 REASON stone ACTION move VALUE 218 ACTION jump VALUE 121 ACTION move VALUE 507
+stage1 ちょうど248進んでから139でジャンプして542進んでね	stage1 REASON stone ACTION move VALUE 248 ACTION jump VALUE 139 ACTION move VALUE 542
+stage1 まず259進んで、138でジャンプして、その後548進んで	stage1 REASON stone ACTION move VALUE 259 ACTION jump VALUE 138 ACTION move VALUE 548
+stage2 111移動して111ジャンプ、134移動して126ジャンプ、最後367移動	stage2 REASON stone ACTION move VALUE 111 ACTION jump VALUE 111 ACTION move VALUE 134 ACTION jump VALUE 126 ACTION move VALUE 367
+stage1 246進んで126でジャンプ	stage1 REASON stone ACTION move VALUE 246 ACTION jump VALUE 126
+stage1 ジャンプして岩を越えて	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 ジャンプして岩を越えて	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 184進んで146ジャンプして大きな穴を越えて474進んで	stage3 REASON hole ACTION move VALUE 184 ACTION jump VALUE 146 ACTION move VALUE 474
+stage3 まず217進み高さ165で飛び越えて447進んでゴール	stage3 REASON hole ACTION move VALUE 217 ACTION jump VALUE 165 ACTION move VALUE 447
+stage1 まず243進んで、129でジャンプして、その後509進んで	stage1 REASON stone ACTION move VALUE 243 ACTION jump VALUE 129 ACTION move VALUE 509
+stage3 191進んで160でしっかりジャンプしてから432進んでゴール	stage3 REASON hole ACTION move VALUE 191 ACTION jump VALUE 160 ACTION move VALUE 432
+stage2 145移動して120ジャンプ、131移動して115ジャンプ、最後393移動	stage2 REASON stone ACTION move VALUE 145 ACTION jump VALUE 120 ACTION move VALUE 131 ACTION jump VALUE 115 ACTION move VALUE 393
+stage3 184進んで148ジャンプして	stage3 REASON hole ACTION move VALUE 184 ACTION jump VALUE 148
+stage2 2つの岩を飛び越えて	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 123歩進んで高さ25でジャンプ、158進んで29ジャンプして372進む	stage2 REASON stone ACTION move VALUE 123 ACTION jump VALUE 25 ACTION move VALUE 158 ACTION jump VALUE 29 ACTION move VALUE 372
+stage1 465進んで高さ124でジャンプしてから549進んで	stage1 REASON stone ACTION move VALUE 465 ACTION jump VALUE 124 ACTION move VALUE 549
+stage2 1つ目の岩まで144進んで130でジャンプ、2つ目まで168進んで125でジャンプして406進んで	stage2 REASON stone ACTION move VALUE 144 ACTION jump VALUE 130 ACTION move VALUE 168 ACTION jump VALUE 125 ACTION move VALUE 406
+stage2 まず140進んで125の高さでジャンプ、次に155進んで134でジャンプし343進んでゴール	stage2 REASON stone ACTION move VALUE 140 ACTION jump VALUE 125 ACTION move VALUE 155 ACTION jump VALUE 134 ACTION move VALUE 343
+stage3 201進んで163ジャンプして	stage3 REASON hole ACTION move VALUE 201 ACTION jump VALUE 163
+stage3 穴を飛んで渡って	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 250進んで138の力でジャンプしてから514歩すすんで	stage1 REASON stone ACTION move VALUE 250 ACTION jump VALUE 138 ACTION move VALUE 514
+stage1 高さ117でジャンプして224進んで	stage1 REASON stone ACTION jump VALUE 117 ACTION move VALUE 224
+stage1 まず254進んで、137でジャンプして、その後489進んで	stage1 REASON stone ACTION move VALUE 254 ACTION jump VALUE 137 ACTION move VALUE 489
+stage1 238歩進んで29でジャンプして550進む	stage1 REASON stone ACTION move VALUE 238 ACTION jump VALUE 29 ACTION move VALUE 550
+stage2 133歩進んで高さ124でジャンプ、135進んで7でジャンプして379進む	stage2 REASON stone ACTION move VALUE 133 ACTION jump VALUE 124 ACTION move VALUE 135 ACTION jump VALUE 7 ACTION move VALUE 379
+stage3 200歩進んで145の高さで穴を跳び越えて429歩進む	stage3 REASON hole ACTION move VALUE 200 ACTION jump VALUE 145 ACTION move VALUE 429
+stage1 217歩進んで11でジャンプして481進む	stage1 REASON stone ACTION move VALUE 217 ACTION jump VALUE 11 ACTION move VALUE 481
+stage2 岩が2つあるから2回飛んで	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 178進んで155ジャンプしてから454進んで	stage3 REASON hole ACTION move VALUE 178 ACTION jump VALUE 155 ACTION move VALUE 454
+stage1 228歩進んで124の高さでジャンプして481進む	stage1 REASON stone ACTION move VALUE 228 ACTION jump VALUE 124 ACTION move VALUE 481
+stage1 233移動してから高さ129でジャンプし、507移動して	stage1 REASON stone ACTION move VALUE 233 ACTION jump VALUE 129 ACTION move VALUE 507
+stage2 128歩進んで高さ116でジャンプ、144進んで24でジャンプして409進む	stage2 REASON stone ACTION move VALUE 128 ACTION jump VALUE 116 ACTION move VALUE 144 ACTION jump VALUE 24 ACTION move VALUE 409
+stage3 189移動してから164の力で大きくジャンプし430移動して	stage3 REASON hole ACTION move VALUE 189 ACTION jump VALUE 164 ACTION move VALUE 430
+stage2 1つ目の岩まで140進んで115でジャンプ、2つ目まで145進んで113でジャンプして346進んで	stage2 REASON stone ACTION move VALUE 140 ACTION jump VALUE 115 ACTION move VALUE 145 ACTION jump VALUE 113 ACTION move VALUE 346
+stage3 穴の手前まで201進んで152の高さでジャンプして向こうまで429進んで	stage3 REASON hole ACTION move VALUE 201 ACTION jump VALUE 152 ACTION move VALUE 429
+stage2 140歩進んで高さ11でジャンプ、131進んで24ジャンプして407進む	stage2 REASON stone ACTION move VALUE 140 ACTION jump VALUE 11 ACTION move VALUE 131 ACTION jump VALUE 24 ACTION move VALUE 407
+stage3 穴をジャンプして越えて	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 200歩進んで128ジャンプして149進む	stage1 REASON stone ACTION move VALUE 200 ACTION jump VALUE 128 ACTION move VALUE 149
+stage1 230進んで高さ26でジャンプしてから555進んで	stage1 REASON stone ACTION move VALUE 230 ACTION jump VALUE 26 ACTION move VALUE 555
+stage3 207進んで14の高さで飛んで427進んでゴール	stage3 REASON hole ACTION move VALUE 207 ACTION jump VALUE 14 ACTION move VALUE 427
+stage1 224進んで115の力でジャンプしてから513歩すすんで	stage1 REASON stone ACTION move VALUE 224 ACTION jump VALUE 115 ACTION move VALUE 513
+stage3 穴の手前まで177進んで144の高さでジャンプして向こうまで449進んで	stage3 REASON hole ACTION move VALUE 177 ACTION jump VALUE 144 ACTION move VALUE 449
+stage2 118ジャンプして140進んで119ジャンプして135進んで381進んで	stage2 REASON stone ACTION jump VALUE 118 ACTION move VALUE 140 ACTION jump VALUE 119 ACTION move VALUE 135 ACTION move VALUE 381
+stage1 いい感じに岩を越えて	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 ちょうど210進んでから126でジャンプして521進んでね	stage1 REASON stone ACTION move VALUE 210 ACTION jump VALUE 126 ACTION move VALUE 521
+stage2 119進んで7ジャンプ、154進んで40ジャンプ、最後に395進んで	stage2 REASON stone ACTION move VALUE 119 ACTION jump VALUE 7 ACTION move VALUE 154 ACTION jump VALUE 40 ACTION move VALUE 395
+stage1 220歩進んで117の高さでジャンプして505進む	stage1 REASON stone ACTION move VALUE 220 ACTION jump VALUE 117 ACTION move VALUE 505
+stage2 147進んで127ジャンプ、142進んで35ジャンプ、最後に379進んで	stage2 REASON stone ACTION move VALUE 147 ACTION jump VALUE 127 ACTION move VALUE 142 ACTION jump VALUE 35 ACTION move VALUE 379
+stage3 228進んで151ジャンプして大きな穴を越えて430進んで	stage3 REASON hole ACTION move VALUE 228 ACTION jump VALUE 151 ACTION move VALUE 430
+stage3 215進んで165ジャンプしてから94進んで	stage3 REASON hole ACTION move VALUE 215 ACTION jump VALUE 165 ACTION move VALUE 94
+stage1 少し走ってから跳んで	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 150歩進んで高さ110でジャンプ、続けて139進んで118でジャンプして382進む	stage2 REASON stone ACTION move VALUE 150 ACTION jump VALUE 110 ACTION move VALUE 139 ACTION jump VALUE 118 ACTION move VALUE 382
+stage2 121歩進んで高さ24でジャンプ、154進んで38ジャンプして362進む	stage2 REASON stone ACTION move VALUE 121 ACTION jump VALUE 24 ACTION move VALUE 154 ACTION jump VALUE 38 ACTION move VALUE 362
+stage2 110移動して124ジャンプ、132移動して119ジャンプ、最後351移動	stage2 REASON stone ACTION move VALUE 110 ACTION jump VALUE 124 ACTION move VALUE 132 ACTION jump VALUE 119 ACTION move VALUE 351
+stage3 196歩進んで高さ159でジャンプして187進む	stage3 REASON hole ACTION move VALUE 196 ACTION jump VALUE 159 ACTION move VALUE 187
+stage3 212進んで157ジャンプしてから425進んで	stage3 REASON hole ACTION move VALUE 212 ACTION jump VALUE 157 ACTION move VALUE 425
+stage1 スタートから224進んで135高さでジャンプして487進んでゴール	stage1 REASON stone ACTION move VALUE 224 ACTION jump VALUE 135 ACTION move VALUE 487
+stage3 222移動してから146の力で大きくジャンプし438移動して	stage3 REASON hole ACTION move VALUE 222 ACTION jump VALUE 146 ACTION move VALUE 438
+stage3 まず192進み高さ144で飛び越えて463進んでゴール	stage3 REASON hole ACTION move VALUE 192 ACTION jump VALUE 144 ACTION move VALUE 463
+stage2 まず114進んで135の高さでジャンプ、次に147進んで118でジャンプし378進んでゴール	stage2 REASON stone ACTION move VALUE 114 ACTION jump VALUE 135 ACTION move VALUE 147 ACTION jump VALUE 118 ACTION move VALUE 378
+stage1 257歩進んで133の高さでジャンプして495進む	stage1 REASON stone ACTION move VALUE 257 ACTION jump VALUE 133 ACTION move VALUE 495
+stage2 146歩進んで117で飛んで、150歩進んで131で飛んで403歩すすむ	stage2 REASON stone ACTION move VALUE 146 ACTION jump VALUE 117 ACTION move VALUE 150 ACTION jump VALUE 131 ACTION move VALUE 403
+stage3 勢いよくジャンプして	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 255進んで124の力でジャンプしてから492歩すすんで	stage1 REASON stone ACTION move VALUE 255 ACTION jump VALUE 124 ACTION move VALUE 492
+stage2 121ジャンプして130進んで126ジャンプして148進んで367進んで	stage2 REASON stone ACTION jump VALUE 121 ACTION move VALUE 130 ACTION jump VALUE 126 ACTION move VALUE 148 ACTION move VALUE 367
+stage2 150進んで11ジャンプ、131進んで19ジャンプ、最後に386進んで	stage2 REASON stone ACTION move VALUE 150 ACTION jump VALUE 11 ACTION move VALUE 131 ACTION jump VALUE 19 ACTION move VALUE 386
+stage1 まず221進んで、140でジャンプして、その後486進んで	stage1 REASON stone ACTION move VALUE 221 ACTION jump VALUE 140 ACTION move VALUE 486
+stage3 228進んで14の高さで飛んで468進んでゴール	stage3 REASON hole ACTION move VALUE 228 ACTION jump VALUE 14 ACTION move VALUE 468
+stage1 高さ128でジャンプして223進んで	stage1 REASON stone ACTION jump VALUE 128 ACTION move VALUE 223
+stage3 173進んで158ジャンプして	stage3 REASON hole ACTION move VALUE 173 ACTION jump VALUE 158
+stage3 穴を飛んで渡って	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 228進んで17ジャンプして501進んでゴール	stage1 REASON stone ACTION move VALUE 228 ACTION jump VALUE 17 ACTION move VALUE 501
+stage1 224進んで高さ134でジャンプしてから539進んで	stage1 REASON stone ACTION move VALUE 224 ACTION jump VALUE 134 ACTION move VALUE 539
+stage1 242進んで127の力でジャンプしてから495歩すすんで	stage1 REASON stone ACTION move VALUE 242 ACTION jump VALUE 127 ACTION move VALUE 495
+stage2 149歩進んで高さ129でジャンプ、続けて153進んで114でジャンプして364進む	stage2 REASON stone ACTION move VALUE 149 ACTION jump VALUE 129 ACTION move VALUE 153 ACTION jump VALUE 114 ACTION move VALUE 364
+stage2 113進んで16ジャンプ、144進んで19ジャンプ、最後に393進んで	stage2 REASON stone ACTION move VALUE 113 ACTION jump VALUE 16 ACTION move VALUE 144 ACTION jump VALUE 19 ACTION move VALUE 393
+stage2 111歩進んで高さ110でジャンプ、160進んで381進む	stage2 REASON stone ACTION move VALUE 111 ACTION jump VALUE 110 ACTION move VALUE 160 ACTION move VALUE 381
+stage1 254歩進んで134の高さでジャンプして503進む	stage1 REASON stone ACTION move VALUE 254 ACTION jump VALUE 134 ACTION move VALUE 503
+stage3 207進んで13ジャンプしてから471進んで	stage3 REASON hole ACTION move VALUE 207 ACTION jump VALUE 13 ACTION move VALUE 471
+stage3 210進んで145ジャンプして大きな穴を越えて421進んで	stage3 REASON hole ACTION move VALUE 210 ACTION jump VALUE 145 ACTION move VALUE 421
+stage1 214進んで128でジャンプ	stage1 REASON stone ACTION move VALUE 214 ACTION jump VALUE 128
+stage3 思い切りジャンプして穴を越えて	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 200進んで128でジャンプ	stage1 REASON stone ACTION move VALUE 200 ACTION jump VALUE 128
+stage2 走ってジャンプを2回して進んで	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 191進んで151ジャンプして	stage3 REASON hole ACTION move VALUE 191 ACTION jump VALUE 151
+stage2 140歩進んで高さ129でジャンプ、続けて132進んで111でジャンプして370進む	stage2 REASON stone ACTION move VALUE 140 ACTION jump VALUE 129 ACTION move VALUE 132 ACTION jump VALUE 111 ACTION move VALUE 370
+stage1 岩の上を跳んで向こうへ行って	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 256進んで高さ124でジャンプしてから508進んで	stage1 REASON stone ACTION move VALUE 256 ACTION jump VALUE 124 ACTION move VALUE 508
+stage3 219進んで152ジャンプしてから437進んで	stage3 REASON hole ACTION move VALUE 219 ACTION jump VALUE 152 ACTION move VALUE 437
+stage1 218歩進んで117ジャンプして96進む	stage1 REASON stone ACTION move VALUE 218 ACTION jump VALUE 117 ACTION move VALUE 96
+stage3 203移動してから164の力で大きくジャンプし473移動して	stage3 REASON hole ACTION move VALUE 203 ACTION jump VALUE 164 ACTION move VALUE 473
+stage2 1つ目の岩まで136進んで112でジャンプ、2つ目まで139進んで121でジャンプして370進んで	stage2 REASON stone ACTION move VALUE 136 ACTION jump VALUE 112 ACTION move VALUE 139 ACTION jump VALUE 121 ACTION move VALUE 370
+stage1 546進んで高さ128でジャンプしてから493進んで	stage1 REASON stone ACTION move VALUE 546 ACTION jump VALUE 128 ACTION move VALUE 493
+stage2 127ジャンプして134進んで128ジャンプして132進んで383進んで	stage2 REASON stone ACTION jump VALUE 127 ACTION move VALUE 134 ACTION jump VALUE 128 ACTION move VALUE 132 ACTION move VALUE 383
+stage1 227歩進んで23でジャンプして527進む	stage1 REASON stone ACTION move VALUE 227 ACTION jump VALUE 23 ACTION move VALUE 527
+stage3 穴の手前まで203進んで162の高さでジャンプして向こうまで469進んで	stage3 REASON hole ACTION move VALUE 203 ACTION jump VALUE 162 ACTION move VALUE 469
+stage3 212歩進んで高さ150でジャンプして467進む	stage3 REASON hole ACTION move VALUE 212 ACTION jump VALUE 150 ACTION move VALUE 467
+stage3 穴の手前まで203進んで144の高さでジャンプして向こうまで440進んで	stage3 REASON hole ACTION move VALUE 203 ACTION jump VALUE 144 ACTION move VALUE 440
+stage1 岩を飛び越えて	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 大きくジャンプして穴を越えて	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 178進んで158ジャンプして	stage3 REASON hole ACTION move VALUE 178 ACTION jump VALUE 158
+stage3 174進んで159ジャンプして	stage3 REASON hole ACTION move VALUE 174 ACTION jump VALUE 159
+stage1 ちょうど218進んでから130でジャンプして550進んでね	stage1 REASON stone ACTION move VALUE 218 ACTION jump VALUE 130 ACTION move VALUE 550
+stage1 258進んで127でジャンプ	stage1 REASON stone ACTION move VALUE 258 ACTION jump VALUE 127
+stage2 134歩進んで高さ128でジャンプ、続けて166進んで129でジャンプして407進む	stage2 REASON stone ACTION move VALUE 134 ACTION jump VALUE 128 ACTION move VALUE 166 ACTION jump VALUE 129 ACTION move VALUE 407
+stage3 485歩進んで高さ159でジャンプして452進む	stage3 REASON hole ACTION move VALUE 485 ACTION jump VALUE 159 ACTION move VALUE 452
+stage1 229歩走って高さ125でとんで522歩進む	stage1 REASON stone ACTION move VALUE 229 ACTION jump VALUE 125 ACTION move VALUE 522
+stage2 2個の岩を飛び越えてゴールへ	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 ちょっと進んでジャンプして	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 129ジャンプして148進んで119ジャンプして161進んで371進んで	stage2 REASON stone ACTION jump VALUE 129 ACTION move VALUE 148 ACTION jump VALUE 119 ACTION move VALUE 161 ACTION move VALUE 371
+stage2 122進んで39ジャンプ、136進んで14ジャンプ、最後に404進んで	stage2 REASON stone ACTION move VALUE 122 ACTION jump VALUE 39 ACTION move VALUE 136 ACTION jump VALUE 14 ACTION move VALUE 404
+stage2 133進んで130の力でジャンプ、138進んで123の力でジャンプして344進んで	stage2 REASON stone ACTION move VALUE 133 ACTION jump VALUE 130 ACTION move VALUE 138 ACTION jump VALUE 123 ACTION move VALUE 344
+stage1 203移動してから高さ138でジャンプし、491移動して	stage1 REASON stone ACTION move VALUE 203 ACTION jump VALUE 138 ACTION move VALUE 491
+stage2 137歩進んで高さ126でジャンプ、167進んで343進む	stage2 REASON stone ACTION move VALUE 137 ACTION jump VALUE 126 ACTION move VALUE 167 ACTION move VALUE 343
+stage3 まず171進み高さ154で飛び越えて453進んでゴール	stage3 REASON hole ACTION move VALUE 171 ACTION jump VALUE 154 ACTION move VALUE 453
+stage3 185移動してから144の力で大きくジャンプし459移動して	stage3 REASON hole ACTION move VALUE 185 ACTION jump VALUE 144 ACTION move VALUE 459
+stage3 219進んで142ジャンプして大きな穴を越えて476進んで	stage3 REASON hole ACTION move VALUE 219 ACTION jump VALUE 142 ACTION move VALUE 476
+stage3 穴の向こうまで跳んで	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 穴をジャンプして越えて	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 193進んで145ジャンプして	stage3 REASON hole ACTION move VALUE 193 ACTION jump VALUE 145
+stage3 230進んで159ジャンプして大きな穴を越えて460進んで	stage3 REASON hole ACTION move VALUE 230 ACTION jump VALUE 159 ACTION move VALUE 460
+stage3 214進んで158ジャンプしてから427進んで	stage3 REASON hole ACTION move VALUE 214 ACTION jump VALUE 158 ACTION move VALUE 427
+stage2 1つ目の岩まで113進んで134でジャンプ、2つ目まで144進んで114でジャンプして388進んで	stage2 REASON stone ACTION move VALUE 113 ACTION jump VALUE 134 ACTION move VALUE 144 ACTION jump VALUE 114 ACTION move VALUE 388
+stage3 194進んで163ジャンプしてから432進んで	stage3 REASON hole ACTION move VALUE 194 ACTION jump VALUE 163 ACTION move VALUE 432
+stage1 岩を飛び越えて	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 スタートから212進んで110高さでジャンプして491進んでゴール	stage1 REASON stone ACTION move VALUE 212 ACTION jump VALUE 110 ACTION move VALUE 491
+stage2 岩を2回越えて	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 146進んで119ジャンプして152進んで122ジャンプして	stage2 REASON stone ACTION move VALUE 146 ACTION jump VALUE 119 ACTION move VALUE 152 ACTION jump VALUE 122
+stage2 115ジャンプして135進んで125ジャンプして139進んで394進んで	stage2 REASON stone ACTION jump VALUE 115 ACTION move VALUE 135 ACTION jump VALUE 125 ACTION move VALUE 139 ACTION move VALUE 394
+stage1 227進んで高さ130でジャンプしてから533進んで	stage1 REASON stone ACTION move VALUE 227 ACTION jump VALUE 130 ACTION move VALUE 533
+stage1 405進んで高さ126でジャンプしてから483進んで	stage1 REASON stone ACTION move VALUE 405 ACTION jump VALUE 126 ACTION move VALUE 483
+stage1 434歩進んで122ジャンプして555進む	stage1 REASON stone ACTION move VALUE 434 ACTION jump VALUE 122 ACTION move VALUE 555
+stage3 226進んで153でしっかりジャンプしてから464進んでゴール	stage3 REASON hole ACTION move VALUE 226 ACTION jump VALUE 153 ACTION move VALUE 464
+stage3 209進んで154ジャンプしてから83進んで	stage3 REASON hole ACTION move VALUE 209 ACTION jump VALUE 154 ACTION move VALUE 83
+stage1 ちょっと進んでジャンプして	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 ジャンプして岩を越えて	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 岩を飛び越えて	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 229進んで152ジャンプして	stage3 REASON hole ACTION move VALUE 229 ACTION jump VALUE 152
+stage2 117歩進んで高さ119でジャンプ、続けて133進んで110でジャンプして410進む	stage2 REASON stone ACTION move VALUE 117 ACTION jump VALUE 119 ACTION move VALUE 133 ACTION jump VALUE 110 ACTION move VALUE 410
+stage3 193進んで142ジャンプしてから154進んで	stage3 REASON hole ACTION move VALUE 193 ACTION jump VALUE 142 ACTION move VALUE 154
+stage2 まず144進んで130の高さでジャンプ、次に161進んで119でジャンプし364進んでゴール	stage2 REASON stone ACTION move VALUE 144 ACTION jump VALUE 130 ACTION move VALUE 161 ACTION jump VALUE 119 ACTION move VALUE 364
+stage3 大きな穴を飛び越えて	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 180進んで141ジャンプしてから443進んで	stage3 REASON hole ACTION move VALUE 180 ACTION jump VALUE 141 ACTION move VALUE 443
+stage3 高くジャンプして向こう側へ行って	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 大きくとんで穴を渡って	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 岩を2回越えて	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 150歩進んで高さ119でジャンプ、149進んで381進む	stage2 REASON stone ACTION move VALUE 150 ACTION jump VALUE 119 ACTION move VALUE 149 ACTION move VALUE 381
+stage2 2つの岩を飛び越えて	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 走ってジャンプを2回して進んで	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 250歩進んで115ジャンプして119進む	stage1 REASON stone ACTION move VALUE 250 ACTION jump VALUE 115 ACTION move VALUE 119
+stage2 139歩進んで高さ123でジャンプ、134進んで40でジャンプして380進む	stage2 REASON stone ACTION move VALUE 139 ACTION jump VALUE 123 ACTION move VALUE 134 ACTION jump VALUE 40 ACTION move VALUE 380
+stage1 岩の手前まで255進んで118ジャンプして向こうまで559進んで	stage1 REASON stone ACTION move VALUE 255 ACTION jump VALUE 118 ACTION move VALUE 559
+stage2 145歩進んで高さ112でジャンプ、131進んで26でジャンプして372進む	stage2 REASON stone ACTION move VALUE 145 ACTION jump VALUE 112 ACTION move VALUE 131 ACTION jump VALUE 26 ACTION move VALUE 372
+stage1 232歩進んで120ジャンプして144進む	stage1 REASON stone ACTION move VALUE 232 ACTION jump VALUE 120 ACTION move VALUE 144
+stage1 247歩走って高さ140でとんで543歩進む	stage1 REASON stone ACTION move VALUE 247 ACTION jump VALUE 140 ACTION move VALUE 543
+stage2 113進んで113の力でジャンプ、162進んで134の力でジャンプして352進んで	stage2 REASON stone ACTION move VALUE 113 ACTION jump VALUE 113 ACTION move VALUE 162 ACTION jump VALUE 134 ACTION move VALUE 352
+stage3 573進んで141ジャンプしてから428進んで	stage3 REASON hole ACTION move VALUE 573 ACTION jump VALUE 141 ACTION move VALUE 428
+stage2 114歩進んで高さ125でジャンプ、165進んで27でジャンプして342進む	stage2 REASON stone ACTION move VALUE 114 ACTION jump VALUE 125 ACTION move VALUE 165 ACTION jump VALUE 27 ACTION move VALUE 342
+stage3 大きくとんで穴を渡って	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 425歩進んで115ジャンプして485進む	stage1 REASON stone ACTION move VALUE 425 ACTION jump VALUE 115 ACTION move VALUE 485
+stage3 220移動してから156の力で大きくジャンプし445移動して	stage3 REASON hole ACTION move VALUE 220 ACTION jump VALUE 156 ACTION move VALUE 445
+stage1 ちょうど222進んでから114でジャンプして536進んでね	stage1 REASON stone ACTION move VALUE 222 ACTION jump VALUE 114 ACTION move VALUE 536
+stage3 186進んで141ジャンプしてから86進んで	stage3 REASON hole ACTION move VALUE 186 ACTION jump VALUE 141 ACTION move VALUE 86
+stage1 スタートから203進んで118高さでジャンプして491進んでゴール	stage1 REASON stone ACTION move VALUE 203 ACTION jump VALUE 118 ACTION move VALUE 491
+stage3 227進んで159でしっかりジャンプしてから469進んでゴール	stage3 REASON hole ACTION move VALUE 227 ACTION jump VALUE 159 ACTION move VALUE 469
+stage3 185進んで21の高さで飛んで445進んでゴール	stage3 REASON hole ACTION move VALUE 185 ACTION jump VALUE 21 ACTION move VALUE 445
+stage3 195歩進んで高さ141でジャンプして480進む	stage3 REASON hole ACTION move VALUE 195 ACTION jump VALUE 141 ACTION move VALUE 480
+stage1 岩を飛び越えて	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 まず176進み高さ154で飛び越えて456進んでゴール	stage3 REASON hole ACTION move VALUE 176 ACTION jump VALUE 154 ACTION move VALUE 456
+stage2 114ジャンプして111進んで112ジャンプして149進んで365進んで	stage2 REASON stone ACTION jump VALUE 114 ACTION move VALUE 111 ACTION jump VALUE 112 ACTION move VALUE 149 ACTION move VALUE 365
+stage2 連続でジャンプして2つの岩を越えて	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 132歩進んで高さ113でジャンプ、続けて142進んで116でジャンプして345進む	stage2 REASON stone ACTION move VALUE 132 ACTION jump VALUE 113 ACTION move VALUE 142 ACTION jump VALUE 116 ACTION move VALUE 345
+stage3 192歩進んで153の高さで穴を跳び越えて469歩進む	stage3 REASON hole ACTION move VALUE 192 ACTION jump VALUE 153 ACTION move VALUE 469
+stage1 218進んで高さ120でジャンプして	stage1 REASON stone ACTION move VALUE 218 ACTION jump VALUE 120
+stage2 132歩進んで高さ112でジャンプ、137進んで383進む	stage2 REASON stone ACTION move VALUE 132 ACTION jump VALUE 112 ACTION move VALUE 137 ACTION move VALUE 383
+stage2 126進んで114ジャンプ、157進んで11ジャンプ、最後に381進んで	stage2 REASON stone ACTION move VALUE 126 ACTION jump VALUE 114 ACTION move VALUE 157 ACTION jump VALUE 11 ACTION move VALUE 381
+stage2 128移動して135ジャンプ、170移動して134ジャンプ、最後379移動	stage2 REASON stone ACTION move VALUE 128 ACTION jump VALUE 135 ACTION move VALUE 170 ACTION jump VALUE 134 ACTION move VALUE 379
+stage1 220歩進んで115の高さでジャンプして516進む	stage1 REASON stone ACTION move VALUE 220 ACTION jump VALUE 115 ACTION move VALUE 516
+stage1 200進んで高さ123でジャンプしてから164進んで	stage1 REASON stone ACTION move VALUE 200 ACTION jump VALUE 123 ACTION move VALUE 164
+stage1 247歩走って高さ122でとんで482歩進む	stage1 REASON stone ACTION move VALUE 247 ACTION jump VALUE 122 ACTION move VALUE 482
+stage3 196進んで151ジャンプしてから452進んで	stage3 REASON hole ACTION move VALUE 196 ACTION jump VALUE 151 ACTION move VALUE 452
+stage1 少し走ってから跳んで	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage3 182進んで155ジャンプして	stage3 REASON hole ACTION move VALUE 182 ACTION jump VALUE 155
+stage2 122歩進んで111で飛んで、147歩進んで126で飛んで361歩すすむ	stage2 REASON stone ACTION move VALUE 122 ACTION jump VALUE 111 ACTION move VALUE 147 ACTION jump VALUE 126 ACTION move VALUE 361
+stage2 まず134進んで126の高さでジャンプ、次に146進んで115でジャンプし388進んでゴール	stage2 REASON stone ACTION move VALUE 134 ACTION jump VALUE 126 ACTION move VALUE 146 ACTION jump VALUE 115 ACTION move VALUE 388
+stage1 223歩進んで115ジャンプして109進む	stage1 REASON stone ACTION move VALUE 223 ACTION jump VALUE 115 ACTION move VALUE 109
+stage2 まず112進んで131の高さでジャンプ、次に163進んで116でジャンプし378進んでゴール	stage2 REASON stone ACTION move VALUE 112 ACTION jump VALUE 131 ACTION move VALUE 163 ACTION jump VALUE 116 ACTION move VALUE 378
+stage3 225歩進んで高さ140でジャンプして430進む	stage3 REASON hole ACTION move VALUE 225 ACTION jump VALUE 140 ACTION move VALUE 430
+stage3 201歩進んで高さ146でジャンプして180進む	stage3 REASON hole ACTION move VALUE 201 ACTION jump VALUE 146 ACTION move VALUE 180
+stage1 212進んで高さ126でジャンプしてから505進んで	stage1 REASON stone ACTION move VALUE 212 ACTION jump VALUE 126 ACTION move VALUE 505
+stage1 246進んで134の力でジャンプしてから555歩すすんで	stage1 REASON stone ACTION move VALUE 246 ACTION jump VALUE 134 ACTION move VALUE 555
+stage1 スタートから249進んで131高さでジャンプして506進んでゴール	stage1 REASON stone ACTION move VALUE 249 ACTION jump VALUE 131 ACTION move VALUE 506
+stage2 走ってジャンプを2回して進んで	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 406歩進んで114ジャンプして537進む	stage1 REASON stone ACTION move VALUE 406 ACTION jump VALUE 114 ACTION move VALUE 537
+stage2 127進んで128ジャンプ、167進んで6ジャンプ、最後に345進んで	stage2 REASON stone ACTION move VALUE 127 ACTION jump VALUE 128 ACTION move VALUE 167 ACTION jump VALUE 6 ACTION move VALUE 345
+stage1 245進んで7ジャンプして503進んでゴール	stage1 REASON stone ACTION move VALUE 245 ACTION jump VALUE 7 ACTION move VALUE 503
+stage1 227歩走って高さ111でとんで497歩進む	stage1 REASON stone ACTION move VALUE 227 ACTION jump VALUE 111 ACTION move VALUE 497
+stage3 223進んで159ジャンプして	stage3 REASON hole ACTION move VALUE 223 ACTION jump VALUE 159
+stage2 119歩進んで高さ120でジャンプ、続けて168進んで125でジャンプして386進む	stage2 REASON stone ACTION move VALUE 119 ACTION jump VALUE 120 ACTION move VALUE 168 ACTION jump VALUE 125 ACTION move VALUE 386
+stage2 128進んで123ジャンプ、135進んで16ジャンプ、最後に388進んで	stage2 REASON stone ACTION move VALUE 128 ACTION jump VALUE 123 ACTION move VALUE 135 ACTION jump VALUE 16 ACTION move VALUE 388
+stage1 219移動してから高さ125でジャンプし、539移動して	stage1 REASON stone ACTION move VALUE 219 ACTION jump VALUE 125 ACTION move VALUE 539
+stage3 190歩進んで高さ154でジャンプして475進む	stage3 REASON hole ACTION move VALUE 190 ACTION jump VALUE 154 ACTION move VALUE 475
+stage3 215進んで163ジャンプして	stage3 REASON hole ACTION move VALUE 215 ACTION jump VALUE 163
+stage2 147進んで130ジャンプして136進んで118ジャンプして	stage2 REASON stone ACTION move VALUE 147 ACTION jump VALUE 130 ACTION move VALUE 136 ACTION jump VALUE 118
+stage1 まず249進んで、116でジャンプして、その後526進んで	stage1 REASON stone ACTION move VALUE 249 ACTION jump VALUE 116 ACTION move VALUE 526
+stage3 223進んで158ジャンプして	stage3 REASON hole ACTION move VALUE 223 ACTION jump VALUE 158
+stage1 223歩走って高さ137でとんで522歩進む	stage1 REASON stone ACTION move VALUE 223 ACTION jump VALUE 137 ACTION move VALUE 522
+stage1 岩の手前まで201進んで137ジャンプして向こうまで491進んで	stage1 REASON stone ACTION move VALUE 201 ACTION jump VALUE 137 ACTION move VALUE 491
+stage2 119ジャンプして137進んで129ジャンプして133進んで397進んで	stage2 REASON stone ACTION jump VALUE 119 ACTION move VALUE 137 ACTION jump VALUE 129 ACTION move VALUE 133 ACTION move VALUE 397
+stage1 225進んで高さ123でジャンプしてから169進んで	stage1 REASON stone ACTION move VALUE 225 ACTION jump VALUE 123 ACTION move VALUE 169
+stage1 254移動してから高さ125でジャンプし、519移動して	stage1 REASON stone ACTION move VALUE 254 ACTION jump VALUE 125 ACTION move VALUE 519
+stage1 ちょうど235進んでから140でジャンプして488進んでね	stage1 REASON stone ACTION move VALUE 235 ACTION jump VALUE 140 ACTION move VALUE 488
+stage3 174進んで165ジャンプしてから469進んで	stage3 REASON hole ACTION move VALUE 174 ACTION jump VALUE 165 ACTION move VALUE 469
+stage3 214歩進んで高さ144でジャンプして98進む	stage3 REASON hole ACTION move VALUE 214 ACTION jump VALUE 144 ACTION move VALUE 98
+stage1 532進んで高さ110でジャンプしてから492進んで	stage1 REASON stone ACTION move VALUE 532 ACTION jump VALUE 110 ACTION move VALUE 492
+stage2 1つ目の岩まで118進んで118でジャンプ、2つ目まで152進んで127でジャンプして379進んで	stage2 REASON stone ACTION move VALUE 118 ACTION jump VALUE 118 ACTION move VALUE 152 ACTION jump VALUE 127 ACTION move VALUE 379
+stage2 120進んで127ジャンプして154進んで111ジャンプして	stage2 REASON stone ACTION move VALUE 120 ACTION jump VALUE 127 ACTION move VALUE 154 ACTION jump VALUE 111
+stage2 岩を2回ジャンプして越えて	stage2 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 499歩進んで118ジャンプして516進む	stage1 REASON stone ACTION move VALUE 499 ACTION jump VALUE 118 ACTION move VALUE 516
+stage2 110移動して130ジャンプ、152移動して121ジャンプ、最後397移動	stage2 REASON stone ACTION move VALUE 110 ACTION jump VALUE 130 ACTION move VALUE 152 ACTION jump VALUE 121 ACTION move VALUE 397
+stage3 558進んで151ジャンプしてから459進んで	stage3 REASON hole ACTION move VALUE 558 ACTION jump VALUE 151 ACTION move VALUE 459
+stage1 まず258進んで、118でジャンプして、その後526進んで	stage1 REASON stone ACTION move VALUE 258 ACTION jump VALUE 118 ACTION move VALUE 526
+stage3 まず195進み高さ152で飛び越えて473進んでゴール	stage3 REASON hole ACTION move VALUE 195 ACTION jump VALUE 152 ACTION move VALUE 473
+stage1 うまいことジャンプして岩を越えて	stage1 REASON stone ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 118進んで121ジャンプして130進んで123ジャンプして	stage2 REASON stone ACTION move VALUE 118 ACTION jump VALUE 121 ACTION move VALUE 130 ACTION jump VALUE 123
+stage3 221移動してから152の力で大きくジャンプし471移動して	stage3 REASON hole ACTION move VALUE 221 ACTION jump VALUE 152 ACTION move VALUE 471
+stage3 穴の近くで高くジャンプして	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage1 岩の手前まで234進んで119ジャンプして向こうまで498進んで	stage1 REASON stone ACTION move VALUE 234 ACTION jump VALUE 119 ACTION move VALUE 498
+stage1 245移動してから高さ112でジャンプし、560移動して	stage1 REASON stone ACTION move VALUE 245 ACTION jump VALUE 112 ACTION move VALUE 560
+stage1 250歩進んで113ジャンプして154進む	stage1 REASON stone ACTION move VALUE 250 ACTION jump VALUE 113 ACTION move VALUE 154
+stage2 136進んで127ジャンプ、143進んで40ジャンプ、最後に404進んで	stage2 REASON stone ACTION move VALUE 136 ACTION jump VALUE 127 ACTION move VALUE 143 ACTION jump VALUE 40 ACTION move VALUE 404
+stage1 まず210進んで、137でジャンプして、その後558進んで	stage1 REASON stone ACTION move VALUE 210 ACTION jump VALUE 137 ACTION move VALUE 558
+stage2 141進んで110の力でジャンプ、155進んで114の力でジャンプして380進んで	stage2 REASON stone ACTION move VALUE 141 ACTION jump VALUE 110 ACTION move VALUE 155 ACTION jump VALUE 114 ACTION move VALUE 380
+stage3 199移動してから164の力で大きくジャンプし447移動して	stage3 REASON hole ACTION move VALUE 199 ACTION jump VALUE 164 ACTION move VALUE 447
+stage3 穴を飛んで渡って	stage3 REASON hole ACTION move VALUE 9999 ACTION jump VALUE 1 ACTION move VALUE 9999
+stage2 133進んで110ジャンプ、147進んで9ジャンプ、最後に392進んで	stage2 REASON stone ACTION move VALUE 133 ACTION jump VALUE 110 ACTION move VALUE 147 ACTION jump VALUE 9 ACTION move VALUE 392
+stage3 184進んで158ジャンプして	stage3 REASON hole ACTION move VALUE 184 ACTION jump VALUE 158
+stage2 120歩進んで高さ121でジャンプ、131進んで40でジャンプして389進む	stage2 REASON stone ACTION move VALUE 120 ACTION jump VALUE 121 ACTION move VALUE 131 ACTION jump VALUE 40 ACTION move VALUE 389
+stage2 1つ目の岩まで123進んで126でジャンプ、2つ目まで140進んで115でジャンプして345進んで	stage2 REASON stone ACTION move VALUE 123 ACTION jump VALUE 126 ACTION move VALUE 140 ACTION jump VALUE 115 ACTION move VALUE 345
